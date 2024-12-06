@@ -15,6 +15,6 @@ public class MchInputProcessor {
 	
 	@Scheduled(fixedRate = 2000)
 	public void handle() throws InterruptedException, ExecutionException{
-//		mchInputService.mchInputTimer();
+		mchInputService.mchInputTimer();
 	}
 }

@@ -68,6 +68,32 @@ public class CommConfig implements SchedulingConfigurer, AsyncConfigurer {
 	public ArrivedTabProcessor arrivedTabProcessor() {
 		return new ArrivedTabProcessor();
 	}
+
+
+	@Bean
+	public TrackingProcessor1 trackingProcessor1() {
+		return new TrackingProcessor1();
+	}
+	
+	@Bean
+	public TrackingProcessor2 trackingProcessor2() {
+		return new TrackingProcessor2();
+	}
+	
+	@Bean
+	public TrackingProcessor3 trackingProcessor3() {
+		return new TrackingProcessor3();
+	}
+	
+	@Bean
+	public TrackingProcessor4 trackingProcessor4() {
+		return new TrackingProcessor4();
+	}
+	
+	@Bean
+	public TrackingProcessor5 trackingProcessor5() {
+		return new TrackingProcessor5();
+	}
 	
 	@Override
 	public Executor getAsyncExecutor() {
