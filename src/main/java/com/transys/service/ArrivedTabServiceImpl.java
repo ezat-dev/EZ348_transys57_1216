@@ -31,12 +31,17 @@ public class ArrivedTabServiceImpl implements ArrivedTabService{
 				
 				Thread.sleep(200);
 				
-				if(product.getDobun() != null) {
+				if(product.getDobun() == null) {
+					//arrived_tab 데이터 있음.
+					//arrived_tab 추가
 					
+					//ARRIVED_TAB 데이터 저장
+					arrivedTabDao.setArrivedTabDataInsert(avt);
+					
+					//arrived_tab 삭제
+					arrivedTabDao.setArrivedTabDataDelete(avt);
 				}
-			
-				//ARRIVED_TAB 데이터 저장
-//				arrivedTabDao.setArrivedTabDataInsert(product);
+
 			}			
 		}
 

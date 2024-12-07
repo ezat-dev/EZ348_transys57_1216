@@ -34,7 +34,13 @@ public class ArrivedTabDaoImpl implements ArrivedTabDao{
 
 
 	@Override
-	public void setArrivedTabDataInsert(Product product) {
-		
+	public void setArrivedTabDataInsert(ArrivedTab avt) {
+		sqlSessionOracle.insert("arrivedTab.setArrivedTabDataInsert",avt);
+	}
+
+
+	@Override
+	public void setArrivedTabDataDelete(ArrivedTab avt) {
+		sqlSessionOracle.delete("arrivedTab.setArrivedTabDataDelete",avt);
 	}
 }

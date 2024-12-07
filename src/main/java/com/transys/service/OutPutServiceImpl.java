@@ -33,28 +33,28 @@ public class OutPutServiceImpl implements OutPutService{
 				if(outPut.isOutPutChk1()) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk1 = true;
-//					outPutDao.setOutPutSend(outPut);
+					outPutDao.setOutPutSend(outPut);
 					desc.append("1호기 출고요청 완료");				
 				}
 				
 				if(outPut.isOutPutChk2()) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk2 = true;
-//					outPutDao.setOutPutSend(outPut);
+					outPutDao.setOutPutSend(outPut);
 					desc.append("2호기 출고요청 완료");				
 				}
 				
 				if(outPut.isOutPutChk3()) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk3 = true;
-//					outPutDao.setOutPutSend(outPut);
+					outPutDao.setOutPutSend(outPut);
 					desc.append("3호기 출고요청 완료");
 				}
 				
 				if(outPut.isOutPutChk4()) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk4 = true;
-//					outPutDao.setOutPutSend(outPut);
+					outPutDao.setOutPutSend(outPut);
 					desc.append("4호기 출고요청 완료");
 				}
 				
@@ -66,19 +66,19 @@ public class OutPutServiceImpl implements OutPutService{
 	@Override
 	public void outPutTimer() throws InterruptedException, ExecutionException {
 		//설비별 출고요청 가능신호
-		boolean hogi1 = false;
-		boolean hogi2 = false;
-		boolean hogi3 = false;
-		boolean hogi4 = false;
+		String hogi1 = "false";
+		String hogi2 = "false";
+		String hogi3 = "false";
+		String hogi4 = "false";
 
 		//설비별 출고제품 체크
-		boolean hogi1Prd = false;
-		boolean hogi2Prd = false;
-		boolean hogi3Prd = false;
-		boolean hogi4Prd = false;
+		String hogi1Prd = "false";
+		String hogi2Prd = "false";
+		String hogi3Prd = "false";
+		String hogi4Prd = "false";
 		
 		//창고 출고가능 요구신호
-		boolean outContinue = false;
+		int outContinue = 0;
 		
 		//각 설비별 출고요청가능 신호 받기
 		OpcDataMap opcData = new OpcDataMap();
@@ -89,10 +89,10 @@ public class OutPutServiceImpl implements OutPutService{
 		Map<String, Object> hogi4Map = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI4");
 		Thread.sleep(300);
 		
-		hogi1 = Boolean.parseBoolean(hogi1Map.get("value").toString());
-		hogi2 = Boolean.parseBoolean(hogi2Map.get("value").toString());
-		hogi3 = Boolean.parseBoolean(hogi3Map.get("value").toString());
-		hogi4 = Boolean.parseBoolean(hogi4Map.get("value").toString());
+		hogi1 = hogi1Map.get("value").toString();
+		hogi2 = hogi2Map.get("value").toString();
+		hogi3 = hogi3Map.get("value").toString();
+		hogi4 = hogi4Map.get("value").toString();
 
 		//
 		Map<String, Object> hogi1PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI1_PRD");
@@ -101,23 +101,23 @@ public class OutPutServiceImpl implements OutPutService{
 		Map<String, Object> hogi4PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI4_PRD");
 		Thread.sleep(300);
 		
-		hogi1Prd = Boolean.parseBoolean(hogi1PrdMap.get("value").toString());
-		hogi2Prd = Boolean.parseBoolean(hogi2PrdMap.get("value").toString());
-		hogi3Prd = Boolean.parseBoolean(hogi3PrdMap.get("value").toString());
-		hogi4Prd = Boolean.parseBoolean(hogi4PrdMap.get("value").toString());	
+		hogi1Prd = hogi1PrdMap.get("value").toString();
+		hogi2Prd = hogi2PrdMap.get("value").toString();
+		hogi3Prd = hogi3PrdMap.get("value").toString();
+		hogi4Prd = hogi4PrdMap.get("value").toString();	
 		
-		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.OUTPUT.CM01.OUT_CONTINUE");
+		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.PLCWRITE.CM01.DEVICECODE");
 		
-		outContinue = Boolean.parseBoolean(outContinueMap.get("value").toString());
+		outContinue = Integer.parseInt(outContinueMap.get("value").toString());
 		
 		//출고요청신호 확인시 1이면
 		
 		//1호기
-		if(hogi1) {
+		if("true".equals(hogi1)) {
 			//화물 위치체크
-			if(!hogi1Prd) {
-				//출고 진행중이 아니라면
-				if(!outContinue) {
+			if("false".equals(hogi1Prd)) {
+				//PLCWRITE의 설비값이 0일때
+				if(outContinue == 0) {
 					if(!MainController.outPutChk1) {
 						outPut(1);
 					}
@@ -126,11 +126,11 @@ public class OutPutServiceImpl implements OutPutService{
 		}
 		
 		//2호기
-		if(hogi2) {
+		if("true".equals(hogi2)) {
 			//화물 위치체크
-			if(!hogi2Prd) {
-				//출고 진행중이 아니라면
-				if(!outContinue) {
+			if("false".equals(hogi2Prd)) {
+				//PLCWRITE의 설비값이 0일때
+				if(outContinue == 0) {
 					if(!MainController.outPutChk2) {
 						outPut(2);
 					}
@@ -139,11 +139,11 @@ public class OutPutServiceImpl implements OutPutService{
 		}
 		
 		//3호기
-		if(hogi3) {
+		if("true".equals(hogi3)) {
 			//화물 위치체크
-			if(!hogi3Prd) {
-				//출고 진행중이 아니라면
-				if(!outContinue) {
+			if("false".equals(hogi3Prd)){
+				//PLCWRITE의 설비값이 0일때
+				if(outContinue == 0) {
 					if(!MainController.outPutChk3) {
 						outPut(3);
 					}
@@ -152,11 +152,11 @@ public class OutPutServiceImpl implements OutPutService{
 		}
 		
 		//4호기
-		if(hogi4) {
+		if("true".equals(hogi4)) {
 			//화물 위치체크
-			if(!hogi4Prd) {
-				//출고 진행중이 아니라면
-				if(!outContinue) {
+			if("false".equals(hogi4Prd)) {
+				//PLCWRITE의 설비값이 0일때
+				if(outContinue == 0) {
 					if(!MainController.outPutChk4) {
 						outPut(4);
 					}

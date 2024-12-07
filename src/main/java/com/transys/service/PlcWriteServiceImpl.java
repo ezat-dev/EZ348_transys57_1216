@@ -49,35 +49,35 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 			
 			
 			logger.info("PLCWRITE(14호기) : {}",desc.toString());
-/*			opcData.setOpcData("Transys.PLCWRITE.LOTNO", plcWrite.getLotno());
-			opcData.setOpcData("Transys.PLCWRITE.CYCLENO", plcWrite.getCycleno());
-			opcData.setOpcData("Transys.PLCWRITE.PUMBUN", plcWrite.getPumbun());
-			opcData.setOpcData("Transys.PLCWRITE.AGITATE_RPM", plcWrite.getAgitate_rpm());
-			opcData.setOpcData("Transys.PLCWRITE.DEVICECODE", plcWrite.getDevicecode());
-			opcData.setOpcData("Transys.PLCWRITE.COMMON_DEVICE", plcWrite.getCommon_device());
-			opcData.setOpcData("Transys.PLCWRITE.MESLOT", plcWrite.getMeslot());
-*/			
+			opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+			
 			Thread.sleep(500);
-/*
-			opcData.setOpcData("Transys.PLCWRITE.LOTNO", plcWrite.getLotno());
-			opcData.setOpcData("Transys.PLCWRITE.CYCLENO", plcWrite.getCycleno());
-			opcData.setOpcData("Transys.PLCWRITE.PUMBUN", plcWrite.getPumbun());
-			opcData.setOpcData("Transys.PLCWRITE.AGITATE_RPM", plcWrite.getAgitate_rpm());
-			opcData.setOpcData("Transys.PLCWRITE.DEVICECODE", plcWrite.getDevicecode());
-			opcData.setOpcData("Transys.PLCWRITE.COMMON_DEVICE", plcWrite.getCommon_device());
-			opcData.setOpcData("Transys.PLCWRITE.MESLOT", plcWrite.getMeslot());
-*/
+
+			opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
+			opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+
 			//DB값 업데이트 (t_waitlist)
-//			plcWriteDao.setPlcWriteDataUpdate(plcWrite);
+			plcWriteDao.setPlcWriteDataUpdate(plcWrite);
 
 			
 			Thread.sleep(200);
 			//DB 프로시저 실행(TRACKING_PROC00)
-//			plcWriteDao.setPlcWriteProc(plcWrite);
+			plcWriteDao.setPlcWriteProc(plcWrite);
 			
 			Thread.sleep(200);
 			//DB값 삭제 (OUTPUT_TAB)
-//			plcWriteDao.setPlcWriteDataDelete(plcWrite);
+			plcWriteDao.setPlcWriteDataDelete(plcWrite);
 			
 			//각 설비에 해당되는 outPutChk값 false
 			int device = Integer.parseInt(plcWrite.getDevicecode());

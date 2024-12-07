@@ -11,7 +11,9 @@ public interface ArrivedTabDao {
 	
 	Product getArrivedTabProductSelect(ArrivedTab arrivedTab);
 
-	void setArrivedTabDataInsert(Product product);
+	void setArrivedTabDataInsert(ArrivedTab avt);
+
+	void setArrivedTabDataDelete(ArrivedTab avt);
 
 
 }

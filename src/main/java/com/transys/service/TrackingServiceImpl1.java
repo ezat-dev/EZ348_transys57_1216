@@ -71,7 +71,7 @@ public class TrackingServiceImpl1 implements TrackingService1{
 						
 						logger.info("TRACKING(14호기) : {}",desc.toString());						
 						//트래킹 실행
-//						trackingDao.ccf1Tracking01(tracking);
+						trackingDao.ccf1Tracking01(tracking);
 						//지연시간 0.3초
 						Thread.sleep(300);
 						

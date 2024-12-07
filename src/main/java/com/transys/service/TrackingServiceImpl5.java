@@ -75,7 +75,7 @@ public class TrackingServiceImpl5 implements TrackingService5{
 								
 								logger.info("TRACKING(14호기) : {}",desc.toString());						
 								//트래킹 실행
-		//						trackingDao.ccf4Tracking01(tracking);
+								trackingDao.ccf1Tracking01(tracking);
 								//지연시간 0.3초
 								Thread.sleep(300);
 								
@@ -98,7 +98,7 @@ public class TrackingServiceImpl5 implements TrackingService5{
 							
 							logger.info("TRACKING(14호기) : {}",desc.toString());						
 							//트래킹 실행
-	//						trackingDao.ccf4Tracking01(tracking);
+							trackingDao.ccf1Tracking01(tracking);
 							//지연시간 0.3초
 							Thread.sleep(300);
 							
