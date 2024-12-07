@@ -5121,7 +5121,143 @@
   left: 1582px;
   top: 902px;
 }
+.cover-1{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 306px;
+  	top : 230px;
+  	position: absolute;
+  	z-index : 1;
+}
+.cover-2{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 1706px;
+  	top : 235px;
+  	position: absolute;
+  	z-index : 1;
+}
+.cover-3{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 306px;
+  	top : 670px;
+  	position: absolute;
+  	z-index : 1;
+}
+.cover-4{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 1706px;
+  	top : 670px;
+  	position: absolute;
+  	z-index : 1;
+}
 
-
-
+.sensor-pen-1 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 568px;
+  top: 179px;
+}
+.sensor-pen-2 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 702px;
+  top: 173px;
+}
+.sensor-pen-3 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 859px;
+  top: 179px;
+}
+.sensor-pen-4 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1043px;
+  top: 179px;
+}
+.sensor-pen-5 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1273px;
+  top: 179px;
+}
+.sensor-pen-6 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1350px;
+  top: 179px;
+}
+.sensor-pen-7 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 568px;
+  top: 613px;
+  z-index : 1;
+}
+.sensor-pen-8 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 702px;
+  top: 608px;
+  z-index : 1;
+}
+.sensor-pen-9 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 859px;
+  top: 613px;
+  z-index : 1;
+}
+.sensor-pen-10 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1043px;
+  top: 613px;
+  z-index : 1;
+}
+.sensor-pen-11 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1273px;
+  top: 613px;
+  z-index : 1;
+}
+.sensor-pen-12 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1350px;
+  top: 613px;
+  z-index : 1;
+}
 

@@ -96,15 +96,16 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 		
 	//침탄1~4호기, 공통1호기
 	public void plcWriteTimer() throws InterruptedException, ExecutionException {
-		boolean output_chk = false;
+		String output_chk = "false";
 		OpcDataMap opcData = new OpcDataMap();
 		
 		//창고출고가능요구 1이면
 		Map<String, Object> outputMap = opcData.getOpcData("Transys.PLCWRITE.CM01.OUTPUT_CHK");	//DB18.X41.5
 		
-		output_chk = Boolean.parseBoolean(outputMap.get("value").toString());
+		output_chk = outputMap.get("value").toString();
 		
-		if(output_chk) {
+		if("true".equals(output_chk)) {
+			
 			plcWrite();
 		}
 	}

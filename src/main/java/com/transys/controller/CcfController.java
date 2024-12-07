@@ -57,7 +57,7 @@ public class CcfController {
     @ResponseBody
     public Map<String, Object> ccf03_04View() throws UaException, InterruptedException, ExecutionException {
     	Map<String, Object> returnMap = new HashMap<String, Object>();
-    	
+
     	OpcDataMap opcDataMap = new OpcDataMap();
     	
     	returnMap = opcDataMap.getOpcDataListMap("Transys.CCF0304");

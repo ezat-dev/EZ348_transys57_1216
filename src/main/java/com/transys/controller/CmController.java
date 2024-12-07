@@ -45,7 +45,7 @@ public class CmController {
 
 	    	OpcDataMap opcDataMap = new OpcDataMap();
 	    	
-	    	returnMap = opcDataMap.getOpcDataListMap("Transys.CM01");
+	    	returnMap = opcDataMap.getOpcDataListMap("Transys.CM02");
 	    	
 	    	return returnMap;    	
 	    }	

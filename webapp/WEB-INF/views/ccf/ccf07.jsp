@@ -48,12 +48,10 @@
        <div class="t-group-3">
     <img class="t-ccf-1" src="/transys/image/ccf01_02/ccf-10.png" />
       <div class="t-ccf-1-text">CCF #07</div>
-      <div class="t-ccf-1-ship"></div>
-      <div class="t-ccf-1-ship-text">7호기 출고요청</div>
-      <img class="t-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
+      <!-- <img class="t-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
       <div class="t-v-0-tong-1"></div>
       <div class="t-v-0-tong-2"></div>
-      <div class="t-v-0-tong-3"></div>
+      <div class="t-v-0-tong-3"></div> -->
       <img class="t-tong-1" src="/transys/image/ccf01_02/tong-10.png" />
       <div class="t-v-1-tong-1"></div>
       <div class="t-v-1-tong-2"></div>
@@ -142,10 +140,10 @@
       <div class="t-v-22-tong-1"></div>
       <div class="t-v-22-tong-2"></div>
       <div class="t-v-22-tong-3"></div>
-      <img class="t-tong-23" src="/transys/image/ccf01_02/tong-230.png" />
+      <!-- <img class="t-tong-23" src="/transys/image/ccf01_02/tong-230.png" />
       <div class="t-v-23-tong-1"></div>
       <div class="t-v-23-tong-2"></div>
-      <div class="t-v-23-tong-3"></div>
+      <div class="t-v-23-tong-3"></div> -->
       <img class="t-tong-24" src="/transys/image/ccf01_02/tong-240.png" />
       <div class="t-v-24-tong-1"></div>
       <div class="t-v-24-tong-2"></div>
@@ -166,10 +164,10 @@
       <div class="t-v-28-tong-1"></div>
       <div class="t-v-28-tong-2"></div>
       <div class="t-v-28-tong-3"></div>
-      <img class="t-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
+      <!-- <img class="t-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
       <div class="t-v-29-tong-1"></div>
       <div class="t-v-29-tong-2"></div>
-      <div class="t-v-29-tong-3"></div>
+      <div class="t-v-29-tong-3"></div> -->
       <img class="t-red-left-1" src="/transys/image/ccf01_02/red-left-10.png" />
       <img class="t-red-right-1" src="/transys/image/ccf01_02/red-right-10.png" />
       <img class="t-yellow-left-1" src="/transys/image/ccf01_02/yellow-left-10.png" />
@@ -192,10 +190,10 @@
       <img class="t-yellow-right-5" src="/transys/image/ccf01_02/yellow-right-50.png" />
       <img class="t-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
       <img class="t-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" />
-      <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
+      <!-- <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
       <img class="t-con-on-0" src="/transys/image/ccf01_02/con-on-00.png" />
       <img class="t-con-off-1" src="/transys/image/ccf01_02/con-off-10.png" />
-      <img class="t-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" />
+      <img class="t-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" /> -->
       <img class="t-con-off-2" src="/transys/image/ccf01_02/con-off-20.png" />
       <img class="t-con-on-2" src="/transys/image/ccf01_02/con-on-20.png" />
       <img class="t-con-off-3" src="/transys/image/ccf01_02/con-off-30.png" />
@@ -282,7 +280,6 @@
       <div class="t-door-green-6"></div>
       <div class="t-door-red-7"></div>
       <div class="t-door-green-7"></div>
-      <div class="t-jogging-box-1"></div>
       <div class="t-clutchon-box-1"></div>
       <div class="t-clutchon-box-2"></div>
       <div class="t-jogging-mini-box-1"></div>
@@ -329,9 +326,176 @@
       <div class="t-salt-d-text">DRAIN</div>
       <div class="t-salt-d-pv"></div>
       <div class="t-salt-d-sp"></div>
+      <div class="sensor-pen-1"></div>
+	  <div class="sensor-pen-2"></div>
+	  <div class="sensor-pen-3"></div>
+	  <div class="sensor-pen-4"></div>
+	  <div class="sensor-pen-5"></div>
+	  <div class="sensor-pen-6"></div>
+	  <div class="cover-1"></div>
+      <div class="cover-2"></div>
   </div>
 </div>
+<script>
+var overviewInterval;
 
+//로드
+$(function(){
+	overviewListView();
+	overviewInterval = setInterval("overviewListView()", 1000);
+});
+
+//OPC값 알람 조회
+function overviewListView(){
+	$.ajax({
+		url:"/transys/ccf/ccf07/view",
+		type:"post",
+		dataType:"json",
+		success:function(result){				
+			var data = result.multiValues;
+			
+          for(let key in data){
+          	for(let keys in data[key]){
+          		var d = data[key];
+
+					if(d[keys].action == "v"){
+						v(keys, d[keys].value);
+					}else if(d[keys].action == "c"){
+						c(keys, d[keys].value);
+					}else if(d[keys].action == "b"){
+						b(keys, d[keys].value);
+					}else if(d[keys].action == "value"){
+						value(keys, d[keys].value);
+					}
+
+          	}                    	
+          }
+		}
+	});
+}
+
+function v(keys, value){
+//	$("."+keys).text(value);
+	
+	if(value == true){
+		if(keys.indexOf("door-red") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("door-green") != -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("high") != -1){
+			$("."+keys).text("고속전진");
+			$("."+keys).css("color","green");
+			$("."+keys).css("font-weight","700");
+			$("."+keys).css("font-size","12pt");
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("jogging") != -1){
+			//3번만 자동조깅중, 자동조깅중지
+			//그 외는 자동조깅, 수동조깅
+			var jog_split = keys.split("-");
+			
+			if(jog_split[4] == "3"){
+				$("."+keys).text("자동조깅정지");
+				$("."+keys).css("color","red");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");				
+			}else{
+				$("."+keys).text("수동조깅");
+				$("."+keys).css("color","red");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");					
+			}
+		}else if(keys.indexOf("yellow") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+			$("."+keys).css("animation","blink-effect 1s step-end infinite");
+		}else if(keys.indexOf("red") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+		}else{
+			$("."+keys).css("display","");
+		}
+		
+	}else{		
+		
+		if(keys.indexOf("door-red") != -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("door-green") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("high") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("jogging") != -1){
+			//3번만 자동조깅중, 자동조깅중지
+			//그 외는 자동조깅, 수동조깅
+			var jog_split = keys.split("-");
+			
+			if(jog_split[4] == "3"){
+				$("."+keys).text("자동조깅중");
+				$("."+keys).css("color","black");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");				
+			}else{
+				$("."+keys).text("자동조깅");
+				$("."+keys).css("color","blue");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");					
+			}
+			
+		}else if(keys.indexOf("yellow") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("red") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","none");
+		}else{
+		
+			$("."+keys).css("display","none");
+		}
+
+		
+	}
+	
+}
+
+function c(keys, value){
+//	$("."+keys).text(value);
+	
+	if(value == true){
+		$("."+keys).css("background-color","red");
+		$("."+keys).css("color","white");
+	}else{
+		$("."+keys).css("background-color","green");
+		$("."+keys).css("color","black");
+	}
+	
+}
+
+
+function value(keys, value){
+	$("."+keys).text(value);
+	$("."+keys).css("text-align","center");
+	$("."+keys).css("font-size","12pt");
+	
+	if(keys.indexOf("t-tong") != -1 ||
+			keys.indexOf("b-tong") != -1){
+		if(value == 0){
+			var tong_split = keys.split("-");
+			var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
+			var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
+			var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";
+			$("."+tong_tag1).css("display","none");
+			$("."+tong_tag2).css("display","none");
+			$("."+tong_tag3).css("display","none");
+			$("."+keys).css("display","none");
+			
+		}
+	}
+}
+
+</script>
 
 </body>
 </html>

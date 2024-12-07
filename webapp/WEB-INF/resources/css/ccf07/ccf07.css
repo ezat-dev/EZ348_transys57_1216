@@ -1592,7 +1592,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1656px;
+  left: 1413px;
   top: 358px;
   object-fit: cover;
 }
@@ -1600,7 +1600,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1656px;
+  left: 1413px;
   top: 358px;
   object-fit: cover;
 }
@@ -1608,7 +1608,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1687px;
+  left: 1446px;
   top: 358px;
   object-fit: cover;
 }
@@ -1616,7 +1616,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1687px;
+  left: 1446px;
   top: 358px;
   object-fit: cover;
 }
@@ -1624,7 +1624,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1707px;
+  left: 1656px;
   top: 358px;
   object-fit: cover;
 }
@@ -1632,7 +1632,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1707px;
+  left: 1656px;
   top: 358px;
   object-fit: cover;
 }
@@ -1640,7 +1640,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1738px;
+  left: 1687px;
   top: 358px;
   object-fit: cover;
 }
@@ -1648,7 +1648,7 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 1738px;
+  left: 1687px;
   top: 358px;
   object-fit: cover;
 }
@@ -2487,4 +2487,70 @@
   position: absolute;
   left: 1582px;
   top: 587px;
+}
+.sensor-pen-1 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 568px;
+  top: 298px;
+}
+.sensor-pen-2 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 702px;
+  top: 292px;
+}
+.sensor-pen-3 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 859px;
+  top: 298px;
+}
+.sensor-pen-4 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1043px;
+  top: 298px;
+}
+.sensor-pen-5 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1273px;
+  top: 298px;
+}
+.sensor-pen-6 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1350px;
+  top: 298px;
+}
+.cover-1{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 306px;
+  	top : 350px;
+  	position: absolute;
+  	z-index : 1;
+}
+.cover-2{
+	background: #ffffff;
+	width: 56px;
+  	height: 60px;
+  	left : 1706px;
+  	top : 355px;
+  	position: absolute;
+  	z-index : 1;
 }

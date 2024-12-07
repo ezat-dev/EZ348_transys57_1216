@@ -76,10 +76,10 @@
     <div class="v-6-tong-1"></div>
     <div class="v-6-tong-2"></div>
     <div class="v-6-tong-3"></div>
-    <img class="shor-open-1" src="/transys/image/cm/shor-open-10.png" />
+    <!-- <img class="shor-open-1" src="/transys/image/cm/shor-open-10.png" />
     <img class="shor-door-1" src="/transys/image/cm/shor-door-10.png" />
     <img class="shor-open-2" src="/transys/image/cm/shor-open-10.png" />
-    <img class="shor-door-2" src="/transys/image/cm/shor-door-10.png" />
+    <img class="shor-door-2" src="/transys/image/cm/shor-door-10.png" /> -->
     <img class="tong-7" src="/transys/image/cm/tong-70.png" />
     <div class="v-7-tong-1"></div>
     <div class="v-7-tong-2"></div>
@@ -469,6 +469,10 @@
     <div class="door-green-11"></div>
     <div class="door-red-12"></div>
     <div class="door-green-12"></div>
+    <div class="door-red-13"></div>
+	<div class="door-red-14"></div>
+	<div class="door-red-15"></div>
+	<div class="door-red-16"></div>
     <img class="lamp-green-1" src="/transys/image/cm/lamp-green-10.png" />
     <img class="pen-rol-1" src="/transys/image/cm/pen-rol-10.png" />
     <img class="lamp-green-2" src="/transys/image/cm/lamp-green-20.png" />
@@ -548,8 +552,11 @@
   <div class="pro-text-16">NO.1 DIP조</div>
   <div class="no-1-dip-sp"></div>
   <div class="no-1-dip-pv"></div>
+  <div class="sensor-pen-1"></div>
+  <div class="sensor-pen-2"></div>
+  <div class="sensor-pen-3"></div>
 </div>
-
+</div>
 <script>
 var overviewInterval;
 
@@ -692,18 +699,22 @@ function value(keys, value){
 	$("."+keys).css("text-align","center");
 	$("."+keys).css("font-size","12pt");
 	
-	if(keys.indexOf("t-tong") != -1 ||
-			keys.indexOf("b-tong") != -1){
+
+	var tong_split = keys.split("-");	
+	if(tong_split[0] == "tong"){
+		var tong_tag1 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-1";
+		var tong_tag2 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-2";
+		var tong_tag3 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-3";		
 		if(value == 0){
-			var tong_split = keys.split("-");
-			var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
-			var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
-			var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";
 			$("."+tong_tag1).css("display","none");
 			$("."+tong_tag2).css("display","none");
 			$("."+tong_tag3).css("display","none");
-			$("."+keys).css("display","none");
-			
+			$("."+keys).css("display","none");			
+		}else{
+			$("."+tong_tag1).css("display","");
+			$("."+tong_tag2).css("display","");
+			$("."+tong_tag3).css("display","");			
+			$("."+keys).css("display","");
 		}
 	}
 }

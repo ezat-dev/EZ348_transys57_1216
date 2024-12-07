@@ -76,8 +76,8 @@
     <div class="v-6-tong-1"></div>
     <div class="v-6-tong-2"></div>
     <div class="v-6-tong-3"></div>
-    <img class="shor-open-1" src="/transys/image/cm/shor-open-10.png" />
-    <img class="shor-door-1" src="/transys/image/cm/shor-door-10.png" />
+    <!-- <img class="shor-open-1" src="/transys/image/cm/shor-open-10.png" />
+    <img class="shor-door-1" src="/transys/image/cm/shor-door-10.png" /> -->
     <img class="tong-7" src="/transys/image/cm/tong-70.png" />
     <div class="v-7-tong-1"></div>
     <div class="v-7-tong-2"></div>
@@ -263,38 +263,38 @@
     <img class="con-on-7" src="/transys/image/cm/con-on-70.png" />
     <img class="con-off-8" src="/transys/image/cm/con-off-80.png" />
     <img class="con-on-8" src="/transys/image/cm/con-on-80.png" />
-    <img class="con-off-9" src="/transys/image/cm/con-off-90.png" />
+    <!-- img class="con-off-9" src="/transys/image/cm/con-off-90.png" />
     <img class="con-on-9" src="/transys/image/cm/con-on-90.png" />
     <img class="con-off-10" src="/transys/image/cm/con-off-100.png" />
-    <img class="con-on-10" src="/transys/image/cm/con-on-100.png" />
+    <img class="con-on-10" src="/transys/image/cm/con-on-100.png" /> -->
     <img class="con-off-11" src="/transys/image/cm/con-off-110.png" />
     <img class="con-on-11" src="/transys/image/cm/con-on-110.png" />
     <img class="con-off-12" src="/transys/image/cm/con-off-120.png" />
     <img class="con-on-12" src="/transys/image/cm/con-on-120.png" />
-    <img class="con-off-13" src="/transys/image/cm/con-off-130.png" />
+    <!-- <img class="con-off-13" src="/transys/image/cm/con-off-130.png" />
     <img class="con-on-13" src="/transys/image/cm/con-on-130.png" />
     <img class="con-off-14" src="/transys/image/cm/con-off-140.png" />
-    <img class="con-on-14" src="/transys/image/cm/con-on-140.png" />
-    <img class="con-off-15" src="/transys/image/cm/con-off-150.png" />
+    <img class="con-on-14" src="/transys/image/cm/con-on-140.png" /> -->
+    <!-- <img class="con-off-15" src="/transys/image/cm/con-off-150.png" />
     <img class="con-on-15" src="/transys/image/cm/con-on-150.png" />
     <img class="con-off-16" src="/transys/image/cm/con-off-160.png" />
-    <img class="con-on-16" src="/transys/image/cm/con-on-160.png" />
-    <img class="con-off-17" src="/transys/image/cm/con-off-170.png" />
+    <img class="con-on-16" src="/transys/image/cm/con-on-160.png" /> -->
+    <!-- <img class="con-off-17" src="/transys/image/cm/con-off-170.png" />
     <img class="con-on-17" src="/transys/image/cm/con-on-170.png" />
     <img class="con-off-18" src="/transys/image/cm/con-off-180.png" />
-    <img class="con-on-18" src="/transys/image/cm/con-on-180.png" />
+    <img class="con-on-18" src="/transys/image/cm/con-on-180.png" /> -->
     <img class="con-off-19" src="/transys/image/cm/con-off-190.png" />
     <img class="con-on-19" src="/transys/image/cm/con-on-190.png" />
     <img class="con-off-20" src="/transys/image/cm/con-off-200.png" />
     <img class="con-on-20" src="/transys/image/cm/con-on-200.png" />
-    <img class="con-off-21" src="/transys/image/cm/con-off-210.png" />
+    <!-- <img class="con-off-21" src="/transys/image/cm/con-off-210.png" />
     <img class="con-on-21" src="/transys/image/cm/con-on-210.png" />
     <img class="con-off-22" src="/transys/image/cm/con-off-220.png" />
-    <img class="con-on-22" src="/transys/image/cm/con-on-220.png" />
-    <img class="con-off-23" src="/transys/image/cm/con-off-230.png" />
+    <img class="con-on-22" src="/transys/image/cm/con-on-220.png" /> -->
+    <!-- <img class="con-off-23" src="/transys/image/cm/con-off-230.png" />
     <img class="con-on-23" src="/transys/image/cm/con-on-230.png" />
     <img class="con-off-24" src="/transys/image/cm/con-off-240.png" />
-    <img class="con-on-24" src="/transys/image/cm/con-on-240.png" />
+    <img class="con-on-24" src="/transys/image/cm/con-on-240.png" /> -->
     <img class="con-off-25" src="/transys/image/cm/con-off-250.png" />
     <img class="con-on-25" src="/transys/image/cm/con-on-250.png" />
     <img class="con-off-26" src="/transys/image/cm/con-off-260.png" />
@@ -339,18 +339,18 @@
     <img class="con-on-45" src="/transys/image/cm/con-on-450.png" />
     <img class="con-off-46" src="/transys/image/cm/con-off-460.png" />
     <img class="con-on-46" src="/transys/image/cm/con-on-460.png" />
-    <img class="con-off-47" src="/transys/image/cm/con-off-470.png" />
+    <!-- <img class="con-off-47" src="/transys/image/cm/con-off-470.png" />
     <img class="con-on-47" src="/transys/image/cm/con-on-470.png" />
     <img class="con-off-48" src="/transys/image/cm/con-off-480.png" />
-    <img class="con-on-48" src="/transys/image/cm/con-on-480.png" />
-    <img class="con-off-49" src="/transys/image/cm/con-off-490.png" />
+    <img class="con-on-48" src="/transys/image/cm/con-on-480.png" /> -->
+   <!--  <img class="con-off-49" src="/transys/image/cm/con-off-490.png" />
     <img class="con-on-49" src="/transys/image/cm/con-on-490.png" />
     <img class="con-off-50" src="/transys/image/cm/con-off-500.png" />
-    <img class="con-on-50" src="/transys/image/cm/con-on-500.png" />
-    <img class="con-off-51" src="/transys/image/cm/con-off-510.png" />
+    <img class="con-on-50" src="/transys/image/cm/con-on-500.png" /> -->
+    <!-- <img class="con-off-51" src="/transys/image/cm/con-off-510.png" />
     <img class="con-on-51" src="/transys/image/cm/con-on-510.png" />
     <img class="con-off-52" src="/transys/image/cm/con-off-520.png" />
-    <img class="con-on-52" src="/transys/image/cm/con-on-520.png" />
+    <img class="con-on-52" src="/transys/image/cm/con-on-520.png" /> -->
     <img class="con-off-53" src="/transys/image/cm/con-off-530.png" />
     <img class="con-on-53" src="/transys/image/cm/con-on-530.png" />
     <img class="con-off-54" src="/transys/image/cm/con-off-540.png" />
@@ -375,10 +375,10 @@
     <img class="con-on-533" src="/transys/image/cm/con-on-532.png" />
     <img class="con-off-544" src="/transys/image/cm/con-off-543.png" />
     <img class="con-on-544" src="/transys/image/cm/con-on-543.png" />
-    <img class="con-off-534" src="/transys/image/cm/con-off-533.png" />
+    <!-- <img class="con-off-534" src="/transys/image/cm/con-off-533.png" />
     <img class="con-on-534" src="/transys/image/cm/con-on-533.png" />
     <img class="con-off-545" src="/transys/image/cm/con-off-544.png" />
-    <img class="con-on-545" src="/transys/image/cm/con-on-544.png" />
+    <img class="con-on-545" src="/transys/image/cm/con-on-544.png" /> -->
     <img class="con-off-535" src="/transys/image/cm/con-off-534.png" />
     <img class="con-on-535" src="/transys/image/cm/con-on-534.png" />
     <img class="con-off-546" src="/transys/image/cm/con-off-545.png" />
@@ -423,7 +423,7 @@
     <img class="con-on-5315" src="/transys/image/cm/con-on-5314.png" />
     <img class="con-off-5416" src="/transys/image/cm/con-off-5415.png" />
     <img class="con-on-5416" src="/transys/image/cm/con-on-5415.png" />
-    <img class="con-off-5316" src="/transys/image/cm/con-off-5315.png" />
+    <!-- <img class="con-off-5316" src="/transys/image/cm/con-off-5315.png" />
     <img class="con-on-5316" src="/transys/image/cm/con-on-5315.png" />
     <img class="con-off-5417" src="/transys/image/cm/con-off-5416.png" />
     <img class="con-on-5417" src="/transys/image/cm/con-on-5416.png" />
@@ -434,7 +434,7 @@
     <img class="con-off-5318" src="/transys/image/cm/con-off-5317.png" />
     <img class="con-on-5318" src="/transys/image/cm/con-on-5317.png" />
     <img class="con-off-5419" src="/transys/image/cm/con-off-5418.png" />
-    <img class="con-on-5419" src="/transys/image/cm/con-on-5418.png" />
+    <img class="con-on-5419" src="/transys/image/cm/con-on-5418.png" /> -->
     <img class="con-off-5319" src="/transys/image/cm/con-off-5318.png" />
     <img class="con-on-5319" src="/transys/image/cm/con-on-5318.png" />
     <img class="con-off-5420" src="/transys/image/cm/con-off-5419.png" />
@@ -451,6 +451,26 @@
     <div class="door-green-3"></div>
     <div class="door-red-4"></div>
     <div class="door-green-4"></div>
+    <div class="door-red-5"></div>
+    <div class="door-green-5"></div>
+    <div class="door-red-6"></div>
+    <div class="door-green-6"></div>
+    <div class="door-red-7"></div>
+    <div class="door-green-7"></div>
+    <div class="door-red-8"></div>
+    <div class="door-green-8"></div>
+    <div class="door-red-9"></div>
+    <div class="door-green-9"></div>
+    <div class="door-red-10"></div>
+    <div class="door-green-10"></div>
+    <div class="door-red-11"></div>
+    <div class="door-green-11"></div>
+    <div class="door-red-12"></div>
+    <div class="door-green-12"></div>
+    <div class="door-red-13"></div>
+	<div class="door-red-14"></div>
+	<div class="door-red-15"></div>
+	<div class="door-red-16"></div>
     <img class="lamp-green-1" src="/transys/image/cm/lamp-green-10.png" />
     <img class="pen-rol-1" src="/transys/image/cm/pen-rol-10.png" />
     <img class="lamp-green-2" src="/transys/image/cm/lamp-green-20.png" />
@@ -530,8 +550,174 @@
     <div class="pro-text-16">NO.1 DIP조</div>
     <div class="dip-sp-17"></div>
     <div class="dip-pv-18"></div>
+    <div class="sensor-pen-1"></div>
+  	<div class="sensor-pen-2"></div>
+  	<div class="sensor-pen-3"></div>
   </div>
 </div>
+<script>
+var overviewInterval;
+
+//로드
+$(function(){
+	overviewListView();
+	overviewInterval = setInterval("overviewListView()", 1000);
+});
+
+//OPC값 알람 조회
+function overviewListView(){
+	$.ajax({
+		url:"/transys/cm/cm02/view",
+		type:"post",
+		dataType:"json",
+		success:function(result){				
+			var data = result.multiValues;
+			
+          for(let key in data){
+          	for(let keys in data[key]){
+          		var d = data[key];
+
+					if(d[keys].action == "v"){
+						v(keys, d[keys].value);
+					}else if(d[keys].action == "c"){
+						c(keys, d[keys].value);
+					}else if(d[keys].action == "b"){
+						b(keys, d[keys].value);
+					}else if(d[keys].action == "value"){
+						value(keys, d[keys].value);
+					}
+
+          	}                    	
+          }
+		}
+	});
+}
+
+function v(keys, value){
+//	$("."+keys).text(value);
+	
+	if(value == true){
+		if(keys.indexOf("door-red") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("door-green") != -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("high") != -1){
+			$("."+keys).text("고속전진");
+			$("."+keys).css("color","green");
+			$("."+keys).css("font-weight","700");
+			$("."+keys).css("font-size","12pt");
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("jogging") != -1){
+			//3번만 자동조깅중, 자동조깅중지
+			//그 외는 자동조깅, 수동조깅
+			var jog_split = keys.split("-");
+			
+			if(jog_split[4] == "3"){
+				$("."+keys).text("자동조깅중");
+				$("."+keys).css("color","black");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");				
+			}else{
+				$("."+keys).text("자동조깅");
+				$("."+keys).css("color","blue");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");					
+			}
+		}else if(keys.indexOf("yellow") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+			$("."+keys).css("animation","blink-effect 1s step-end infinite");
+		}else if(keys.indexOf("red") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+		}else{
+			$("."+keys).css("display","");
+		}
+		
+	}else{		
+		
+		if(keys.indexOf("door-red") != -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("door-green") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("high") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("jogging") != -1){
+			//3번만 자동조깅중, 자동조깅중지
+			//그 외는 자동조깅, 수동조깅
+			var jog_split = keys.split("-");
+			
+			if(jog_split[4] == "3"){
+				$("."+keys).text("자동조깅정지");
+				$("."+keys).css("color","red");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");				
+			}else{
+				$("."+keys).text("수동조깅");
+				$("."+keys).css("color","red");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");					
+			}
+		}else if(keys.indexOf("yellow") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("red") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","none");
+		}else{
+		
+			$("."+keys).css("display","none");
+		}
+
+		
+	}
+	
+}
+
+function c(keys, value){
+//	$("."+keys).text(value);
+	
+	if(value == true){
+		$("."+keys).css("background-color","red");
+		$("."+keys).css("color","white");
+	}else{
+		$("."+keys).css("background-color","green");
+		$("."+keys).css("color","black");
+	}
+	
+}
+
+
+function value(keys, value){
+	$("."+keys).text(value);
+	$("."+keys).css("text-align","center");
+	$("."+keys).css("font-size","12pt");
+	
+
+	var tong_split = keys.split("-");	
+	if(tong_split[0] == "tong"){
+		var tong_tag1 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-1";
+		var tong_tag2 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-2";
+		var tong_tag3 = "v-"+(tong_split[1])+"-"+tong_split[0]+"-3";		
+		if(value == 0){
+			$("."+tong_tag1).css("display","none");
+			$("."+tong_tag2).css("display","none");
+			$("."+tong_tag3).css("display","none");
+			$("."+keys).css("display","none");			
+		}else{
+			$("."+tong_tag1).css("display","");
+			$("."+tong_tag2).css("display","");
+			$("."+tong_tag3).css("display","");			
+			$("."+keys).css("display","");
+		}
+	}
+}
+
+</script>
 
 </body>
 </html>

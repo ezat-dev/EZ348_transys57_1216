@@ -275,8 +275,8 @@
   width: 39px;
   height: 39px;
   position: absolute;
-  left: 556px;
-  top: 277px;
+  left: 557px;
+  top: 291px;
   object-fit: cover;
 }
 .v-7-tong-1 {
@@ -284,31 +284,31 @@
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 557px;
-  top: 278px;
+  left: 558px;
+  top: 292px;
 }
 .v-7-tong-2 {
   background: #d9d9d9;
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 580px;
-  top: 278px;
+  left: 581px;
+  top: 292px;
 }
 .v-7-tong-3 {
   background: #d9d9d9;
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 568px;
-  top: 298px;
+  left: 569px;
+  top: 312px;
 }
 .tong-8 {
   width: 39px;
   height: 39px;
   position: absolute;
-  left: 556px;
-  top: 269px;
+  left: 557px;
+  top: 261px;
   object-fit: cover;
 }
 .v-8-tong-1 {
@@ -316,25 +316,26 @@
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 557px;
-  top: 270px;
+  left: 558px;
+  top: 262px;
 }
 .v-8-tong-2 {
   background: #d9d9d9;
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 580px;
-  top: 270px;
+  left: 581px;
+  top: 262px;
 }
 .v-8-tong-3 {
   background: #d9d9d9;
   width: 14px;
   height: 17px;
   position: absolute;
-  left: 568px;
-  top: 290px;
+  left: 569px;
+  top: 282px;
 }
+
 .tong-9 {
   width: 39px;
   height: 39px;
@@ -372,7 +373,7 @@
   height: 39px;
   position: absolute;
   left: 771px;
-  top: 281px;
+  top: 291px;
   object-fit: cover;
 }
 .v-10-tong-1 {
@@ -381,7 +382,7 @@
   height: 17px;
   position: absolute;
   left: 772px;
-  top: 282px;
+  top: 292px;
 }
 .v-10-tong-2 {
   background: #d9d9d9;
@@ -389,7 +390,7 @@
   height: 17px;
   position: absolute;
   left: 795px;
-  top: 282px;
+  top: 292px;
 }
 .v-10-tong-3 {
   background: #d9d9d9;
@@ -397,14 +398,14 @@
   height: 17px;
   position: absolute;
   left: 783px;
-  top: 302px;
+  top: 312px;
 }
 .tong-11 {
   width: 39px;
   height: 39px;
   position: absolute;
   left: 771px;
-  top: 271px;
+  top: 261px;
   object-fit: cover;
 }
 .v-11-tong-1 {
@@ -413,7 +414,7 @@
   height: 17px;
   position: absolute;
   left: 772px;
-  top: 272px;
+  top: 262px;
 }
 .v-11-tong-2 {
   background: #d9d9d9;
@@ -421,7 +422,7 @@
   height: 17px;
   position: absolute;
   left: 795px;
-  top: 272px;
+  top: 262px;
 }
 .v-11-tong-3 {
   background: #d9d9d9;
@@ -429,8 +430,9 @@
   height: 17px;
   position: absolute;
   left: 783px;
-  top: 292px;
+  top: 282px;
 }
+
 .tong-12 {
   width: 39px;
   height: 39px;
@@ -1851,66 +1853,67 @@
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 556px;
-  top: 311px;
+  left: 557px;
+  top: 325px;
   object-fit: cover;
 }
 .con-on-15 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 556px;
-  top: 311px;
+  left: 557px;
+  top: 325px;
   object-fit: cover;
 }
 .con-off-16 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 587px;
-  top: 311px;
+  left: 588px;
+  top: 325px;
   object-fit: cover;
 }
 .con-on-16 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 587px;
-  top: 311px;
+  left: 588px;
+  top: 325px;
   object-fit: cover;
 }
 .con-off-17 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 556px;
-  top: 302px;
+  left: 557px;
+  top: 295px;
   object-fit: cover;
 }
 .con-on-17 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 556px;
-  top: 302px;
+  left: 557px;
+  top: 295px;
   object-fit: cover;
 }
 .con-off-18 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 587px;
-  top: 302px;
+  left: 588px;
+  top: 295px;
   object-fit: cover;
 }
 .con-on-18 {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 587px;
-  top: 302px;
+  left: 588px;
+  top: 295px;
   object-fit: cover;
 }
+
 .con-off-19 {
   width: 8px;
   height: 8px;
@@ -1948,7 +1951,7 @@
   height: 8px;
   position: absolute;
   left: 771px;
-  top: 316px;
+  top: 325px;
   object-fit: cover;
 }
 .con-on-21 {
@@ -1956,7 +1959,7 @@
   height: 8px;
   position: absolute;
   left: 771px;
-  top: 316px;
+  top: 325px;
   object-fit: cover;
 }
 .con-off-22 {
@@ -1964,7 +1967,7 @@
   height: 8px;
   position: absolute;
   left: 802px;
-  top: 316px;
+  top: 325px;
   object-fit: cover;
 }
 .con-on-22 {
@@ -1972,7 +1975,7 @@
   height: 8px;
   position: absolute;
   left: 802px;
-  top: 316px;
+  top: 325px;
   object-fit: cover;
 }
 .con-off-23 {
@@ -1980,7 +1983,7 @@
   height: 8px;
   position: absolute;
   left: 771px;
-  top: 305px;
+  top: 295px;
   object-fit: cover;
 }
 .con-on-23 {
@@ -1988,7 +1991,7 @@
   height: 8px;
   position: absolute;
   left: 771px;
-  top: 305px;
+  top: 295px;
   object-fit: cover;
 }
 .con-off-24 {
@@ -1996,7 +1999,7 @@
   height: 8px;
   position: absolute;
   left: 802px;
-  top: 305px;
+  top: 295px;
   object-fit: cover;
 }
 .con-on-24 {
@@ -2004,9 +2007,10 @@
   height: 8px;
   position: absolute;
   left: 802px;
-  top: 305px;
+  top: 295px;
   object-fit: cover;
 }
+
 .con-off-25 {
   width: 8px;
   height: 8px;
@@ -3503,6 +3507,59 @@
   transform-origin: 0 0;
   transform: rotate(0deg) scale(-1, 1);
 }
+.door-red-13 {
+  background: #ff0000;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.5px;
+  width: 11px;
+  height: 73px;
+  position: absolute;
+  left: 555px;
+  top: 256px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+}
+.door-red-14 {
+  background: #ff0000;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.5px;
+  width: 11px;
+  height: 73px;
+  position: absolute;
+  left: 609px;
+  top: 256px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+}
+.door-red-15 {
+  background: #ff0000;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.5px;
+  width: 11px;
+  height: 73px;
+  position: absolute;
+  left: 769px;
+  top: 258px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+}
+.door-red-16 {
+  background: #ff0000;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.5px;
+  width: 11px;
+  height: 73px;
+  position: absolute;
+  left: 824px;
+  top: 258px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+}
+
 .lamp-green-1 {
   width: 45px;
   height: 90px;
@@ -4379,4 +4436,28 @@
   position: absolute;
   left: 1244px;
   top: 700px;
+}
+.sensor-pen-1 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1044px;
+  top: 227px;
+}
+.sensor-pen-2 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1107px;
+  top: 227px;
+}
+.sensor-pen-3 {
+  background: #ff0000;
+  width: 39px;
+  height: 9px;
+  position: absolute;
+  left: 1167px;
+  top: 227px;
 }

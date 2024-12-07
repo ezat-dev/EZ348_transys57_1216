@@ -50,10 +50,10 @@
       <div class="t-ccf-1-text">CCF #01</div>
 <!--      <div class="t-ccf-1-ship"></div>
      <div class="b-ccf-1-ship-text">1호기 출고요청</div> -->
-      <img class="t-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
+      <!-- <img class="t-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
       <div class="t-v-0-tong-1"></div>
       <div class="t-v-0-tong-2"></div>
-      <div class="t-v-0-tong-3"></div>
+      <div class="t-v-0-tong-3"></div> -->
       <img class="t-tong-1" src="/transys/image/ccf01_02/tong-10.png" />
       <div class="t-v-1-tong-1"></div>
       <div class="t-v-1-tong-2"></div>
@@ -166,10 +166,10 @@
       <div class="t-v-28-tong-1"></div>
       <div class="t-v-28-tong-2"></div>
       <div class="t-v-28-tong-3"></div>
-      <img class="t-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
+      <!-- <img class="t-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
       <div class="t-v-29-tong-1"></div>
       <div class="t-v-29-tong-2"></div>
-      <div class="t-v-29-tong-3"></div>
+      <div class="t-v-29-tong-3"></div> -->
       <img class="t-red-left-1" src="/transys/image/ccf01_02/red-left-10.png" />
       <img class="t-red-right-1" src="/transys/image/ccf01_02/red-right-10.png" />
       <img class="t-yellow-left-1" src="/transys/image/ccf01_02/yellow-left-10.png" />
@@ -196,10 +196,10 @@
       <img class="t-yellow-right-6" src="/transys/image/ccf01_02/yellow-right-60.png" />
       <img class="t-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
       <img class="t-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" />
-      <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
+      <!-- <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
       <img class="t-con-on-0" src="/transys/image/ccf01_02/con-on-00.png" />
       <img class="t-con-off-1" src="/transys/image/ccf01_02/con-off-10.png" />
-      <img class="t-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" />
+      <img class="t-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" /> -->
       <img class="t-con-off-2" src="/transys/image/ccf01_02/con-off-20.png" />
       <img class="t-con-on-2" src="/transys/image/ccf01_02/con-on-20.png" />
       <img class="t-con-off-3" src="/transys/image/ccf01_02/con-off-30.png" />
@@ -256,10 +256,10 @@
       <img class="t-con-on-28" src="/transys/image/ccf01_02/con-on-280.png" />
       <img class="t-con-off-29" src="/transys/image/ccf01_02/con-off-290.png" />
       <img class="t-con-on-29" src="/transys/image/ccf01_02/con-on-290.png" />
-      <img class="t-con-off-30" src="/transys/image/ccf01_02/con-off-280.png" />
+      <!-- <img class="t-con-off-30" src="/transys/image/ccf01_02/con-off-280.png" />
       <img class="t-con-on-30" src="/transys/image/ccf01_02/con-on-280.png" />
       <img class="t-con-off-31" src="/transys/image/ccf01_02/con-off-290.png" />
-      <img class="t-con-on-31" src="/transys/image/ccf01_02/con-on-290.png" />
+      <img class="t-con-on-31" src="/transys/image/ccf01_02/con-on-290.png" /> -->
       <img class="t-agi-1" src="/transys/image/ccf01_02/agi-10.png" />
       <img class="t-agi-2" src="/transys/image/ccf01_02/agi-20.png" />
       <img class="t-agi-3" src="/transys/image/ccf01_02/agi-30.png" />
@@ -336,6 +336,22 @@
       <div class="t-salt-d-text">DRAIN</div>
       <div class="t-salt-d-pv"></div>
       <div class="t-salt-d-sp"></div>
+      <div class="cover-1"></div>
+      <div class="cover-2"></div>
+      <div class="cover-3"></div>
+      <div class="cover-4"></div>
+      <div class="sensor-pen-1"></div>
+	  <div class="sensor-pen-2"></div>
+	  <div class="sensor-pen-3"></div>
+	  <div class="sensor-pen-4"></div>
+	  <div class="sensor-pen-5"></div>
+	  <div class="sensor-pen-6"></div>
+	  <div class="sensor-pen-7"></div>
+	  <div class="sensor-pen-8"></div>
+	  <div class="sensor-pen-9"></div>
+	  <div class="sensor-pen-10"></div>
+	  <div class="sensor-pen-11"></div>
+	  <div class="sensor-pen-12"></div>
   </div>
 </div>
 <div class="bottom">
@@ -343,10 +359,10 @@
     <div class="b-ccf-1-text">CCF #02</div>
 <!--      <div class="t-ccf-1-ship"></div>
      <div class="b-ccf-1-ship-text">1호기 출고요청</div> -->
-      <img class="b-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
+      <!-- <img class="b-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
       <div class="b-v-0-tong-1"></div>
       <div class="b-v-0-tong-2"></div>
-      <div class="b-v-0-tong-3"></div>
+      <div class="b-v-0-tong-3"></div> -->
       <img class="b-tong-1" src="/transys/image/ccf01_02/tong-10.png" />
       <div class="b-v-1-tong-1"></div>
       <div class="b-v-1-tong-2"></div>
@@ -459,10 +475,10 @@
       <div class="b-v-28-tong-1"></div>
       <div class="b-v-28-tong-2"></div>
       <div class="b-v-28-tong-3"></div>
-      <img class="b-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
+      <!-- <img class="b-tong-29" src="/transys/image/ccf01_02/tong-290.png" />
       <div class="b-v-29-tong-1"></div>
       <div class="b-v-29-tong-2"></div>
-      <div class="b-v-29-tong-3"></div>
+      <div class="b-v-29-tong-3"></div> -->
       <img class="b-red-left-1" src="/transys/image/ccf01_02/red-left-10.png" />
       <img class="b-red-right-1" src="/transys/image/ccf01_02/red-right-10.png" />
       <img class="b-yellow-left-1" src="/transys/image/ccf01_02/yellow-left-10.png" />
@@ -489,10 +505,10 @@
       <img class="b-yellow-right-6" src="/transys/image/ccf01_02/yellow-right-60.png" />
       <img class="b-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
       <img class="b-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" />
-      <img class="b-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
+      <!-- <img class="b-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
       <img class="b-con-on-0" src="/transys/image/ccf01_02/con-on-00.png" />
       <img class="b-con-off-1" src="/transys/image/ccf01_02/con-off-10.png" />
-      <img class="b-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" />
+      <img class="b-con-on-1" src="/transys/image/ccf01_02/con-on-10.png" /> -->
       <img class="b-con-off-2" src="/transys/image/ccf01_02/con-off-20.png" />
       <img class="b-con-on-2" src="/transys/image/ccf01_02/con-on-20.png" />
       <img class="b-con-off-3" src="/transys/image/ccf01_02/con-off-30.png" />
@@ -549,10 +565,10 @@
       <img class="b-con-on-28" src="/transys/image/ccf01_02/con-on-280.png" />
       <img class="b-con-off-29" src="/transys/image/ccf01_02/con-off-290.png" />
       <img class="b-con-on-29" src="/transys/image/ccf01_02/con-on-290.png" />
-      <img class="b-con-off-30" src="/transys/image/ccf01_02/con-off-280.png" />
+      <!-- <img class="b-con-off-30" src="/transys/image/ccf01_02/con-off-280.png" />
       <img class="b-con-on-30" src="/transys/image/ccf01_02/con-on-280.png" />
       <img class="b-con-off-31" src="/transys/image/ccf01_02/con-off-290.png" />
-      <img class="b-con-on-31" src="/transys/image/ccf01_02/con-on-290.png" />
+      <img class="b-con-on-31" src="/transys/image/ccf01_02/con-on-290.png" /> -->
       <img class="b-agi-1" src="/transys/image/ccf01_02/agi-10.png" />
       <img class="b-agi-2" src="/transys/image/ccf01_02/agi-20.png" />
       <img class="b-agi-3" src="/transys/image/ccf01_02/agi-30.png" />
@@ -688,14 +704,14 @@ function v(keys, value){
 			var jog_split = keys.split("-");
 			
 			if(jog_split[4] == "3"){
-				$("."+keys).text("자동조깅중");
-				$("."+keys).css("color","black");
+				$("."+keys).text("자동조깅정지");
+				$("."+keys).css("color","red");
 				$("."+keys).css("font-weight","700");
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");				
 			}else{
-				$("."+keys).text("자동조깅");
-				$("."+keys).css("color","blue");
+				$("."+keys).text("수동조깅");
+				$("."+keys).css("color","red");
 				$("."+keys).css("font-weight","700");
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");					
@@ -725,18 +741,19 @@ function v(keys, value){
 			var jog_split = keys.split("-");
 			
 			if(jog_split[4] == "3"){
-				$("."+keys).text("자동조깅정지");
-				$("."+keys).css("color","red");
+				$("."+keys).text("자동조깅중");
+				$("."+keys).css("color","black");
 				$("."+keys).css("font-weight","700");
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");				
 			}else{
-				$("."+keys).text("수동조깅");
-				$("."+keys).css("color","red");
+				$("."+keys).text("자동조깅");
+				$("."+keys).css("color","blue");
 				$("."+keys).css("font-weight","700");
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");					
 			}
+			
 		}else if(keys.indexOf("yellow") != -1 &&
 					keys.indexOf("_") == -1){
 			$("."+keys).css("display","none");
