@@ -3693,18 +3693,18 @@
   object-fit: cover;
 }
 .b-red-left-4 {
-  width: 32.b-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1258px;
+  left: 1058px;
   top: 726px;
   object-fit: cover;
 }
 .b-red-right-4 {
-  width: 32.b-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1293px;
+  left: 1092px;
   top: 726px;
   object-fit: cover;
 }
@@ -3712,7 +3712,7 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1258px;
+  left: 1058px;
   top: 726px;
   object-fit: cover;
 }
@@ -3720,23 +3720,23 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1292px;
+  left: 1092px;
   top: 726px;
   object-fit: cover;
 }
 .b-red-left-5 {
-  width: 32.b-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1334px;
+  left: 1258px;
   top: 726px;
   object-fit: cover;
 }
 .b-red-right-5 {
-  width: 32.b-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1369px;
+  left: 1292px;
   top: 726px;
   object-fit: cover;
 }
@@ -3744,11 +3744,43 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1334px;
+  left: 1258px;
   top: 726px;
   object-fit: cover;
 }
 .b-yellow-right-5 {
+  width: 33px;
+  height: 29px;
+  position: absolute;
+  left: 1292px;
+  top: 726px;
+  object-fit: cover;
+}
+.b-red-left-6 {
+  width: 32px;
+  height: 29px;
+  position: absolute;
+  left: 1334px;
+  top: 726px;
+  object-fit: cover;
+}
+.b-red-right-6 {
+  width: 32px;
+  height: 29px;
+  position: absolute;
+  left: 1369px;
+  top: 726px;
+  object-fit: cover;
+}
+.b-yellow-left-6 {
+  width: 33px;
+  height: 29px;
+  position: absolute;
+  left: 1334px;
+  top: 726px;
+  object-fit: cover;
+}
+.b-yellow-right-6 {
   width: 33px;
   height: 29px;
   position: absolute;

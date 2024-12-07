@@ -718,11 +718,12 @@ function v(keys, value){
 			}
 		}else if(keys.indexOf("yellow") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
-			$("."+keys).css("animation","blink-effect 1s step-end infinite");
+			$("."+keys).css("display","none");
 		}else if(keys.indexOf("red") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","none");
 		}else{
 			$("."+keys).css("display","");
 		}
@@ -753,13 +754,15 @@ function v(keys, value){
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");					
 			}
-			
 		}else if(keys.indexOf("yellow") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","none");
+			$("."+keys).css("display","");
+			$("."+keys).css("animation","blink-effect 1s step-end infinite");			
 		}else if(keys.indexOf("red") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","none");
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","");
 		}else{
 		
 			$("."+keys).css("display","none");
@@ -788,23 +791,25 @@ function value(keys, value){
 	$("."+keys).text(value);
 	$("."+keys).css("text-align","center");
 	$("."+keys).css("font-size","12pt");
-	
-	if(keys.indexOf("t-tong") != -1 ||
-			keys.indexOf("b-tong") != -1){
+
+	var tong_split = keys.split("-");	
+	if(tong_split[1] == "tong"){
+		var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
+		var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
+		var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";		
 		if(value == 0){
-			var tong_split = keys.split("-");
-			var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
-			var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
-			var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";
 			$("."+tong_tag1).css("display","none");
 			$("."+tong_tag2).css("display","none");
 			$("."+tong_tag3).css("display","none");
-			$("."+keys).css("display","none");
-			
+			$("."+keys).css("display","none");			
+		}else{
+			$("."+tong_tag1).css("display","");
+			$("."+tong_tag2).css("display","");
+			$("."+tong_tag3).css("display","");			
+			$("."+keys).css("display","");
 		}
 	}
 }
-
 </script>
 </body>
 </html>

@@ -1096,7 +1096,7 @@
   width: 32.t-53px;
   height: 29px;
   position: absolute;
-  left: 1258px;
+  left: 1058px;
   top: 411px;
   object-fit: cover;
 }
@@ -1104,7 +1104,7 @@
   width: 32.t-53px;
   height: 29px;
   position: absolute;
-  left: 1293px;
+  left: 1093px;
   top: 411px;
   object-fit: cover;
 }
@@ -1112,7 +1112,7 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1258px;
+  left: 1058px;
   top: 411px;
   object-fit: cover;
 }
@@ -1120,23 +1120,23 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1292px;
+  left: 1092px;
   top: 411px;
   object-fit: cover;
 }
 .t-red-left-5 {
-  width: 32.t-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1334px;
+  left: 1264px;
   top: 411px;
   object-fit: cover;
 }
 .t-red-right-5 {
-  width: 32.t-53px;
+  width: 32px;
   height: 29px;
   position: absolute;
-  left: 1369px;
+  left: 1299px;
   top: 411px;
   object-fit: cover;
 }
@@ -1144,11 +1144,43 @@
   width: 33px;
   height: 29px;
   position: absolute;
-  left: 1334px;
+  left: 1264px;
   top: 411px;
   object-fit: cover;
 }
 .t-yellow-right-5 {
+  width: 33px;
+  height: 29px;
+  position: absolute;
+  left: 1298px;
+  top: 411px;
+  object-fit: cover;
+}
+.t-red-left-6 {
+  width: 32px;
+  height: 29px;
+  position: absolute;
+  left: 1334px;
+  top: 411px;
+  object-fit: cover;
+}
+.t-red-right-6 {
+  width: 32px;
+  height: 29px;
+  position: absolute;
+  left: 1369px;
+  top: 411px;
+  object-fit: cover;
+}
+.t-yellow-left-6 {
+  width: 33px;
+  height: 29px;
+  position: absolute;
+  left: 1334px;
+  top: 411px;
+  object-fit: cover;
+}
+.t-yellow-right-6 {
   width: 33px;
   height: 29px;
   position: absolute;
@@ -2002,108 +2034,108 @@
   transform: rotate(0deg) scale(-1, 1);
 }
 .t-jogging-mini-box-1 {
-  background: #ff5050;
-  border-style: solid;
+  /*background: #ff5050;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 760px;
+  left: 696px;
   top: 468px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-jogging-mini-box-2 {
-  background: #ff5050;
-  border-style: solid;
+  /*background: #ff5050;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 1009px;
+  left: 940px;
   top: 442px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-jogging-mini-box-3 {
-  background: #ff5050;
-  border-style: solid;
+  /*background: #ff5050;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
-  width: 79px;
-  height: 19px;
+  border-width: 1px;*/
+  width: 100px;
+  height: 22px;
   position: absolute;
-  left: 1009px;
+  left: 930px;
   top: 468px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-jogging-mini-box-4 {
-  background: #ff5050;
-  border-style: solid;
+  /*background: #ff5050;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 1326px;
+  left: 1256px;
   top: 468px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-jogging-mini-box-5 {
-  background: #ff5050;
-  border-style: solid;
+  /*background: #ff5050;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 1403px;
+  left: 1343px;
   top: 468px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-high-speed-box-1 {
-  background: #1cbf0a;
-  border-style: solid;
+  /*background: #1cbf0a;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 760px;
+  left: 696px;
   top: 442px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-high-speed-box-2 {
-  background: #1cbf0a;
-  border-style: solid;
+  /*background: #1cbf0a;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 1326px;
+  left: 1256px;
   top: 442px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-high-speed-box-3 {
-  background: #1cbf0a;
-  border-style: solid;
+  /*background: #1cbf0a;*/
+/*  border-style: solid;
   border-color: #000000;
-  border-width: 1px;
+  border-width: 1px;*/
   width: 67px;
-  height: 19px;
+  height: 22px;
   position: absolute;
-  left: 1403px;
+  left: 1343px;
   top: 442px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(-1, 1);
+  /*transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);*/
 }
 .t-elevator-1 {
   width: 46px;

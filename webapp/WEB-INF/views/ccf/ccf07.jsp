@@ -188,6 +188,10 @@
       <img class="t-red-right-5" src="/transys/image/ccf01_02/red-right-50.png" />
       <img class="t-yellow-left-5" src="/transys/image/ccf01_02/yellow-left-50.png" />
       <img class="t-yellow-right-5" src="/transys/image/ccf01_02/yellow-right-50.png" />
+      <img class="t-red-left-6" src="/transys/image/ccf01_02/red-left-60.png" />
+      <img class="t-red-right-6" src="/transys/image/ccf01_02/red-right-60.png" />
+      <img class="t-yellow-left-6" src="/transys/image/ccf01_02/yellow-left-60.png" />
+      <img class="t-yellow-right-6" src="/transys/image/ccf01_02/yellow-right-60.png" />
       <img class="t-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
       <img class="t-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" />
       <!-- <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
@@ -408,11 +412,12 @@ function v(keys, value){
 			}
 		}else if(keys.indexOf("yellow") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
-			$("."+keys).css("animation","blink-effect 1s step-end infinite");
+			$("."+keys).css("display","none");
 		}else if(keys.indexOf("red") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","none");
 		}else{
 			$("."+keys).css("display","");
 		}
@@ -443,13 +448,15 @@ function v(keys, value){
 				$("."+keys).css("font-size","12pt");
 				$("."+keys).css("display","");					
 			}
-			
 		}else if(keys.indexOf("yellow") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","none");
+			$("."+keys).css("display","");
+			$("."+keys).css("animation","blink-effect 1s step-end infinite");			
 		}else if(keys.indexOf("red") != -1 &&
 					keys.indexOf("_") == -1){
-			$("."+keys).css("display","none");
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","");
 		}else{
 		
 			$("."+keys).css("display","none");
@@ -478,19 +485,22 @@ function value(keys, value){
 	$("."+keys).text(value);
 	$("."+keys).css("text-align","center");
 	$("."+keys).css("font-size","12pt");
-	
-	if(keys.indexOf("t-tong") != -1 ||
-			keys.indexOf("b-tong") != -1){
+
+	var tong_split = keys.split("-");	
+	if(tong_split[1] == "tong"){
+		var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
+		var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
+		var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";		
 		if(value == 0){
-			var tong_split = keys.split("-");
-			var tong_tag1 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-1";
-			var tong_tag2 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-2";
-			var tong_tag3 = tong_split[0]+"-v-"+(tong_split[2])+"-"+tong_split[1]+"-3";
 			$("."+tong_tag1).css("display","none");
 			$("."+tong_tag2).css("display","none");
 			$("."+tong_tag3).css("display","none");
-			$("."+keys).css("display","none");
-			
+			$("."+keys).css("display","none");			
+		}else{
+			$("."+tong_tag1).css("display","");
+			$("."+tong_tag2).css("display","");
+			$("."+tong_tag3).css("display","");			
+			$("."+keys).css("display","");
 		}
 	}
 }
