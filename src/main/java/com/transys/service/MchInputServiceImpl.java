@@ -78,7 +78,7 @@ public class MchInputServiceImpl implements MchInputService{
 				System.out.println("getRemark : "+mchData.getRemark());
 */
 				//INPUT_TAB에 정상적인 데이터 INSERT
-//				mchInputDao.setMchDataInsertInputTab(mchData);
+				mchInputDao.setMchDataInsertInputTab(mchData);
 		
 				String send1 = mchInput.getPumcode();
 				String send2 = mchInput.getLotno();
@@ -98,8 +98,8 @@ public class MchInputServiceImpl implements MchInputService{
 				OpcDataMap opcData = new OpcDataMap();
 				
 				//화면의 표시값 초기화 (PLC값 등등)
-				opcData.setOpcData("Transys.MCHINPUT.PUMBUN", 0);
-				opcData.setOpcData("Transys.MCHINPUT.DEVICECODE", 0);
+				opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", 0);
+				opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", 0);
 				
 				//마지막 창고 입고내역
 				desc.append("--> 입고완료");
