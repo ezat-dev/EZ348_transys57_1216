@@ -40,77 +40,81 @@ public class MchInputServiceImpl implements MchInputService{
 		
 //			System.out.println("getRegTime : "+mchData.getRegtime());
 			//가져온 데이터가 있을때만
-			if(mchData.getRegtime() != null) {
-//				#{pumcode}, #{meslot}, #{loadcnt}, SYSDATE, #{devicecode}, '0', #{remark}
-/*
-				System.out.println("전");
-				System.out.println("getPumcode : "+mchData.getPumcode());
-				System.out.println("getMeslot : "+mchData.getMeslot());
-				System.out.println("getLoadcnt : "+mchData.getLoadcnt());
-				System.out.println("getDevicecode : "+mchData.getDevicecode());
-				System.out.println("getRemark : "+mchData.getRemark());
-*/
-				
-
-				desc.append("PUMBUN : "+mchData.getPumcode()+"// ");
-				desc.append("DEVICECODE : "+mchData.getDevicecode()+"// ");
-				desc.append("MESLOT : "+mchData.getMeslot()+"// ");
-				
-				
-				
-				logger.info("MCHINPUT(14호기) : {}",desc.toString());				
-				
-				//위 조건이 else 일때만, MESLOT가 공백(널)이면 변수 공백으로
-				if(mchData.getMeslot().length() == 0) {
-					dbMesLot = "";
+			if(mchData != null) {
+				if(mchData.getRegtime() != null) {
+	//				#{pumcode}, #{meslot}, #{loadcnt}, SYSDATE, #{devicecode}, '0', #{remark}
+	/*
+					System.out.println("전");
+					System.out.println("getPumcode : "+mchData.getPumcode());
+					System.out.println("getMeslot : "+mchData.getMeslot());
+					System.out.println("getLoadcnt : "+mchData.getLoadcnt());
+					System.out.println("getDevicecode : "+mchData.getDevicecode());
+					System.out.println("getRemark : "+mchData.getRemark());
+	*/
+					
+	
+					desc.append("PUMBUN : "+mchData.getPumcode()+"// ");
+					desc.append("DEVICECODE : "+mchData.getDevicecode()+"// ");
+					desc.append("MESLOT : "+mchData.getMeslot()+"// ");
+					
+					
+					
+					logger.info("MCHINPUT(14호기) : {}",desc.toString());				
+					
+					//위 조건이 else 일때만, MESLOT가 공백(널)이면 변수 공백으로
+					if(mchData.getMeslot().length() == 0) {
+						dbMesLot = "";
+					}else {
+						dbMesLot = mchData.getMeslot();
+					}
+					
+					mchData.setMeslot(dbMesLot);
+					mchData.setDevicecode(plcDevice);
+	/*
+					System.out.println("후");
+					System.out.println("getPumcode : "+mchData.getPumcode());
+					System.out.println("getMeslot : "+mchData.getMeslot());
+					System.out.println("getLoadcnt : "+mchData.getLoadcnt());
+					System.out.println("getDevicecode : "+mchData.getDevicecode());
+					System.out.println("getRemark : "+mchData.getRemark());
+	*/
+					//INPUT_TAB에 정상적인 데이터 INSERT
+					mchInputDao.setMchDataInsertInputTab(mchData);
+			
+					String send1 = mchInput.getPumcode();
+					String send2 = mchInput.getLotno();
+					String send3 = mchInput.getMeslot();
+					int send4 = mchInput.getLoadcnt();
+					
+					//PLC값 0:출고대기, 1:작업중, 2:창고입고완료
+					//t_waitlist에 PLC값 2로 업데이트
+					mchInputDao.setMchDataUpdateWaitList(mchData);
+			
+					//t_siljuk테이블에 완료시간 업데이트
+					mchInputDao.setMchDataUpdateSiljuk(mchData);
+			
+					//t_workinline에서 해당 호기의 품번 삭제
+					mchInputDao.setMchDataDeleteWorkInline(mchData);
+			
+					OpcDataMap opcData = new OpcDataMap();
+					
+					//화면의 표시값 초기화 (PLC값 등등)
+					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", 0);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", 0);
+					
+					//마지막 창고 입고내역
+					desc.append("--> 입고완료");
+					
+					logger.info("MCHINPUT(14호기) : {}",desc.toString());					
+					
 				}else {
-					dbMesLot = mchData.getMeslot();
+					//조회 카운터가 0이하이면 입고요청에러로 INPUT_TAB에 INSERT 후 리턴
+					//카운트0 대신에 받아온 데이터가 null로 구분
+					mchInputDao.setMchDataInsertInputTabFail(mchData);
 				}
-				
-				mchData.setMeslot(dbMesLot);
-				mchData.setDevicecode(plcDevice);
-/*
-				System.out.println("후");
-				System.out.println("getPumcode : "+mchData.getPumcode());
-				System.out.println("getMeslot : "+mchData.getMeslot());
-				System.out.println("getLoadcnt : "+mchData.getLoadcnt());
-				System.out.println("getDevicecode : "+mchData.getDevicecode());
-				System.out.println("getRemark : "+mchData.getRemark());
-*/
-				//INPUT_TAB에 정상적인 데이터 INSERT
-				mchInputDao.setMchDataInsertInputTab(mchData);
-		
-				String send1 = mchInput.getPumcode();
-				String send2 = mchInput.getLotno();
-				String send3 = mchInput.getMeslot();
-				int send4 = mchInput.getLoadcnt();
-				
-				//PLC값 0:출고대기, 1:작업중, 2:창고입고완료
-				//t_waitlist에 PLC값 2로 업데이트
-				mchInputDao.setMchDataUpdateWaitList(mchData);
-		
-				//t_siljuk테이블에 완료시간 업데이트
-				mchInputDao.setMchDataUpdateSiljuk(mchData);
-		
-				//t_workinline에서 해당 호기의 품번 삭제
-				mchInputDao.setMchDataDeleteWorkInline(mchData);
-		
-				OpcDataMap opcData = new OpcDataMap();
-				
-				//화면의 표시값 초기화 (PLC값 등등)
-				opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", 0);
-				opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", 0);
-				
-				//마지막 창고 입고내역
-				desc.append("--> 입고완료");
-				
-				logger.info("MCHINPUT(14호기) : {}",desc.toString());					
-				
-			}else {
-				//조회 카운터가 0이하이면 입고요청에러로 INPUT_TAB에 INSERT 후 리턴
-				//카운트0 대신에 받아온 데이터가 null로 구분
-				mchInputDao.setMchDataInsertInputTabFail(mchData);
 			}
+			
+			
 			//t_workinline에 데이터가 없어도
 			//t_waitlist 업데이트, t_workinline 딜리트
 			//오늘날짜 - 5일 이전의 waitlist 업데이트

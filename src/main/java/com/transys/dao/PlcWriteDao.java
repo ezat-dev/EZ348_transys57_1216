@@ -1,6 +1,5 @@
 package com.transys.dao;
 
-import com.transys.domain.MchInput;
 import com.transys.domain.PlcWrite;
 
 public interface PlcWriteDao {

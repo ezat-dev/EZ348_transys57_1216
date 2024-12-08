@@ -14,7 +14,7 @@ public class OutPutProcessor {
 	@Autowired
 	private OutPutService outPutService;	
 	
-	@Scheduled(fixedRate = 2000)
+	@Scheduled(fixedRate = 5000)
 	public void handle() throws InterruptedException, ExecutionException{
 		outPutService.outPutTimer();
 	}

@@ -7,7 +7,7 @@ public class OutPut {
 	private int serverSelect;	
 	private String deviceCode;
 
-	private int fireno;
+	private String fireno;
 	private String workdate;
 	private String status;
 	
@@ -30,10 +30,10 @@ public class OutPut {
 	public void setDeviceCode(String deviceCode) {
 		this.deviceCode = deviceCode;
 	}
-	public int getFireno() {
+	public String getFireno() {
 		return fireno;
 	}
-	public void setFireno(int fireno) {
+	public void setFireno(String fireno) {
 		this.fireno = fireno;
 	}
 	public String getWorkdate() {

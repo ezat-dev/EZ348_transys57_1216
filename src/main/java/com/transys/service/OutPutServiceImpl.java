@@ -24,34 +24,35 @@ public class OutPutServiceImpl implements OutPutService{
 	@Override
 	public void outPut(int devicecode) {
 		OutPut paramOutPut = new OutPut();
-		paramOutPut.setFireno(devicecode);
+		paramOutPut.setFireno(devicecode+"");
 		//파라미터로 받은 설비로 status값 조회
 		StringBuffer desc = new StringBuffer();
 		OutPut outPut = outPutDao.getOutPutDeviceStatus(paramOutPut);
+		if(outPut != null) {
 			if(outPut.getWorkdate() != null) {
 				//status값 0이라면
-				if(outPut.isOutPutChk1()) {
+				if("1".equals(outPut.getFireno())) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk1 = true;
 					outPutDao.setOutPutSend(outPut);
 					desc.append("1호기 출고요청 완료");				
 				}
 				
-				if(outPut.isOutPutChk2()) {
+				if("2".equals(outPut.getFireno())) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk2 = true;
 					outPutDao.setOutPutSend(outPut);
 					desc.append("2호기 출고요청 완료");				
 				}
 				
-				if(outPut.isOutPutChk3()) {
+				if("3".equals(outPut.getFireno())) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk3 = true;
 					outPutDao.setOutPutSend(outPut);
 					desc.append("3호기 출고요청 완료");
 				}
 				
-				if(outPut.isOutPutChk4()) {
+				if("4".equals(outPut.getFireno())) {
 					//OUTPUT_TAB에 INSERT					
 					MainController.outPutChk4 = true;
 					outPutDao.setOutPutSend(outPut);
@@ -60,6 +61,7 @@ public class OutPutServiceImpl implements OutPutService{
 				
 				logger.info("OUTPUT(14호기) : {}",desc.toString());					
 			}
+		}
 	}
 
 	//침탄 1~4호기
@@ -106,16 +108,21 @@ public class OutPutServiceImpl implements OutPutService{
 		hogi3Prd = hogi3PrdMap.get("value").toString();
 		hogi4Prd = hogi4PrdMap.get("value").toString();	
 		
+		StringBuffer desc = new StringBuffer();
+		desc.append("hogi1 : "+hogi1+"// hogi2 : "+hogi2+"// hogi3 : "+hogi3+"// hogi4 : "+hogi4);
+		desc.append("hogi1Prd : "+hogi1Prd+"// hogi2Prd : "+hogi2Prd+"// hogi3Prd : "+hogi3Prd+"// hogi4Prd : "+hogi4Prd);
+		
 		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.PLCWRITE.CM01.DEVICECODE");
 		
 		outContinue = Integer.parseInt(outContinueMap.get("value").toString());
-		
+		desc.append("outContinue : "+outContinue+"// ");
+//		logger.info("OUTPUT {}",desc.toString());
 		//출고요청신호 확인시 1이면
 		
 		//1호기
 		if("true".equals(hogi1)) {
 			//화물 위치체크
-			if("false".equals(hogi1Prd)) {
+			if("0".equals(hogi1Prd)) {
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
 					if(!MainController.outPutChk1) {
@@ -127,11 +134,19 @@ public class OutPutServiceImpl implements OutPutService{
 		
 		//2호기
 		if("true".equals(hogi2)) {
+			desc = new StringBuffer();
+			desc.append("hogi2 : "+hogi2+"// ");
 			//화물 위치체크
-			if("false".equals(hogi2Prd)) {
+			if("0".equals(hogi2Prd)) {
+				desc.append("hogi2Prd : "+hogi2Prd+"// ");
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
+					desc.append("outContinue : "+outContinue+"// ");
+					desc.append("MainController.outPutChk2 : "+MainController.outPutChk2+"// ");
+					logger.info("OUTPUT : {} ",desc.toString());
 					if(!MainController.outPutChk2) {
+						desc.append("MainController.outPutChk2 ** : "+MainController.outPutChk2+"// ");
+						logger.info("OUTPUT : {} ",desc.toString());
 						outPut(2);
 					}
 				}
@@ -141,7 +156,7 @@ public class OutPutServiceImpl implements OutPutService{
 		//3호기
 		if("true".equals(hogi3)) {
 			//화물 위치체크
-			if("false".equals(hogi3Prd)){
+			if("0".equals(hogi3Prd)){
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
 					if(!MainController.outPutChk3) {
@@ -154,7 +169,7 @@ public class OutPutServiceImpl implements OutPutService{
 		//4호기
 		if("true".equals(hogi4)) {
 			//화물 위치체크
-			if("false".equals(hogi4Prd)) {
+			if("0".equals(hogi4Prd)) {
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
 					if(!MainController.outPutChk4) {

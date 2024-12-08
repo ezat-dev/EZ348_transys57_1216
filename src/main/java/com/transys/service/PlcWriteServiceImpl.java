@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.transys.controller.MainController;
-import com.transys.controller.WorkController;
 import com.transys.dao.PlcWriteDao;
 import com.transys.domain.PlcWrite;
 import com.transys.util.OpcDataMap;
@@ -20,7 +19,7 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 	@Autowired
 	private PlcWriteDao plcWriteDao;
 	
-	private static final Logger logger = LoggerFactory.getLogger(PlcWriteServiceImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(PlcWriteServiceImpl.class);
 	
 	//PLCWRITE(1~4호기)
 	public void plcWrite() throws InterruptedException, ExecutionException {
@@ -34,63 +33,66 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 		
 		
 		//가져온 행의 값이 있을때만
-		String list_year = plcWrite.getList_year();
+		String list_year = "";
 //		System.out.println("list_year 11 : "+list_year);
-		if(!"".equals(list_year) && list_year != null) {
-//			System.out.println("list_year 22 : "+list_year);
-			//OPC값 쓰기
-			//outData1, outData2, outData3, outData4, outData5
-			StringBuffer desc = new StringBuffer();
-			desc.append("CYCLENO : "+plcWrite.getCycleno()+"// ");
-			desc.append("PUMBUN : "+plcWrite.getPumbun()+"// ");
-			desc.append("AGITATE_RPM : "+plcWrite.getAgitate_rpm()+"// ");
-			desc.append("DEVICECODE : "+plcWrite.getDevicecode());
-			
-			
-			
-			logger.info("PLCWRITE(14호기) : {}",desc.toString());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
-			
-			Thread.sleep(500);
-
-			opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
-			opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
-
-			//DB값 업데이트 (t_waitlist)
-			plcWriteDao.setPlcWriteDataUpdate(plcWrite);
-
-			
-			Thread.sleep(200);
-			//DB 프로시저 실행(TRACKING_PROC00)
-			plcWriteDao.setPlcWriteProc(plcWrite);
-			
-			Thread.sleep(200);
-			//DB값 삭제 (OUTPUT_TAB)
-			plcWriteDao.setPlcWriteDataDelete(plcWrite);
-			
-			//각 설비에 해당되는 outPutChk값 false
-			int device = Integer.parseInt(plcWrite.getDevicecode());
-			
-			switch (device) {
-				case 1 : MainController.outPutChk1 = false; break;
-				case 2 : MainController.outPutChk2 = false; break;
-				case 3 : MainController.outPutChk3 = false; break;
-				case 4 : MainController.outPutChk4 = false; break;
+		if(plcWrite != null) {
+			if(!"".equals(plcWrite.getList_year()) && plcWrite.getList_year() != null) {
+				list_year = plcWrite.getList_year();
+	//			System.out.println("list_year 22 : "+list_year);
+				//OPC값 쓰기
+				//outData1, outData2, outData3, outData4, outData5
+				StringBuffer desc = new StringBuffer();
+				desc.append("CYCLENO : "+plcWrite.getCycleno()+"// ");
+				desc.append("PUMBUN : "+plcWrite.getPumbun()+"// ");
+				desc.append("AGITATE_RPM : "+plcWrite.getAgitate_rpm()+"// ");
+				desc.append("DEVICECODE : "+plcWrite.getDevicecode());
+				
+				
+				
+				logger.info("PLCWRITE(14호기) : {}",desc.toString());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+				
+				Thread.sleep(500);
+	
+				opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+	
+				//DB값 업데이트 (t_waitlist)
+				plcWriteDao.setPlcWriteDataUpdate(plcWrite);
+	
+				
+				Thread.sleep(200);
+				//DB 프로시저 실행(TRACKING_PROC00)
+				plcWriteDao.setPlcWriteProc(plcWrite);
+				
+				Thread.sleep(200);
+				//DB값 삭제 (OUTPUT_TAB)
+				plcWriteDao.setPlcWriteDataDelete(plcWrite);
+				
+				//각 설비에 해당되는 outPutChk값 false
+				int device = Integer.parseInt(plcWrite.getDevicecode());
+				
+				switch (device) {
+					case 1 : MainController.outPutChk1 = false; break;
+					case 2 : MainController.outPutChk2 = false; break;
+					case 3 : MainController.outPutChk3 = false; break;
+					case 4 : MainController.outPutChk4 = false; break;
+				}
+				Thread.sleep(200);
+				desc.append("-> 완료");
+				logger.info("PLCWRITE(14호기) : {}",desc.toString());			
 			}
-			Thread.sleep(200);
-			desc.append("-> 완료");
-			logger.info("PLCWRITE(14호기) : {}",desc.toString());			
 		}
 	}
 		

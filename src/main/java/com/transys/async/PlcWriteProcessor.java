@@ -13,7 +13,7 @@ public class PlcWriteProcessor {
 	@Autowired
 	private PlcWriteService plcWriteService;	
 	
-	@Scheduled(fixedRate = 2000)
+	@Scheduled(fixedRate = 10000)
 	public void handle() throws InterruptedException, ExecutionException{
 		plcWriteService.plcWriteTimer();
 	}
