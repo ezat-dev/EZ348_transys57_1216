@@ -190,7 +190,7 @@
 					<label> 설비명 : 
 						<select style="font-weight:700; font-size: 14pt; text-align: center;" 
 							name="devicecode" id="devicecode" >
-							<option value="0">전체</option>
+							<option value="">전체</option>
 							<option value="1">1호기</option>
 							<option value="2">2호기</option>
 							<option value="3">3호기</option>

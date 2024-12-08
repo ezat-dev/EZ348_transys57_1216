@@ -144,7 +144,7 @@
                 <div class="input_d">
                    <label> 설비명 : 
 					    <select name="placename" id="placename">
-					     	<option value="0">전체</option>
+					     	<option value="">전체</option>
 					        <option value="1">1호기</option>
 					        <option value="2">2호기</option>
 					        <option value="3">3호기</option>
