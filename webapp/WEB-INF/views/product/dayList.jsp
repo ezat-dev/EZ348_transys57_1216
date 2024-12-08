@@ -275,7 +275,7 @@
 	    var pumbun = localStorage.getItem("pumbun");
 
 	    // 팝업창 열기
-	    window.open("http://localhost:9090/transys/product/dayList/popup", "popupWindow", "width=800,height=600,scrollbars=yes");
+	    window.open("http://localhost:8080/transys/product/dayList/popup", "popupWindow", "width=800,height=600,scrollbars=yes");
 
 	   
 	});

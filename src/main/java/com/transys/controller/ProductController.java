@@ -366,7 +366,7 @@ public class ProductController {
         	System.out.println("devicecode : "+deviceCode);
         	
         	OutPut outPut = new OutPut();
-        	outPut.setFireno(Integer.parseInt(deviceCode));
+        	outPut.setFireno(deviceCode);
         	
         	System.out.println("devicecode2 : "+outPut.getFireno());
         	
