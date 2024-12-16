@@ -12,8 +12,8 @@ public class PlcWrite {
 	private String pumcode;
 	private String pumname;
 	private String gijong;
-	private int cycleno;
-	private int agitate_rpm;
+	private short cycleno;
+	private short agitate_rpm;
 	private String common_device;
 	private int loadcnt;
 	private String pumbun;
@@ -563,16 +563,18 @@ public class PlcWrite {
 	public void setGijong(String gijong) {
 		this.gijong = gijong;
 	}
-	public int getCycleno() {
+
+	
+	public short getCycleno() {
 		return cycleno;
 	}
-	public void setCycleno(int cycleno) {
+	public void setCycleno(short cycleno) {
 		this.cycleno = cycleno;
 	}
-	public int getAgitate_rpm() {
+	public short getAgitate_rpm() {
 		return agitate_rpm;
 	}
-	public void setAgitate_rpm(int agitate_rpm) {
+	public void setAgitate_rpm(short agitate_rpm) {
 		this.agitate_rpm = agitate_rpm;
 	}
 	public String getCommon_device() {

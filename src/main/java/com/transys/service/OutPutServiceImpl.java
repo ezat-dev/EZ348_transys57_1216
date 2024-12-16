@@ -28,39 +28,29 @@ public class OutPutServiceImpl implements OutPutService{
 		//파라미터로 받은 설비로 status값 조회
 		StringBuffer desc = new StringBuffer();
 		OutPut outPut = outPutDao.getOutPutDeviceStatus(paramOutPut);
-		if(outPut != null) {
-			if(outPut.getWorkdate() != null) {
-				//status값 0이라면
-				if("1".equals(outPut.getFireno())) {
-					//OUTPUT_TAB에 INSERT					
-					MainController.outPutChk1 = true;
-					outPutDao.setOutPutSend(outPut);
-					desc.append("1호기 출고요청 완료");				
-				}
-				
-				if("2".equals(outPut.getFireno())) {
-					//OUTPUT_TAB에 INSERT					
-					MainController.outPutChk2 = true;
-					outPutDao.setOutPutSend(outPut);
-					desc.append("2호기 출고요청 완료");				
-				}
-				
-				if("3".equals(outPut.getFireno())) {
-					//OUTPUT_TAB에 INSERT					
-					MainController.outPutChk3 = true;
-					outPutDao.setOutPutSend(outPut);
-					desc.append("3호기 출고요청 완료");
-				}
-				
-				if("4".equals(outPut.getFireno())) {
-					//OUTPUT_TAB에 INSERT					
-					MainController.outPutChk4 = true;
-					outPutDao.setOutPutSend(outPut);
-					desc.append("4호기 출고요청 완료");
-				}
-				
-				logger.info("OUTPUT(14호기) : {}",desc.toString());					
+		logger.info("Output객체 {}",outPut);
+		
+		if(outPut == null) {
+			//status값 0이라면
+			//OUTPUT_TAB에 INSERT
+			
+			switch(devicecode) {
+				case 1: MainController.outPutChk1 = true;
+						desc.append(devicecode+"호기 출고요청 완료");
+				break;
+				case 2: MainController.outPutChk2 = true;
+						desc.append(devicecode+"호기 출고요청 완료");
+				break;
+				case 3: MainController.outPutChk3 = true;
+						desc.append(devicecode+"호기 출고요청 완료");
+				break;
+				case 4: MainController.outPutChk4 = true;
+						desc.append(devicecode+"호기 출고요청 완료");
+				break;
 			}
+			
+			outPutDao.setOutPutSend(paramOutPut);
+			logger.info("OUTPUT(14호기) : {}",desc.toString());				
 		}
 	}
 
@@ -74,10 +64,10 @@ public class OutPutServiceImpl implements OutPutService{
 		String hogi4 = "false";
 
 		//설비별 출고제품 체크
-		String hogi1Prd = "false";
-		String hogi2Prd = "false";
-		String hogi3Prd = "false";
-		String hogi4Prd = "false";
+		String hogi1Prd = "0";
+		String hogi2Prd = "0";
+		String hogi3Prd = "0";
+		String hogi4Prd = "0";
 		
 		//창고 출고가능 요구신호
 		int outContinue = 0;
@@ -121,11 +111,20 @@ public class OutPutServiceImpl implements OutPutService{
 		
 		//1호기
 		if("true".equals(hogi1)) {
+			desc = new StringBuffer();
+			desc.append("hogi1 : "+hogi1+"// ");			
 			//화물 위치체크
 			if("0".equals(hogi1Prd)) {
+				desc.append("hogi1Prd : "+hogi1Prd+"// ");				
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
+					desc.append("outContinue : "+outContinue+"// ");
+					desc.append("MainController.outPutChk1 : "+MainController.outPutChk1+"// ");
+					
+					logger.info("OUTPUT : {} ",desc.toString());					
 					if(!MainController.outPutChk1) {
+						desc.append("MainController.outPutChk1 ** : "+MainController.outPutChk1+"// ");
+						logger.info("OUTPUT : {} ",desc.toString());						
 						outPut(1);
 					}
 				}
@@ -134,19 +133,15 @@ public class OutPutServiceImpl implements OutPutService{
 		
 		//2호기
 		if("true".equals(hogi2)) {
-			desc = new StringBuffer();
-			desc.append("hogi2 : "+hogi2+"// ");
+
 			//화물 위치체크
 			if("0".equals(hogi2Prd)) {
-				desc.append("hogi2Prd : "+hogi2Prd+"// ");
+
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
-					desc.append("outContinue : "+outContinue+"// ");
-					desc.append("MainController.outPutChk2 : "+MainController.outPutChk2+"// ");
-					logger.info("OUTPUT : {} ",desc.toString());
+
 					if(!MainController.outPutChk2) {
-						desc.append("MainController.outPutChk2 ** : "+MainController.outPutChk2+"// ");
-						logger.info("OUTPUT : {} ",desc.toString());
+
 						outPut(2);
 					}
 				}

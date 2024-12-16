@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.transys.dao.TrackingDao;
 import com.transys.domain.Tracking;
 import com.transys.util.OpcDataMap;
-import com.transys.util.UtilClass;
 
 @Service
 public class TrackingServiceImpl5 implements TrackingService5{
@@ -33,80 +32,79 @@ public class TrackingServiceImpl5 implements TrackingService5{
 		JSONArray rowsArray = dataMap.get("dataList");			
 		
 		Tracking tracking = new Tracking();
-		StringBuffer desc = new StringBuffer();		
+		String pumBun = "0000";
+		int prdChk = 0;
+		StringBuffer desc = new StringBuffer();
+		short resetValue = 0;
 		for(int i=0; i<rowsArray.size(); i++) {
 			JSONObject rowObj = (JSONObject) rowsArray.get(i);
 			
-			String devicecode = "";
 			String tagName = rowObj.get("tagName").toString();
 			String value = rowObj.get("value").toString();
 			
-			String pumBun = "";
-
-			if("DEVICE".equals(tagName)) {
-				devicecode = value;
-			}
-			
 			if("PUMBUN".equals(tagName)) {
-				//PUMBUN_01 : 품번 01 ~ 99 (4자리 포맷으로 변경해야됨)
 				pumBun = String.format("%04d",Integer.parseInt(value));
-				tracking.setPumbun(pumBun);
+				tracking.setPumbun(pumBun);				
 			}
 			
-			if("PRD_CHK".equals(tagName)) {
-				//PRD_01 : 제품감지, PRD_CHK_01 : 제품감지시 1
-				//PRD_01 : 1 -> PRD_CHK01 1변경됨(오토닉스 경보에서 지정) 
-				//PRD_CHK_01이 1일때 동작			
+			if("DEVICE".equals(tagName)) {
+				tracking.setDevicecode(value);
+			}
+			
+			if("PRD_CHK".equals(tagName)) {			
 				tracking.setCurLocation(curLocation);
+				prdChk = Integer.parseInt(value);
+			}
+		
+			if(curLocation == 12) {
+				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
+				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
+				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
+				desc.append("setDataDir : "+setDataDir);
 				
-				//PRD_CHK01이 1이면서(제품이 위치하며)
-				if(curLocation < 12) {
-					if("1".equals(value)) {
-						//품번이 0이 아니면
-						if(!"0000".equals(pumBun)) {
-							if(!"".equals(devicecode)) {
-								tracking.setDevicecode(devicecode);	
-	
-								desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
-								desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
-								desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
-								desc.append("VALUE : "+value);
-								
-								
-								logger.info("TRACKING(14호기) : {}",desc.toString());						
-								//트래킹 실행
-								trackingDao.ccf1Tracking01(tracking);
-								//지연시간 0.3초
-								Thread.sleep(300);
-								
-								//트래킹처리 후 PRD_CHK_01 0으로 변경
-								opcDataMap.setOpcData(setDataDir+".PRD_CHK", 0);
-							}
-						}
-					}
-				}else {
-					//품번이 0이 아니면
-					if(!"0000".equals(pumBun)) {
-						if(!"".equals(devicecode)) {
-							tracking.setDevicecode(devicecode);	
-
-							desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
-							desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
-							desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
-							desc.append("VALUE : "+value);
-							
-							
-							logger.info("TRACKING(14호기) : {}",desc.toString());						
-							//트래킹 실행
-							trackingDao.ccf1Tracking01(tracking);
-							//지연시간 0.3초
-							Thread.sleep(300);
-							
-						}
-					}					
-				}
+				logger.info("TRACKING(14호기) : {}",desc.toString());					
 			}
 		}
+		
+		//DB저장
+		if(curLocation < 12) {
+			if(!"0000".equals(tracking.getPumbun()) && prdChk != 0) {
+				
+				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
+				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
+				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
+				desc.append("setDataDir : "+setDataDir);
+				
+				logger.info("TRACKING(14호기) : {}",desc.toString());							
+				//트래킹 실행
+				trackingDao.ccf1Tracking01(tracking);
+				//지연시간 0.3초
+				Thread.sleep(300);
+				
+				
+				//트래킹처리 후 PRD_CHK_01 0으로 변경
+				opcDataMap.setOpcData(setDataDir+".PRD_CHK", resetValue);
+			}
+		}else {
+			if(!"0000".equals(tracking.getPumbun()) && !"0".equals(tracking.getDevicecode())) {
+				tracking.setCurLocation(12);
+				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
+				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
+				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
+				desc.append("setDataDir : "+setDataDir);
+				
+				logger.info("TRACKING(14호기) : {}",desc.toString());							
+				//트래킹 실행
+				trackingDao.ccf1Tracking01(tracking);
+				//지연시간 0.3초
+				Thread.sleep(300);
+				
+				
+				//트래킹처리 후 PRD_CHK_01 0으로 변경
+				opcDataMap.setOpcData(setDataDir+".PRD_CHK", resetValue);
+			}			
+		}
+		
 	}
 
 	//[10]세정장입 : NO.1 세정기 DIPS조 처리품

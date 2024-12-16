@@ -35,6 +35,6 @@
 	
 	<update id="setMchDataDeleteWorkInlineFail" parameterType="mchInput">
 		DELETE FROM T_WORKINLINE
-		WHERE convert(varchar(10),list_year,120) <![CDATA[<]]> CONVERT(varchar(10),GETDATE()-5,120)
+		WHERE convert(varchar(10),regtime,120) <![CDATA[<]]> CONVERT(varchar(10),GETDATE()-5,120)
 	</update>
 </mapper>

@@ -30,7 +30,7 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 		PlcWrite plcWrite = plcWriteDao.getPlcWriteWorkData();
 //		System.out.println(plcWrite.getList_year());
 		Thread.sleep(500);
-		
+		short resetValue = 1;
 		
 		//가져온 행의 값이 있을때만
 		String list_year = "";
@@ -50,23 +50,19 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 				
 				
 				logger.info("PLCWRITE(14호기) : {}",desc.toString());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
 				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
 				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PRD_GB", resetValue);
 				
 				Thread.sleep(500);
 	
-				opcData.setOpcData("Transys.PLCWRITE.CM01.LOTNO", plcWrite.getLotno());
 				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", plcWrite.getPumbun());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
 				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", plcWrite.getDevicecode());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.COMMON_DEVICE", plcWrite.getCommon_device());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.MESLOT", plcWrite.getMeslot());
+				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
+				opcData.setOpcData("Transys.PLCWRITE.CM01.PRD_GB", resetValue);
 	
 				//DB값 업데이트 (t_waitlist)
 				plcWriteDao.setPlcWriteDataUpdate(plcWrite);

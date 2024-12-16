@@ -137,7 +137,7 @@ public class OpcDataMap {
         }
 	}
 	
-	public void setOpcData(String opcGroup, int opcData) throws InterruptedException, ExecutionException{
+	public void setOpcData(String opcGroup, short opcData) throws InterruptedException, ExecutionException{
 		Map<String, Object> rtnMap = new HashMap<String, Object>();
 		
 		

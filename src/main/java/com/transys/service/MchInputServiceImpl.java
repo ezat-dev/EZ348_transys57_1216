@@ -28,7 +28,7 @@ public class MchInputServiceImpl implements MchInputService{
 		StringBuffer desc = new StringBuffer();		
 		
 		//품번이 0이 아닐때만
-		if(!"0".equals(plcPumbun)) {
+		if(!"0".equals(plcPumbun) && !"0".equals(plcDevice)) {
 			
 			//t_workinline에서 품번, 호기로 데이터 조회
 			MchInput mchInput = new MchInput();
@@ -37,27 +37,14 @@ public class MchInputServiceImpl implements MchInputService{
 			
 			//t_workinline, t_product 조인쿼리 실행
 			MchInput mchData = mchInputDao.getMchInputDataSelectWorkInline(mchInput);
-		
+			short resetValue = 0;
 //			System.out.println("getRegTime : "+mchData.getRegtime());
 			//가져온 데이터가 있을때만
 			if(mchData != null) {
 				if(mchData.getRegtime() != null) {
-	//				#{pumcode}, #{meslot}, #{loadcnt}, SYSDATE, #{devicecode}, '0', #{remark}
-	/*
-					System.out.println("전");
-					System.out.println("getPumcode : "+mchData.getPumcode());
-					System.out.println("getMeslot : "+mchData.getMeslot());
-					System.out.println("getLoadcnt : "+mchData.getLoadcnt());
-					System.out.println("getDevicecode : "+mchData.getDevicecode());
-					System.out.println("getRemark : "+mchData.getRemark());
-	*/
-					
-	
 					desc.append("PUMBUN : "+mchData.getPumcode()+"// ");
 					desc.append("DEVICECODE : "+mchData.getDevicecode()+"// ");
 					desc.append("MESLOT : "+mchData.getMeslot()+"// ");
-					
-					
 					
 					logger.info("MCHINPUT(14호기) : {}",desc.toString());				
 					
@@ -70,14 +57,7 @@ public class MchInputServiceImpl implements MchInputService{
 					
 					mchData.setMeslot(dbMesLot);
 					mchData.setDevicecode(plcDevice);
-	/*
-					System.out.println("후");
-					System.out.println("getPumcode : "+mchData.getPumcode());
-					System.out.println("getMeslot : "+mchData.getMeslot());
-					System.out.println("getLoadcnt : "+mchData.getLoadcnt());
-					System.out.println("getDevicecode : "+mchData.getDevicecode());
-					System.out.println("getRemark : "+mchData.getRemark());
-	*/
+
 					//INPUT_TAB에 정상적인 데이터 INSERT
 					mchInputDao.setMchDataInsertInputTab(mchData);
 			
@@ -99,12 +79,12 @@ public class MchInputServiceImpl implements MchInputService{
 					OpcDataMap opcData = new OpcDataMap();
 					
 					//화면의 표시값 초기화 (PLC값 등등)
-					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", 0);
-					opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", 0);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", resetValue);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", resetValue);
 					
 					//마지막 창고 입고내역
 					desc.append("--> 입고완료");
-					
+					opcData.setOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT", Short.parseShort(MainController.plcCount+""));
 					logger.info("MCHINPUT(14호기) : {}",desc.toString());					
 					
 				}else {
@@ -118,10 +98,10 @@ public class MchInputServiceImpl implements MchInputService{
 			//t_workinline에 데이터가 없어도
 			//t_waitlist 업데이트, t_workinline 딜리트
 			//오늘날짜 - 5일 이전의 waitlist 업데이트
-			mchInputDao.setMchDataUpdateSiljukFail(mchData);
+//			mchInputDao.setMchDataUpdateSiljukFail(mchData);
 			
 			//오늘날짜 -5일 이전의 workinline 딜리트
-			mchInputDao.setMchDataDeleteWorkInlineFail(mchData);
+//			mchInputDao.setMchDataDeleteWorkInlineFail(mchData);
 		}
 	}
 
@@ -137,10 +117,10 @@ public class MchInputServiceImpl implements MchInputService{
 		String plcDevice = deviceMap.get("value").toString();
 		
 		//제품추출요구 신호
-		boolean mchInputChk = false;
+		String mchInputChk = "false";
 		Map<String, Object> mchInputMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.MCHINPUT_CHK");	//DB18.X41.4
 		
-		mchInputChk = Boolean.parseBoolean(mchInputMap.get("value").toString());
+		mchInputChk = mchInputMap.get("value").toString();
 		
 		String savePumbun = "";
 		String saveDevice = "";
@@ -154,8 +134,8 @@ public class MchInputServiceImpl implements MchInputService{
 			saveDevice = plcDevice;
 		}		
 		
-		if(mchInputChk) {
-			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.PLC_COUNT");	//가상태그
+		if("true".equals(mchInputChk)) {
+			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT");	//가상태그
 			
 			//PLC 창고입고카운트 1증가
 			MainController.plcCount = Integer.parseInt(plcCountMap.get("value").toString());			
@@ -164,7 +144,7 @@ public class MchInputServiceImpl implements MchInputService{
 	        //txt_INPUT1 값이 txt_INPUT 값보다 먼저 삭제되는 경우가 발생하여 변수로 저장한 값으로 비교(이동진 수정 : 2012.09.07)
 			if(!"0".equals(savePumbun) && !"0".equals(saveDevice)) {
 				
-				mchInput(plcPumbun, plcDevice);			
+				mchInput(plcPumbun, plcDevice);
 			}else {
 				//로그남기기(입고등록 중단)
 			}
