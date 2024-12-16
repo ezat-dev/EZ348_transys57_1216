@@ -93,23 +93,23 @@ public class MchInputServiceImpl implements MchInputService{
 			
 					OpcDataMap opcData = new OpcDataMap();
 					//전송데이터 입력
-					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMCODE", send1);
-					opcData.setOpcData("Transys.MCHINPUT.CM01.LOTNO", send2);
-					opcData.setOpcData("Transys.MCHINPUT.CM01.MESLOT", send3);
+					opcData.setOpcData("Transys.MCHINPUT.CM02.PUMCODE", send1);
+					opcData.setOpcData("Transys.MCHINPUT.CM02.LOTNO", send2);
+					opcData.setOpcData("Transys.MCHINPUT.CM02.MESLOT", send3);
 					opcData.setOpcData("Transys.MCHINPUT.CM01.LOADCNT", send4);
 					
 					//마지막 창고입고 품번, 호기 입력
-					opcData.setOpcData("Transys.MCHINPUT.CM01.LAST_DEVICE", Short.parseShort(mchInput.getDevicecode()+""));
-					opcData.setOpcData("Transys.MCHINPUT.CM01.LAST_PUMBUN", Short.parseShort(mchInput.getPumbun()+""));
+					opcData.setOpcData("Transys.MCHINPUT.CM02.LAST_DEVICE", Short.parseShort(mchInput.getDevicecode()+""));
+					opcData.setOpcData("Transys.MCHINPUT.CM02.LAST_PUMBUN", Short.parseShort(mchInput.getPumbun()+""));
 					
 					//화면의 표시값 초기화 (PLC값 등등)
-					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", resetValue);
-					opcData.setOpcData("Transys.MCHINPUT.CM01.DEVICECODE", resetValue);
+					opcData.setOpcData("Transys.MCHINPUT.CM02.PUMBUN", resetValue);
+					opcData.setOpcData("Transys.MCHINPUT.CM02.DEVICECODE", resetValue);
 					
 					//마지막 창고 입고내역
 					desc.append("--> 입고완료");
 					opcData.setOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT", Short.parseShort(MainController.plcCount+""));
-					logger.info("MCHINPUT(14호기) : {}",desc.toString());					
+					logger.info("MCHINPUT(57호기) : {}",desc.toString());					
 					
 				}else {
 					//조회 카운터가 0이하이면 입고요청에러로 INPUT_TAB에 INSERT 후 리턴
@@ -135,15 +135,15 @@ public class MchInputServiceImpl implements MchInputService{
 		StringBuffer desc = new StringBuffer();
 		
 		//품번, 호기값 조회
-		Map<String, Object> pumbunMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.PUMBUN");		//DB1.DBW804
-		Map<String, Object> deviceMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.DEVICECODE");	//DB1.DBW808
+		Map<String, Object> pumbunMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.PUMBUN");		//DB1.DBW804
+		Map<String, Object> deviceMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.DEVICECODE");	//DB1.DBW808
 		
 		String plcPumbun = pumbunMap.get("value").toString();
 		String plcDevice = deviceMap.get("value").toString();
 		
 		//제품추출요구 신호
 		String mchInputChk = "false";
-		Map<String, Object> mchInputMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.MCHINPUT_CHK");	//DB18.X41.4
+		Map<String, Object> mchInputMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.MCHINPUT_CHK");	//DB18.X41.4
 		
 		mchInputChk = mchInputMap.get("value").toString();
 		
@@ -165,7 +165,7 @@ public class MchInputServiceImpl implements MchInputService{
 			
 			logger.info("MCHINPUT(14호기) : {}",desc.toString());					
 			
-			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT");	//가상태그
+			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.INPUT_COUNT");	//가상태그
 			
 			//PLC 창고입고카운트 1증가
 			MainController.plcCount = Integer.parseInt(plcCountMap.get("value").toString());			

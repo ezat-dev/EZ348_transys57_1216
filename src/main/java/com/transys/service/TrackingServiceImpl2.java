@@ -62,7 +62,7 @@ public class TrackingServiceImpl2 implements TrackingService2{
 			desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
 			desc.append("setDataDir : "+setDataDir);
 			
-			logger.info("TRACKING(14호기) : {}",desc.toString());						
+			logger.info("TRACKING(57호기) : {}",desc.toString());						
 			//트래킹 실행
 			trackingDao.ccf1Tracking01(tracking);
 			//지연시간 0.3초
@@ -76,82 +76,82 @@ public class TrackingServiceImpl2 implements TrackingService2{
 	
 	//[1]투입완료: 탈지로입구 리프트에 처리품이 위치할때
 	public void ccf2Tracking01() throws InterruptedException, ExecutionException {
-		//Transys.TRACKING.CCF02.C01의 하위태그 조회		
-		String setDataDir = "Transys.TRACKING.CCF02.C01";
+		//Transys.TRACKING.CCF06.C01의 하위태그 조회		
+		String setDataDir = "Transys.TRACKING.CCF06.C01";
 		
 		//호기, 위치(순서), 태그경로
-		trackingDataSet("2",1,setDataDir);
+		trackingDataSet("6",1,setDataDir);
 	}
 	
 	//[2]예열장입 : 처리품이 예열실에 도착할 때
 	public void ccf2Tracking02() throws InterruptedException, ExecutionException {
-		//Transys.TRACKING.CCF02.C02의 하위태그 조회		
-		String setDataDir = "Transys.TRACKING.CCF02.C02";
+		//Transys.TRACKING.CCF06.C02의 하위태그 조회		
+		String setDataDir = "Transys.TRACKING.CCF06.C02";
 	
 		//호기, 위치(순서), 태그경로
-		trackingDataSet("2",2,setDataDir);
+		trackingDataSet("6",2,setDataDir);
 	}
 	
 	//[3]침탄실(1) : 침탄 처리 시작위치
 	public void ccf2Tracking03() throws InterruptedException, ExecutionException {
-		//Transys.TRACKING.CCF02.C02의 하위태그 조회		
-		String setDataDir = "Transys.TRACKING.CCF02.C03";
+		//Transys.TRACKING.CCF06.C02의 하위태그 조회		
+		String setDataDir = "Transys.TRACKING.CCF06.C03";
 	
 		//호기, 위치(순서), 태그경로
-		trackingDataSet("2",3,setDataDir);
+		trackingDataSet("6",3,setDataDir);
 	}
 	
 	//[4]확산실(1) : 침탄 처리 종료 및 확산 처리 시작위치
 	public void ccf2Tracking04() throws InterruptedException, ExecutionException {
-		//Transys.TRACKING.CCF02.C02의 하위태그 조회		
-		String setDataDir = "Transys.TRACKING.CCF02.C04";
+		//Transys.TRACKING.CCF06.C02의 하위태그 조회		
+		String setDataDir = "Transys.TRACKING.CCF06.C04";
 		
 		//호기, 위치(순서), 태그경로
-		trackingDataSet("2",4,setDataDir);
+		trackingDataSet("6",4,setDataDir);
 	}
 	
 	//[5]냉각실(1) : 확산 처리 종료 위치
 	public void ccf2Tracking05() throws InterruptedException, ExecutionException{
 		
-		String setDataDir = "Transys.TRACKING.CCF02.C05";
+		String setDataDir = "Transys.TRACKING.CCF06.C05";
 		
-		trackingDataSet("2",5,setDataDir);
+		trackingDataSet("6",5,setDataDir);
 		
 	}
 	
 	//[6]소입1실(1) : 소입 처리 시작 위치
 	public void ccf2Tracking06() throws InterruptedException, ExecutionException{
 			
-		String setDataDir = "Transys.TRACKING.CCF02.C06";
+		String setDataDir = "Transys.TRACKING.CCF06.C06";
 			
-		trackingDataSet("2",6,setDataDir);
+		trackingDataSet("6",6,setDataDir);
 			
 	}
 	
 	//[7]소입2 추출 : 소입 처리 종료
 	public void ccf2Tracking07() throws InterruptedException, ExecutionException{
 				
-		String setDataDir = "Transys.TRACKING.CCF02.C07";
+		String setDataDir = "Transys.TRACKING.CCF06.C07";
 				
-		trackingDataSet("2",7,setDataDir);
+		trackingDataSet("6",7,setDataDir);
 				
 	}
 	
 	//[8]SALT장입 : SALT 처리 시작위치
 	public void ccf2Tracking08() throws InterruptedException, ExecutionException{
 					
-		String setDataDir = "Transys.TRACKING.CCF02.C08";
+		String setDataDir = "Transys.TRACKING.CCF06.C08";
 					
-		trackingDataSet("2",8,setDataDir);
+		trackingDataSet("6",8,setDataDir);
 					
 	}
 	
 	//[9]SALT추출 : 출구 리트리버 후퇴정지
 	public void ccf2Tracking09() throws InterruptedException, ExecutionException{
 						
-		String setDataDir = "Transys.TRACKING.CCF02.C09";
+		String setDataDir = "Transys.TRACKING.CCF06.C09";
 						
-		trackingDataSet("2",9,setDataDir);
+		trackingDataSet("6",9,setDataDir);
 						
 	}	
 }

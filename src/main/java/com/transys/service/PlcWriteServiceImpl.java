@@ -21,7 +21,7 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 	
 	private final Logger logger = LoggerFactory.getLogger(PlcWriteServiceImpl.class);
 	
-	//PLCWRITE(1~4호기)
+	//PLCWRITE(5~7호기)
 	public void plcWrite() throws InterruptedException, ExecutionException {
 //		System.out.println("PLCWRITE ");
 		OpcDataMap opcData = new OpcDataMap();
@@ -49,20 +49,20 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 				
 				
 				
-				logger.info("PLCWRITE(14호기) : {}",desc.toString());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
-				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PRD_GB", resetValue);
+				logger.info("PLCWRITE(57호기) : {}",desc.toString());
+				opcData.setOpcData("Transys.PLCWRITE.CM02.CYCLENO", plcWrite.getCycleno());
+				opcData.setOpcData("Transys.PLCWRITE.CM02.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
+				opcData.setOpcData("Transys.PLCWRITE.CM02.AGITATE_RPM", plcWrite.getAgitate_rpm());
+				opcData.setOpcData("Transys.PLCWRITE.CM02.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
+				opcData.setOpcData("Transys.PLCWRITE.CM02.PRD_GB", resetValue);
 				
 				Thread.sleep(500);
 	
-				opcData.setOpcData("Transys.PLCWRITE.CM01.CYCLENO", plcWrite.getCycleno());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
-				opcData.setOpcData("Transys.PLCWRITE.CM01.AGITATE_RPM", plcWrite.getAgitate_rpm());
-				opcData.setOpcData("Transys.PLCWRITE.CM01.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
-				opcData.setOpcData("Transys.PLCWRITE.CM01.PRD_GB", resetValue);
+				opcData.setOpcData("Transys.PLCWRITE.CM02.CYCLENO", plcWrite.getCycleno());
+				opcData.setOpcData("Transys.PLCWRITE.CM02.PUMBUN", Short.parseShort(plcWrite.getPumbun()));
+				opcData.setOpcData("Transys.PLCWRITE.CM02.AGITATE_RPM", plcWrite.getAgitate_rpm());
+				opcData.setOpcData("Transys.PLCWRITE.CM02.DEVICECODE", Short.parseShort(plcWrite.getDevicecode()));
+				opcData.setOpcData("Transys.PLCWRITE.CM02.PRD_GB", resetValue);
 	
 				//DB값 업데이트 (t_waitlist)
 				plcWriteDao.setPlcWriteDataUpdate(plcWrite);
@@ -80,25 +80,25 @@ public class PlcWriteServiceImpl implements PlcWriteService{
 				int device = Integer.parseInt(plcWrite.getDevicecode());
 				
 				switch (device) {
-					case 1 : MainController.outPutChk1 = false; break;
-					case 2 : MainController.outPutChk2 = false; break;
-					case 3 : MainController.outPutChk3 = false; break;
-					case 4 : MainController.outPutChk4 = false; break;
+					case 5 : MainController.outPutChk5 = false; break;
+					case 6 : MainController.outPutChk6 = false; break;
+					case 7 : MainController.outPutChk7 = false; break;
+					
 				}
 				Thread.sleep(200);
 				desc.append("-> 완료");
-				logger.info("PLCWRITE(14호기) : {}",desc.toString());			
+				logger.info("PLCWRITE(57호기) : {}",desc.toString());			
 			}
 		}
 	}
 		
-	//침탄1~4호기, 공통1호기
+	//침탄5~7호기, 공통2호기
 	public void plcWriteTimer() throws InterruptedException, ExecutionException {
 		String output_chk = "false";
 		OpcDataMap opcData = new OpcDataMap();
 		
 		//창고출고가능요구 1이면
-		Map<String, Object> outputMap = opcData.getOpcData("Transys.PLCWRITE.CM01.OUTPUT_CHK");	//DB18.X41.5
+		Map<String, Object> outputMap = opcData.getOpcData("Transys.PLCWRITE.CM02.OUTPUT_CHK");	//DB18.X41.5
 		
 		output_chk = outputMap.get("value").toString();
 		

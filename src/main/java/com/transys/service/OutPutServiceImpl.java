@@ -35,22 +35,20 @@ public class OutPutServiceImpl implements OutPutService{
 			//OUTPUT_TAB에 INSERT
 			
 			switch(devicecode) {
-				case 1: MainController.outPutChk1 = true;
+				case 1: MainController.outPutChk5 = true;
 						desc.append(devicecode+"호기 출고요청 완료");
 				break;
-				case 2: MainController.outPutChk2 = true;
+				case 2: MainController.outPutChk6 = true;
 						desc.append(devicecode+"호기 출고요청 완료");
 				break;
-				case 3: MainController.outPutChk3 = true;
+				case 3: MainController.outPutChk7 = true;
 						desc.append(devicecode+"호기 출고요청 완료");
 				break;
-				case 4: MainController.outPutChk4 = true;
-						desc.append(devicecode+"호기 출고요청 완료");
-				break;
+			
 			}
 			
 			outPutDao.setOutPutSend(paramOutPut);
-			logger.info("OUTPUT(14호기) : {}",desc.toString());				
+			logger.info("OUTPUT(57호기) : {}",desc.toString());				
 		}
 	}
 
@@ -58,16 +56,16 @@ public class OutPutServiceImpl implements OutPutService{
 	@Override
 	public void outPutTimer() throws InterruptedException, ExecutionException {
 		//설비별 출고요청 가능신호
-		String hogi1 = "false";
-		String hogi2 = "false";
-		String hogi3 = "false";
-		String hogi4 = "false";
+		String hogi5 = "false";
+		String hogi6 = "false";
+		String hogi7 = "false";
+	
 
 		//설비별 출고제품 체크
-		String hogi1Prd = "0";
-		String hogi2Prd = "0";
-		String hogi3Prd = "0";
-		String hogi4Prd = "0";
+		String hogi5Prd = "0";
+		String hogi6Prd = "0";
+		String hogi7Prd = "0";
+	
 		
 		//창고 출고가능 요구신호
 		int outContinue = 0;
@@ -75,47 +73,47 @@ public class OutPutServiceImpl implements OutPutService{
 		//각 설비별 출고요청가능 신호 받기
 		OpcDataMap opcData = new OpcDataMap();
 		//창고출고가능요구 1이면
-		Map<String, Object> hogi1Map = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI1");
-		Map<String, Object> hogi2Map = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI2");
-		Map<String, Object> hogi3Map = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI3");
-		Map<String, Object> hogi4Map = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI4");
+		Map<String, Object> hogi1Map = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI5");
+		Map<String, Object> hogi2Map = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI6");
+		Map<String, Object> hogi3Map = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI7");
+	
 		Thread.sleep(300);
 		
-		hogi1 = hogi1Map.get("value").toString();
-		hogi2 = hogi2Map.get("value").toString();
-		hogi3 = hogi3Map.get("value").toString();
-		hogi4 = hogi4Map.get("value").toString();
+		hogi5 = hogi1Map.get("value").toString();
+		hogi6 = hogi2Map.get("value").toString();
+		hogi7 = hogi3Map.get("value").toString();
+		
 
 		//
-		Map<String, Object> hogi1PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI1_PRD");
-		Map<String, Object> hogi2PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI2_PRD");
-		Map<String, Object> hogi3PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI3_PRD");
-		Map<String, Object> hogi4PrdMap = opcData.getOpcData("Transys.OUTPUT.CM01.HOGI4_PRD");
+		Map<String, Object> hogi1PrdMap = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI5_PRD");
+		Map<String, Object> hogi2PrdMap = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI6_PRD");
+		Map<String, Object> hogi3PrdMap = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI7_PRD");
+		
 		Thread.sleep(300);
 		
-		hogi1Prd = hogi1PrdMap.get("value").toString();
-		hogi2Prd = hogi2PrdMap.get("value").toString();
-		hogi3Prd = hogi3PrdMap.get("value").toString();
-		hogi4Prd = hogi4PrdMap.get("value").toString();	
+		hogi5Prd = hogi1PrdMap.get("value").toString();
+		hogi6Prd = hogi2PrdMap.get("value").toString();
+		hogi7Prd = hogi3PrdMap.get("value").toString();
+	
 		
 		StringBuffer desc = new StringBuffer();
-		desc.append("hogi1 : "+hogi1+"// hogi2 : "+hogi2+"// hogi3 : "+hogi3+"// hogi4 : "+hogi4);
-		desc.append("hogi1Prd : "+hogi1Prd+"// hogi2Prd : "+hogi2Prd+"// hogi3Prd : "+hogi3Prd+"// hogi4Prd : "+hogi4Prd);
+		desc.append("hogi5 : "+hogi5+"// hogi6 : "+hogi6+"// hogi7 : "+hogi7);
+		desc.append("hogi5Prd : "+hogi5Prd+"// hogi6Prd : "+hogi6Prd+"// hogi7Prd : "+hogi7Prd);
 		
-		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.PLCWRITE.CM01.DEVICECODE");
+		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.PLCWRITE.CM02.DEVICECODE");
 		
 		outContinue = Integer.parseInt(outContinueMap.get("value").toString());
 		desc.append("outContinue : "+outContinue+"// ");
 //		logger.info("OUTPUT {}",desc.toString());
 		//출고요청신호 확인시 1이면
 		
-		//1호기
-		if("true".equals(hogi1)) {
+		//5호기
+		if("true".equals(hogi5)) {
 			desc = new StringBuffer();
-			desc.append("hogi1 : "+hogi1+"// ");			
+			desc.append("hogi5 : "+hogi5+"// ");			
 			//화물 위치체크
-			if("0".equals(hogi1Prd)) {
-				desc.append("hogi1Prd : "+hogi1Prd+"// ");				
+			if("0".equals(hogi6Prd)) {
+				desc.append("hogi6Prd : "+hogi6Prd+"// ");				
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
 					desc.append("outContinue : "+outContinue+"// ");
@@ -131,11 +129,11 @@ public class OutPutServiceImpl implements OutPutService{
 			}
 		}
 		
-		//2호기
-		if("true".equals(hogi2)) {
+		//6호기
+		if("true".equals(hogi6)) {
 
 			//화물 위치체크
-			if("0".equals(hogi2Prd)) {
+			if("0".equals(hogi6Prd)) {
 
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
@@ -148,10 +146,10 @@ public class OutPutServiceImpl implements OutPutService{
 			}
 		}
 		
-		//3호기
-		if("true".equals(hogi3)) {
+		//7호기
+		if("true".equals(hogi7)) {
 			//화물 위치체크
-			if("0".equals(hogi3Prd)){
+			if("0".equals(hogi7Prd)){
 				//PLCWRITE의 설비값이 0일때
 				if(outContinue == 0) {
 					if(!MainController.outPutChk3) {
@@ -161,18 +159,7 @@ public class OutPutServiceImpl implements OutPutService{
 			}
 		}
 		
-		//4호기
-		if("true".equals(hogi4)) {
-			//화물 위치체크
-			if("0".equals(hogi4Prd)) {
-				//PLCWRITE의 설비값이 0일때
-				if(outContinue == 0) {
-					if(!MainController.outPutChk4) {
-						outPut(4);
-					}
-				}
-			}
-		}
+		
 		
 		
 	}
