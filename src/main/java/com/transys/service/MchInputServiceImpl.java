@@ -34,12 +34,7 @@ public class MchInputServiceImpl implements MchInputService{
 			//t_workinline에서 품번, 호기로 데이터 조회
 			MchInput mchInput = new MchInput();
 			mchInput.setPumbun(plcPumbun);
-			mchInput.setDevicecode(plcDevice);
-			
-			desc.append("보내는 DEVICECODE : "+mchInput.getDevicecode()+"// ");
-			desc.append("보내는 PUMBUN : "+mchInput.getPumbun()+"// ");			
-			logger.info("MCHINPUT(14호기) : {}",desc.toString());	
-			
+			mchInput.setDevicecode(plcDevice);			
 			
 			//t_workinline, t_product 조인쿼리 실행
 			MchInput mchData = mchInputDao.getMchInputDataSelectWorkInline(mchInput);
@@ -79,10 +74,12 @@ public class MchInputServiceImpl implements MchInputService{
 					//INPUT_TAB에 정상적인 데이터 INSERT
 					mchInputDao.setMchDataInsertInputTab(mchData);
 			
-					String send1 = mchInput.getPumcode();
-					String send2 = mchInput.getLotno();
-					String send3 = mchInput.getMeslot();
-					int send4 = mchInput.getLoadcnt();
+					String send1 = mchData.getPumcode();
+					String send2 = mchData.getLotno();
+					String send3 = mchData.getMeslot();
+					String send4 = mchData.getLoadcnt()+"";
+					
+					
 					
 					//PLC값 0:출고대기, 1:작업중, 2:창고입고완료
 					//t_waitlist에 PLC값 2로 업데이트
@@ -95,6 +92,15 @@ public class MchInputServiceImpl implements MchInputService{
 					mchInputDao.setMchDataDeleteWorkInline(mchData);
 			
 					OpcDataMap opcData = new OpcDataMap();
+					//전송데이터 입력
+					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMCODE", send1);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.LOTNO", send2);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.MESLOT", send3);
+					opcData.setOpcData("Transys.MCHINPUT.CM01.LOADCNT", send4);
+					
+					//마지막 창고입고 품번, 호기 입력
+					opcData.setOpcData("Transys.MCHINPUT.CM01.LAST_DEVICE", Short.parseShort(mchInput.getDevicecode()+""));
+					opcData.setOpcData("Transys.MCHINPUT.CM01.LAST_PUMBUN", Short.parseShort(mchInput.getPumbun()+""));
 					
 					//화면의 표시값 초기화 (PLC값 등등)
 					opcData.setOpcData("Transys.MCHINPUT.CM01.PUMBUN", resetValue);

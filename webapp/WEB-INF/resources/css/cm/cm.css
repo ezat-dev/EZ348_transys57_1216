@@ -7,12 +7,172 @@
   left: 102px;
   top: 123px;
 }
+.wash-1 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 1410px;
+  top: 128px;
+  object-fit: cover;
+}
+.wash-2 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 1497px;
+  top: 128px;
+  object-fit: cover;
+}
+.wash-3 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 1411px;
+  top: 366px;
+  object-fit: cover;
+}
+.wash-4 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 1499px;
+  top: 366px;
+  object-fit: cover;
+}
 ._3-3-1 {
   width: 1788px;
   height: 492px;
   position: absolute;
   left: 86px;
   top: 63px;
+  object-fit: cover;
+}
+.background-1 {
+  background: #ffffff;
+  width: 66px;
+  height: 107px;
+  position: absolute;
+  left: 545px;
+  top: 222px;
+}
+.background-2 {
+  background: #ffffff;
+  width: 69px;
+  height: 88px;
+  position: absolute;
+  left: 755px;
+  top: 243px;
+}
+.background-3 {
+  background: #ffffff;
+  width: 69px;
+  height: 57px;
+  position: absolute;
+  left: 1254px;
+  top: 390px;
+}
+.background-4 {
+  background: #ffffff;
+  width: 151px;
+  height: 70px;
+  position: absolute;
+  left: 1254px;
+  top: 235px;
+}
+.background-5 {
+  background: #ffffff;
+  width: 73px;
+  height: 70px;
+  position: absolute;
+  left: 1254px;
+  top: 282px;
+}
+.elevator-1 {
+  width: 103px;
+  height: 200px;
+  position: absolute;
+  left: 524px;
+  top: 131px;
+  object-fit: cover;
+}
+.elevator-on-1 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 521px;
+  top: 191px;
+  object-fit: cover;
+}
+.elevator-on-2 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 636px;
+  top: 191px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+  object-fit: cover;
+}
+.elevator-off-1 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 521px;
+  top: 191px;
+  object-fit: cover;
+}
+.elevator-off-2 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 636px;
+  top: 191px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+  object-fit: cover;
+}
+.elevator-2 {
+  width: 103px;
+  height: 200px;
+  position: absolute;
+  left: 726px;
+  top: 133px;
+  object-fit: cover;
+}
+.elevator-on-3 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 723px;
+  top: 193px;
+  object-fit: cover;
+}
+.elevator-on-4 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 838px;
+  top: 193px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
+  object-fit: cover;
+}
+.elevator-off-3 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 723px;
+  top: 193px;
+  object-fit: cover;
+}
+.elevator-off-4 {
+  width: 20px;
+  height: 105px;
+  position: absolute;
+  left: 838px;
+  top: 193px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(-1, 1);
   object-fit: cover;
 }
 .tong-0 {
