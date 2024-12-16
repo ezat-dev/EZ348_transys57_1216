@@ -3,7 +3,6 @@ package com.transys.service;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import org.apache.poi.util.SystemOutLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +68,7 @@ public class MchInputServiceImpl implements MchInputService{
 					desc.append("REMARK : "+mchData.getRemark()+"// ");
 					desc.append("LOADCNT : "+mchData.getLoadcnt()+"// ");
 					
-					logger.info("MCHINPUT(14호기) : {}",desc.toString());
+					logger.info("MCHINPUT(57호기) : {}",desc.toString());
 					
 					//INPUT_TAB에 정상적인 데이터 INSERT
 					mchInputDao.setMchDataInsertInputTab(mchData);
@@ -108,7 +107,7 @@ public class MchInputServiceImpl implements MchInputService{
 					
 					//마지막 창고 입고내역
 					desc.append("--> 입고완료");
-					opcData.setOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT", Short.parseShort(MainController.plcCount+""));
+					opcData.setOpcData("Transys.MCHINPUT.CM02.INPUT_COUNT", Short.parseShort(MainController.plcCount+""));
 					logger.info("MCHINPUT(57호기) : {}",desc.toString());					
 					
 				}else {
@@ -147,6 +146,20 @@ public class MchInputServiceImpl implements MchInputService{
 		
 		mchInputChk = mchInputMap.get("value").toString();
 		
+		
+		//제품 강제입고처리 신호
+		short resetValue = 0;
+		String mchInputForceChk = "false";
+		Map<String, Object> mchInputForceMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.INPUT_FORCE");
+		
+		mchInputForceChk = mchInputForceMap.get("value").toString();
+		Map<String, Object> pumbunWaitMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.WAIT_PUMBUN");		//DB1.DBW804
+		Map<String, Object> deviceWaitMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.WAIT_DEVICE");	//DB1.DBW808		
+		
+		String plcWaitPumbun = pumbunWaitMap.get("value").toString();
+		String plcWaitDevice = deviceWaitMap.get("value").toString();
+		
+		
 		String savePumbun = "";
 		String saveDevice = "";
 		
@@ -158,6 +171,40 @@ public class MchInputServiceImpl implements MchInputService{
 		if(!"0".equals(plcDevice) && plcDevice.length() > 0) {
 			saveDevice = plcDevice;
 		}		
+		
+		
+		//강제입고처리 진행
+		if("true".equals(mchInputForceChk)) {
+			
+			if(!"0".equals(plcWaitPumbun) && plcWaitPumbun.length() > 0) {
+				//4자리 포맷으로 만들기 품번이 4면 0004
+				savePumbun = String.format("%04d",Integer.parseInt(plcWaitPumbun));
+			}
+			
+			if(!"0".equals(plcWaitDevice) && plcWaitDevice.length() > 0) {
+				saveDevice = plcWaitDevice;
+			}
+			
+			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM02.INPUT_COUNT");	//가상태그
+			
+			//PLC 창고입고카운트 1증가
+			MainController.plcCount = Integer.parseInt(plcCountMap.get("value").toString());			
+			MainController.plcCount++;
+			
+	        //txt_INPUT1 값이 txt_INPUT 값보다 먼저 삭제되는 경우가 발생하여 변수로 저장한 값으로 비교(이동진 수정 : 2012.09.07)
+			if(!"0".equals(savePumbun) && !"0".equals(saveDevice)) {
+				
+				mchInput(savePumbun, saveDevice);
+			}else {
+				//로그남기기(입고등록 중단)
+			}
+			
+			opcDataMap.setOpcData("Transys.MCHINPUT.CM02.INPUT_FORCE", false);
+			opcDataMap.setOpcData("Transys.MCHINPUT.CM02.WAIT_PUMBUN", resetValue);
+			opcDataMap.setOpcData("Transys.MCHINPUT.CM02.WAIT_DEVICE", resetValue);
+		}
+		
+		
 		
 		if("true".equals(mchInputChk)) {
 			desc.append("PUMBUN : "+savePumbun+"// ");
