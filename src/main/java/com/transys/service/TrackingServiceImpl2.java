@@ -65,7 +65,7 @@ public class TrackingServiceImpl2 implements TrackingService2{
 			logger.info("TRACKING(57호기) : {}",desc.toString());						
 			//트래킹 실행
 			trackingDao.ccf1Tracking01(tracking);
-			//지연시간 0.3초
+			//지연시간 0.3 초
 			Thread.sleep(300);
 			
 			//트래킹처리 후 PRD_CHK_01 0으로 변경
@@ -137,7 +137,7 @@ public class TrackingServiceImpl2 implements TrackingService2{
 				
 	}
 	
-	//[8]SALT장입 : SALT 처리 시작위치
+	//[8]SALT장입 : SALT 처리  시작위치
 	public void ccf2Tracking08() throws InterruptedException, ExecutionException{
 					
 		String setDataDir = "Transys.TRACKING.CCF06.C08";

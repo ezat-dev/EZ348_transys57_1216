@@ -52,8 +52,8 @@ public class OutPutServiceImpl implements OutPutService{
 		}
 	}
 
-	//침탄 1~4호기
-	@Override
+	//침탄 5~7호기
+	 @Override
 	public void outPutTimer() throws InterruptedException, ExecutionException {
 		//설비별 출고요청 가능신호
 		String hogi5 = "false";
@@ -61,7 +61,7 @@ public class OutPutServiceImpl implements OutPutService{
 		String hogi7 = "false";
 	
 
-		//설비별 출고제품 체크
+		//설비별 출고제품 체크1  
 		String hogi5Prd = "0";
 		String hogi6Prd = "0";
 		String hogi7Prd = "0";

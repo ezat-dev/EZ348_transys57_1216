@@ -179,7 +179,7 @@ public class WorkController {
         return rtnMap; // 
     }
     
-    //작업일보 데이터 추가1
+    //작업일보 데이터 추가
     @RequestMapping(value= "/work/workDetailAdd", method = RequestMethod.GET)
     public String workDetailAdd(Model model) {       
 

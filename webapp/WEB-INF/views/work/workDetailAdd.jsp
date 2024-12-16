@@ -120,7 +120,7 @@
 			
 			<form id="workDataAddForm" name="workDataAddForm" method="post">
 				<div class="add_box" style="margin-top: 5%;" >
-					<div class="add_text"><label>처리품 코드 : </label><input type="text" id="pumcode" name="pumcode"/></div>
+					<div class="add_text"><label>처리품 코드  : </label><input type="text" id="pumcode" name="pumcode"/></div>
 					<div class="add_text"><label>침탄로 :</label>
 						<select id="devicecode" name="devicecode" >
 							<option value="5">5호기</option>

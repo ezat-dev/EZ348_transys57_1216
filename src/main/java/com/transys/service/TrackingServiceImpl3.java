@@ -62,7 +62,7 @@ public class TrackingServiceImpl3 implements TrackingService3{
 			desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
 			desc.append("setDataDir : "+setDataDir);
 			
-			logger.info("TRACKING(14호기) : {}",desc.toString());						
+			logger.info("TRACKING(57호기) : {}",desc.toString());						
 			//트래킹 실행
 			trackingDao.ccf1Tracking01(tracking);
 			//지연시간 0.3초
