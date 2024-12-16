@@ -51,7 +51,7 @@ public class TrackingServiceImpl3 implements TrackingService3{
 			if("PRD_CHK".equals(tagName)) {
 				tracking.setDevicecode(devicecode);				
 				tracking.setCurLocation(curLocation);
-				prdChk = 7;
+				prdChk = 1;
 			}
 		}
 		

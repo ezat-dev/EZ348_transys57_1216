@@ -74,6 +74,7 @@
 		font-size:15pt;
 		font-weight:700;
 		width:60%;
+		
 	}
 
 	.add_text > label{
