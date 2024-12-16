@@ -20,11 +20,12 @@ public class MchInputServiceImpl implements MchInputService{
 	@Autowired
 	private MchInputDao mchInputDao;
 	
-	private static final Logger logger = LoggerFactory.getLogger(MchInputServiceImpl.class);
+	private final Logger logger = LoggerFactory.getLogger(MchInputServiceImpl.class);
 	
 	public void mchInput(String plcPumbun, String plcDevice) throws InterruptedException, ExecutionException {
 //		System.out.println("MCHINPUT ");
 		String dbMesLot = "";
+		String dbRemark = "";
 		StringBuffer desc = new StringBuffer();		
 		
 		//품번이 0이 아닐때만
@@ -35,18 +36,18 @@ public class MchInputServiceImpl implements MchInputService{
 			mchInput.setPumbun(plcPumbun);
 			mchInput.setDevicecode(plcDevice);
 			
+			desc.append("보내는 DEVICECODE : "+mchInput.getDevicecode()+"// ");
+			desc.append("보내는 PUMBUN : "+mchInput.getPumbun()+"// ");			
+			logger.info("MCHINPUT(14호기) : {}",desc.toString());	
+			
+			
 			//t_workinline, t_product 조인쿼리 실행
 			MchInput mchData = mchInputDao.getMchInputDataSelectWorkInline(mchInput);
 			short resetValue = 0;
-//			System.out.println("getRegTime : "+mchData.getRegtime());
+
 			//가져온 데이터가 있을때만
 			if(mchData != null) {
 				if(mchData.getRegtime() != null) {
-					desc.append("PUMBUN : "+mchData.getPumcode()+"// ");
-					desc.append("DEVICECODE : "+mchData.getDevicecode()+"// ");
-					desc.append("MESLOT : "+mchData.getMeslot()+"// ");
-					
-					logger.info("MCHINPUT(14호기) : {}",desc.toString());				
 					
 					//위 조건이 else 일때만, MESLOT가 공백(널)이면 변수 공백으로
 					if(mchData.getMeslot().length() == 0) {
@@ -54,10 +55,27 @@ public class MchInputServiceImpl implements MchInputService{
 					}else {
 						dbMesLot = mchData.getMeslot();
 					}
+					if(mchData.getRemark() == null) {
+						dbRemark = "";
+					}else {
+						dbRemark = mchData.getRemark();
+					}
 					
 					mchData.setMeslot(dbMesLot);
+					mchData.setRemark(dbRemark);
 					mchData.setDevicecode(plcDevice);
 
+					desc.append("REGTIME : "+mchData.getRegtime()+"// ");
+					desc.append("PUMBUN : "+mchData.getPumcode()+"// ");
+					desc.append("DEVICECODE : "+mchData.getDevicecode()+"// ");
+					desc.append("CYCLENO : "+mchData.getCycleno()+"// ");
+					desc.append("AGITATE_RPM : "+mchData.getAgitate_rpm()+"// ");
+					desc.append("MESLOT : "+mchData.getMeslot()+"// ");
+					desc.append("REMARK : "+mchData.getRemark()+"// ");
+					desc.append("LOADCNT : "+mchData.getLoadcnt()+"// ");
+					
+					logger.info("MCHINPUT(14호기) : {}",desc.toString());
+					
 					//INPUT_TAB에 정상적인 데이터 INSERT
 					mchInputDao.setMchDataInsertInputTab(mchData);
 			
@@ -98,16 +116,17 @@ public class MchInputServiceImpl implements MchInputService{
 			//t_workinline에 데이터가 없어도
 			//t_waitlist 업데이트, t_workinline 딜리트
 			//오늘날짜 - 5일 이전의 waitlist 업데이트
-//			mchInputDao.setMchDataUpdateSiljukFail(mchData);
+			mchInputDao.setMchDataUpdateSiljukFail(mchData);
 			
 			//오늘날짜 -5일 이전의 workinline 딜리트
-//			mchInputDao.setMchDataDeleteWorkInlineFail(mchData);
+			mchInputDao.setMchDataDeleteWorkInlineFail(mchData);
 		}
 	}
 
 	public void mchInputTimer() throws InterruptedException, ExecutionException {
 		OpcDataMap opcDataMap = new OpcDataMap();
 		String dbMesLot = "";
+		StringBuffer desc = new StringBuffer();
 		
 		//품번, 호기값 조회
 		Map<String, Object> pumbunMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.PUMBUN");		//DB1.DBW804
@@ -135,6 +154,11 @@ public class MchInputServiceImpl implements MchInputService{
 		}		
 		
 		if("true".equals(mchInputChk)) {
+			desc.append("PUMBUN : "+savePumbun+"// ");
+			desc.append("DEVICECODE : "+saveDevice+"// ");
+			
+			logger.info("MCHINPUT(14호기) : {}",desc.toString());					
+			
 			Map<String, Object> plcCountMap = opcDataMap.getOpcData("Transys.MCHINPUT.CM01.INPUT_COUNT");	//가상태그
 			
 			//PLC 창고입고카운트 1증가
@@ -144,7 +168,7 @@ public class MchInputServiceImpl implements MchInputService{
 	        //txt_INPUT1 값이 txt_INPUT 값보다 먼저 삭제되는 경우가 발생하여 변수로 저장한 값으로 비교(이동진 수정 : 2012.09.07)
 			if(!"0".equals(savePumbun) && !"0".equals(saveDevice)) {
 				
-				mchInput(plcPumbun, plcDevice);
+				mchInput(savePumbun, saveDevice);
 			}else {
 				//로그남기기(입고등록 중단)
 			}

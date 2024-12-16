@@ -55,7 +55,7 @@ public class TrackingServiceImpl4 implements TrackingService4{
 		}
 		
 		//DB저장
-		if(!"0000".equals(pumBun) && prdChk != 0) {
+		if(!"0000".equals(tracking.getPumbun()) && tracking.getPumbun() != null && prdChk != 0) {
 			desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
 			desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
 			desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");

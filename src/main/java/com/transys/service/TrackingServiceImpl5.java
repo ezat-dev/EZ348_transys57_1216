@@ -56,19 +56,11 @@ public class TrackingServiceImpl5 implements TrackingService5{
 				prdChk = Integer.parseInt(value);
 			}
 		
-			if(curLocation == 12) {
-				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
-				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
-				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
-				desc.append("setDataDir : "+setDataDir);
-				
-				logger.info("TRACKING(14호기) : {}",desc.toString());					
-			}
 		}
 		
 		//DB저장
 		if(curLocation < 12) {
-			if(!"0000".equals(tracking.getPumbun()) && prdChk != 0) {
+			if(!"0000".equals(tracking.getPumbun()) && tracking.getPumbun() != null && prdChk != 0) {
 				
 				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
 				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
@@ -86,7 +78,7 @@ public class TrackingServiceImpl5 implements TrackingService5{
 				opcDataMap.setOpcData(setDataDir+".PRD_CHK", resetValue);
 			}
 		}else {
-			if(!"0000".equals(tracking.getPumbun()) && !"0".equals(tracking.getDevicecode())) {
+			if(!"0000".equals(tracking.getPumbun()) && tracking.getPumbun() != null && prdChk != 0) {
 				tracking.setCurLocation(12);
 				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
 				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");

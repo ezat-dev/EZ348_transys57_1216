@@ -3,7 +3,7 @@
  <mapper namespace="mchInput">
 
 	<select id="getMchInputDataSelectWorkInline" resultType="mchInput" parameterType="mchInput">
-		SELECT A.REGTIME, A.PUMCODE, A.LOTNO, A.LOADCNT, A.MESLOT, B.CYCLENO, B.AGITATE_RPM, A.REMARK
+		SELECT A.regtime, A.pumcode, A.lotno, A.loadcnt, A.meslot, B.cycleno, B.agitate_rpm, A.remark
 		FROM T_WORKINLINE A
 		INNER JOIN T_PRODUCT B ON A.PUMCODE = B.DOBUN
 		WHERE A.PUMBUN = #{pumbun}
