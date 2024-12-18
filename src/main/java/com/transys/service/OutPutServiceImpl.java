@@ -69,7 +69,7 @@ public class OutPutServiceImpl implements OutPutService{
 	
 		
 		//창고 출고가능 요구신호
-		String outContinue = "false";
+		int outContinue = 0;
 		
 		//각 설비별 출고요청가능 신호 받기
 		OpcDataMap opcData = new OpcDataMap();
@@ -85,7 +85,7 @@ public class OutPutServiceImpl implements OutPutService{
 		hogi5 = hogi1Map.get("value").toString();
 		hogi6 = hogi2Map.get("value").toString();
 		hogi7 = hogi3Map.get("value").toString();
-		
+		outputCancel = outputCancelMap.get("value").toString();
 
 		//
 		Map<String, Object> hogi1PrdMap = opcData.getOpcData("Transys.OUTPUT.CM02.HOGI5_PRD");
@@ -103,9 +103,9 @@ public class OutPutServiceImpl implements OutPutService{
 		desc.append("hogi5 : "+hogi5+"// hogi6 : "+hogi6+"// hogi7 : "+hogi7);
 		desc.append("hogi5Prd : "+hogi5Prd+"// hogi6Prd : "+hogi6Prd+"// hogi7Prd : "+hogi7Prd);
 		
-		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.OUTPUT.CM02.OUTPUT_CHK");
+		Map<String, Object> outContinueMap = opcData.getOpcData("Transys.PLCWRITE.CM02.DEVICECODE");
 		
-		outContinue = outContinueMap.get("value").toString();
+		outContinue = Integer.parseInt(outContinueMap.get("value").toString());
 		desc.append("outContinue : "+outContinue+"// ");
 //		logger.info("OUTPUT {}",desc.toString());
 		//출고요청신호 확인시 1이면
@@ -125,12 +125,12 @@ public class OutPutServiceImpl implements OutPutService{
 			if("0".equals(hogi5Prd)) {
 				desc.append("hogi5Prd : "+hogi5Prd+"// ");				
 				//PLCWRITE의 설비값이 0일때
-				if("false".equals(outContinue)) {
+				if(outContinue == 0) {
 					desc.append("outContinue : "+outContinue+"// ");
 					desc.append("MainController.outPutChk5 : "+MainController.outPutChk5+"// ");
 					
 					logger.info("OUTPUT : {} ",desc.toString());					
-					if(!MainController.outPutChk1) {
+					if(!MainController.outPutChk5) {
 						desc.append("MainController.outPutChk5 ** : "+MainController.outPutChk5+"// ");
 						logger.info("OUTPUT : {} ",desc.toString());						
 						outPut(5);
@@ -146,7 +146,7 @@ public class OutPutServiceImpl implements OutPutService{
 			if("0".equals(hogi6Prd)) {
 
 				//PLCWRITE의 설비값이 0일때
-				if("false".equals(outContinue)) {
+				if(outContinue == 0) {
 
 					if(!MainController.outPutChk6) {
 
@@ -161,7 +161,7 @@ public class OutPutServiceImpl implements OutPutService{
 			//화물 위치체크
 			if("0".equals(hogi7Prd)){
 				//PLCWRITE의 설비값이 0일때
-				if("false".equals(outContinue)) {
+				if(outContinue == 0) {
 					if(!MainController.outPutChk7) {
 						outPut(7);
 					}
