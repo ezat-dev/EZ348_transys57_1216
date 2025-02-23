@@ -20,6 +20,8 @@ public interface WorkDao {
    void setWorkDetailAddDataSave(Work work);
 
    void setWorkDetailDelete(Work work);
+   
+   void setWorkDetailInlineDelete(Work work);
 
    void setWorkDetailEndSalt(Work work);
 
@@ -41,4 +43,12 @@ public interface WorkDao {
    List<Work> workMonthList(Work work);
        
    List<Work> workYearList(Work work);
+   
+   List<Work> workDayPrint(Work work);
+   
+   List<Work> workMonthPrint(Work work);
+   
+   List<Work> workYearPrint(Work work);
+
+void workDayPrintListCheckCntSet(Work work);
 }

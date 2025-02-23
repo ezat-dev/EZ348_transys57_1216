@@ -21,8 +21,8 @@ import com.transys.util.OpcDataMap;
 public class MainController {
 	
 	//오토닉스 서버 IP
-	public static final String MAIN_IP = "192.168.1.38";
-	public static final String SUB_IP = "192.168.1.38";
+	public static final String MAIN_IP = "192.168.0.101";
+	public static final String SUB_IP = "192.168.0.101";
 	public static final int PORT = 5660;
 	
 	public static OpcUaClient client = null;
@@ -149,7 +149,7 @@ public class MainController {
     
     @RequestMapping(value= "/", method = RequestMethod.GET)
     public String ccf01_02(Model model) {
-        return "/ccf/ccf01_02.jsp"; // 
+        return "/ccf/ccf05_06.jsp"; // 
     }
     
     //메인, 백업서버 핑테스트 메서드

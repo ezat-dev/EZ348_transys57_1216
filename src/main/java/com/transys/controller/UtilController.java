@@ -74,8 +74,8 @@ public class UtilController {
     public Map<String, Object> utilYearList(
             @RequestParam("electricYear") int electricYear  
     ) {
-        System.out.println("Received request:");
-        System.out.println("electricYear: " + electricYear); 
+        //System.out.println("Received request:");
+        //System.out.println("electricYear: " + electricYear); 
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -85,14 +85,14 @@ public class UtilController {
 
             List<Util> utilYearList = utilService.utilYearList(util); 
 
-            System.out.println("Received request:");
-            System.out.println("electricYear: " + electricYear);
+            //System.out.println("Received request:");
+            //System.out.println("electricYear: " + electricYear);
 
 
             rtnMap.put("status", "ok");
             rtnMap.put("data", utilYearList);
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }
@@ -107,11 +107,11 @@ public class UtilController {
             @RequestParam("lngMonth") int lngMonth,
             @RequestParam String deviceCode
     ) {
-        System.out.println("Received request:");
-        System.out.println("lngYear: " + lngYear); 
-        System.out.println("lngMonth: " + lngMonth); 
-        System.out.println("deviceCode: " + deviceCode); 
-        System.out.println("-------------------");
+        //System.out.println("Received request:");
+        //System.out.println("lngYear: " + lngYear); 
+        //System.out.println("lngMonth: " + lngMonth); 
+        //System.out.println("deviceCode: " + deviceCode); 
+        //System.out.println("-------------------");
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -126,7 +126,7 @@ public class UtilController {
             rtnMap.put("status", "ok");
             rtnMap.put("rows", utilMonthList); // 'data' 대신 'rows' 사용
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }
@@ -141,8 +141,8 @@ public class UtilController {
     public Map<String, Object> utilElectricYearList(
             @RequestParam("electricYear") int electricYear  
     ) {
-        System.out.println("Received request:");
-        System.out.println("electricYear: " + electricYear); 
+        //System.out.println("Received request:");
+        //System.out.println("electricYear: " + electricYear); 
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -152,14 +152,14 @@ public class UtilController {
 
             List<Util> utilYearList = utilService.utilElectricYearList(util); 
 
-            System.out.println("Received request:");
-            System.out.println("electricYear: " + electricYear);
+            //System.out.println("Received request:");
+            //System.out.println("electricYear: " + electricYear);
 
 
             rtnMap.put("status", "ok");
             rtnMap.put("data", utilYearList);
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }
@@ -174,11 +174,11 @@ public class UtilController {
             @RequestParam("lngMonth") int lngMonth,
             @RequestParam String deviceCode
     ) {
-        System.out.println("Received request:");
-        System.out.println("lngYear: " + lngYear); 
-        System.out.println("lngMonth: " + lngMonth); 
-        System.out.println("deviceCode: " + deviceCode); 
-        System.out.println("-------------------");
+        //System.out.println("Received request:");
+        //System.out.println("lngYear: " + lngYear); 
+        //System.out.println("lngMonth: " + lngMonth); 
+        //System.out.println("deviceCode: " + deviceCode); 
+        //System.out.println("-------------------");
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -193,7 +193,7 @@ public class UtilController {
             rtnMap.put("status", "ok");
             rtnMap.put("rows", utilMonthList); // 'data' 대신 'rows' 사용
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }
@@ -227,7 +227,7 @@ public class UtilController {
 
         List<Util> util1 = utilService.utilElectricYearList(util);
 
-        System.out.println("사이즈 : " + util1.size());
+        //System.out.println("사이즈 : " + util1.size());
 
         try {
             fis = new FileInputStream(openPath + "EZ348)트랜시스양식_전력사용량.xlsx");
@@ -357,7 +357,7 @@ public class UtilController {
             fos.flush();
 
         } catch (Exception e) {
-            System.out.println(e);
+            //System.out.println(e);
         } finally {
             if (fis != null) { fis.close(); }
             if (fos != null) { fos.close(); }
@@ -395,7 +395,7 @@ public class UtilController {
 
         List<Util> util1 = utilService.utilYearList(util);
 
-        System.out.println("사이즈 : " + util1.size());
+        //System.out.println("사이즈 : " + util1.size());
 
         try {
             fis = new FileInputStream(openPath + "EZ348)트랜시스양식_LNG사용량.xlsx");
@@ -524,7 +524,7 @@ public class UtilController {
             fos.flush();
 
         } catch (Exception e) {
-            System.out.println(e);
+            //System.out.println(e);
         } finally {
             if (fis != null) { fis.close(); }
             if (fos != null) { fos.close(); }

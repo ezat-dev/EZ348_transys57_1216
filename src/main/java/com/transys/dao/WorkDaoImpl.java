@@ -48,6 +48,11 @@ public class WorkDaoImpl implements WorkDao {
     public void setWorkDetailDelete(Work work) {
     	sqlSession.delete("work.setWorkDetailDelete", work);
     }
+    
+    @Override
+    public void setWorkDetailInlineDelete(Work work) {
+    	sqlSession.delete("work.setWorkDetailInlineDelete", work);
+    }
 
     @Override
     public void setWorkDetailEndSalt(Work work) {
@@ -98,4 +103,25 @@ public class WorkDaoImpl implements WorkDao {
     public List<Work> workYearList(Work work) {
         return sqlSession.selectList("work.workYearList", work);
     }
+    
+    @Override
+    public List<Work> workDayPrint(Work work) {
+        return sqlSession.selectList("work.workDayPrint", work);
+    }
+    
+    @Override
+    public List<Work> workMonthPrint(Work work) {
+        return sqlSession.selectList("work.workMonthPrint", work);
+    }
+    
+    @Override
+    public List<Work> workYearPrint(Work work) {
+        return sqlSession.selectList("work.workYearPrint", work);
+    }
+
+	@Override
+	public void workDayPrintListCheckCntSet(Work work) {
+		sqlSession.insert("work.workDayPrintListCheckCntSet", work);
+	}
+
 }

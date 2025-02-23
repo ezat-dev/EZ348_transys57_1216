@@ -141,6 +141,42 @@ ul{
 		</ul>
 	</nav>
 	
+		<nav class="Menu" >
+		<ul>		
+			<li><a class="menuLink" href="/transys/work/dayPrint">작업일보 인쇄</a></li>
+
+			<li><a class="menuLink"></a></li>
+			
+			<li><a class="menuLink"></a></li>
+
+				<li><a class="menuLink"></a></li>
+		</ul>
+	</nav>
+	
+		<nav class="Menu" >
+		<ul>		
+			<li><a class="menuLink" href="/transys/work/monthPrint">작업월보 인쇄</a></li>
+
+			<li><a class="menuLink"></a></li>
+			
+			<li><a class="menuLink"></a></li>
+
+				<li><a class="menuLink"></a></li>
+		</ul>
+	</nav>
+	
+		<nav class="Menu" >
+		<ul>		
+			<li><a class="menuLink" href="/transys/work/yearPrint">작업연보 인쇄</a></li>
+
+			<li><a class="menuLink"></a></li>
+			
+			<li><a class="menuLink"></a></li>
+
+				<li><a class="menuLink"></a></li>
+		</ul>
+	</nav>
+	
 	
 
 	
@@ -149,7 +185,7 @@ ul{
 	
 	<nav class="Menu"  style="margin-top: 3%;" >
 		<ul>		
-			<li><a class="menuLink" href="/transys/ccf/ccf01_02" style="width:820px;">닫 기</a></li>
+			<li><a class="menuLink" href="/transys/ccf/ccf05_06" style="width:820px;">닫 기</a></li>
 		</ul>
 	</nav>
 </body>

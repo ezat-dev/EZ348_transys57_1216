@@ -68,9 +68,9 @@ public class AlarmController {
     									@RequestParam String time) {
 
 /*
-        System.out.println("Received request:");
-        System.out.println("alarmgroup: " + alarmgroup);
-        System.out.println("DBTIME(년도): " + time);
+        //System.out.println("Received request:");
+        //System.out.println("alarmgroup: " + alarmgroup);
+        //System.out.println("DBTIME(년도): " + time);
 */
 
         Alarm alarm = new Alarm();
@@ -98,10 +98,10 @@ public class AlarmController {
             @RequestParam String sDate,
             @RequestParam String eDate
     ) {
-        System.out.println("Received request:");
-        System.out.println("alarmgroup: " + alarmgroup);
-        System.out.println("sDate: " + sDate);
-        System.out.println("eDate: " + eDate);
+        //System.out.println("Received request:");
+        //System.out.println("alarmgroup: " + alarmgroup);
+        //System.out.println("sDate: " + sDate);
+        //System.out.println("eDate: " + eDate);
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -115,8 +115,8 @@ public class AlarmController {
             }
 
             // 수정된 sDate와 eDate 값 프린트
-            System.out.println("Processed sDate: " + sDate);
-            System.out.println("Processed eDate: " + eDate);
+            //System.out.println("Processed sDate: " + sDate);
+            //System.out.println("Processed eDate: " + eDate);
 
             Alarm alarm = new Alarm();
             alarm.setAlarmGroup(alarmgroup);
@@ -125,18 +125,18 @@ public class AlarmController {
 
             List<Alarm> alarmList = alarmService.getAlarmList(alarm);
 
-            System.out.println("Alarm List Size: " + alarmList.size());
+            //System.out.println("Alarm List Size: " + alarmList.size());
 
             for (Alarm alarmData : alarmList) {
-                System.out.println("Tag Name: " + alarmData.getTagName());
-                System.out.println("Total: " + alarmData.getTotal());
+                //System.out.println("Tag Name: " + alarmData.getTagName());
+                //System.out.println("Total: " + alarmData.getTotal());
             }
 
             rtnMap.put("status", "success");
             rtnMap.put("last_page", 1);
             rtnMap.put("data", alarmList);
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }
@@ -164,8 +164,8 @@ public class AlarmController {
             }
 
             // 수정된 sDate와 eDate 값 프린트
-            System.out.println("Processed sDate: " + sDate);
-            System.out.println("Processed eDate: " + eDate);
+            //System.out.println("Processed sDate: " + sDate);
+            //System.out.println("Processed eDate: " + eDate);
 
             Alarm alarm = new Alarm();
             alarm.setAlarmGroup(alarmgroup);
@@ -183,15 +183,15 @@ public class AlarmController {
 
             List<Alarm> alarmList = alarmService.getAlarmList(alarm);
 
-            System.out.println("알람 리스트:");
+            //System.out.println("알람 리스트:");
             for (int i = 0; i < alarmList.size(); i++) {
                 Alarm w = alarmList.get(i);
-                System.out.println("순번: " + (i + 1));
-                System.out.println("설비명: " + w.getTagName());
-                System.out.println("PLC ADDR: " + w.getAlarmState());
-                System.out.println("경보내용: " + w.getAlarmState());
-                System.out.println("발생시간" + w.getTime());
-                System.out.println("해제시간" + w.getLead_alarmtime());
+                //System.out.println("순번: " + (i + 1));
+                //System.out.println("설비명: " + w.getTagName());
+                //System.out.println("PLC ADDR: " + w.getAlarmState());
+                //System.out.println("경보내용: " + w.getAlarmState());
+                //System.out.println("발생시간" + w.getTime());
+                //System.out.println("해제시간" + w.getLead_alarmtime());
             }
 
             try {
@@ -311,25 +311,25 @@ public class AlarmController {
 
         List<Alarm> alarmList = alarmService.getAlarmSummary(alarm);  
       
-        System.out.println("작업 년보 데이터 리스트:");
+        //System.out.println("작업 년보 데이터 리스트:");
         for (int i = 0; i < alarmList.size(); i++) {
             Alarm w = alarmList.get(i);
-            System.out.println("순번: " + (i + 1));
-            System.out.println("getAlarmGroup: " + w.getAlarmGroup());
-            System.out.println("getTagName: " + w.getTagName());
-            System.out.println("getAlarmDesc: " + w.getAlarmDesc());
-            System.out.println("m01: " + w.getM01());
-            System.out.println("m02: " + w.getM02());
-            System.out.println("m03: " + w.getM03());
-            System.out.println("m04: " + w.getM04());
-            System.out.println("m05: " + w.getM05());
-            System.out.println("m06: " + w.getM06());
-            System.out.println("m07: " + w.getM07());
-            System.out.println("m08: " + w.getM08());
-            System.out.println("m09: " + w.getM09());
-            System.out.println("m10: " + w.getM10());
-            System.out.println("m11: " + w.getM11());
-            System.out.println("m12: " + w.getM12());
+            ////System.out.println("순번: " + (i + 1));
+            //System.out.println("getAlarmGroup: " + w.getAlarmGroup());
+            //System.out.println("getTagName: " + w.getTagName());
+            //System.out.println("getAlarmDesc: " + w.getAlarmDesc());
+            //System.out.println("m01: " + w.getM01());
+            //System.out.println("m02: " + w.getM02());
+            //System.out.println("m03: " + w.getM03());
+            //System.out.println("m04: " + w.getM04());
+            //System.out.println("m05: " + w.getM05());
+            //System.out.println("m06: " + w.getM06());
+            //System.out.println("m07: " + w.getM07());
+            //System.out.println("m08: " + w.getM08());
+            //System.out.println("m09: " + w.getM09());
+            //System.out.println("m10: " + w.getM10());
+            //System.out.println("m11: " + w.getM11());
+            //System.out.println("m12: " + w.getM12());
         }
 
         try {
@@ -496,8 +496,8 @@ public class AlarmController {
     public Map<String, Object> alarmInfo(
             @RequestParam(required = false) String alarmgroup
     ) {
-        System.out.println("=== Received request ===");
-        System.out.println("alarmgroup: " + alarmgroup);
+        //System.out.println("=== Received request ===");
+        //System.out.println("alarmgroup: " + alarmgroup);
 
         Map<String, Object> rtnMap = new HashMap<>();
 
@@ -505,17 +505,17 @@ public class AlarmController {
             // 공백을 제거한 alarmgroup 값을 사용
             alarmgroup = (alarmgroup != null) ? alarmgroup.trim() : null;
 
-            System.out.println("Before service call: alarmgroup = " + alarmgroup);
+            //System.out.println("Before service call: alarmgroup = " + alarmgroup);
 
             Alarm alarm = new Alarm();
             alarm.setAlarmGroup(alarmgroup);
 
             List<Alarm> alarmList = alarmService.getAlarmInfo(alarm);
 
-            System.out.println("Alarm List Size: " + alarmList.size());
+            //System.out.println("Alarm List Size: " + alarmList.size());
             for (Alarm alarmData : alarmList) {
-                System.out.println("getAlarmGroup: " + alarmData.getAlarmGroup());
-                System.out.println("Alarm Desc: " + alarmData.getAlarmDesc());
+                //System.out.println("getAlarmGroup: " + alarmData.getAlarmGroup());
+                //System.out.println("Alarm Desc: " + alarmData.getAlarmDesc());
             }
 
             rtnMap.put("status", "success");
@@ -523,7 +523,7 @@ public class AlarmController {
             rtnMap.put("data", alarmList);
 
         } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
+            //System.out.println("Error occurred: " + e.getMessage());
             rtnMap.put("status", "error");
             rtnMap.put("message", e.getMessage());
         }

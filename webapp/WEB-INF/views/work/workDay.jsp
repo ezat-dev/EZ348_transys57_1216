@@ -149,10 +149,9 @@
                    <label> 설비명 : 
 					    <select name="placename" id="placename">
 					     	<option value="">전체</option>
-					        <option value="1">1호기</option>
-					        <option value="2">2호기</option>
-					        <option value="3">3호기</option>
-					        <option value="4">4호기</option>
+					        <option value="5">5호기</option>
+					        <option value="6">6호기</option>
+					        <option value="7">7호기</option>
 					    </select>
 					</label>
 
@@ -191,12 +190,13 @@
         headerHozAlign:"center",
         columns: [
             { title: "설비명", field: "devicecode", width: 80, hozAlign:"center"},
-            { title: "품명코드", field: "pumcode", width: 300, hozAlign:"center"},
+            { title: "MES코드", field: "pumcode", width: 300, hozAlign:"center"},
             { title: "품명", field: "pumname", width: 300, hozAlign:"center"},
-            { title: "기종", field: "gijong", width: 200, hozAlign:"center"},
+            { title: "약어", field: "gijong", width: 200, hozAlign:"center"},
             { title: "장입량", field: "cntsum", width: 200, hozAlign:"center"},
             { title: "처리중", field: "intray", width: 300, hozAlign:"center"},
             { title: "추출량", field: "outtray", width: 200, hozAlign:"center"},
+
         ],
         placeholder: "검색 결과가 없습니다.", 
     });

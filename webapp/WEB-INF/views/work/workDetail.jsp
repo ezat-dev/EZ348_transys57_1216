@@ -111,7 +111,8 @@
 		width: 90%;
 		text-align: center;
 		margin: auto;
-		max-height: 70%;
+		height: 850px;
+    	white-space: nowrap; /* 테이블 공백 해제 (오버플로우) */
 		overflow:auto;
 	}
 	
@@ -190,11 +191,10 @@
 					<label> 설비명 : 
 						<select style="font-weight:700; font-size: 14pt; text-align: center;" 
 							name="devicecode" id="devicecode" >
-							<option value="">전체</option>
-							<option value="1">1호기</option>
-							<option value="2">2호기</option>
-							<option value="3">3호기</option>
-							<option value="4">4호기</option>
+					     	<option value="">전체</option>
+					        <option value="5">5호기</option>
+					        <option value="6">6호기</option>
+					        <option value="7">7호기</option>
 						</select>
 					</label>
 		
@@ -465,13 +465,13 @@
 		        	hozAlign:"center"},
 		        {title:"Lot No.", field:"lotno", sorter:"string", width:180,
 		        	hozAlign:"center"},
-		        {title:"품번", field:"pumbun", sorter:"string", width:180,
+		        {title:"MES 코드", field:"pumcode", sorter:"string", width:180,
 		        	hozAlign:"center"},
-		        {title:"품명코드", field:"pumcode", sorter:"string", width:180,
+		        {title:"품명", field:"pumname", sorter:"string", width:180,
 		        	hozAlign:"center"},
 		        {title:"기종", field:"gijong", sorter:"string", width:140,
 		        	hozAlign:"center"},
-		        {title:"적재량", field:"loadcnt", sorter:"string", width:140,
+		        {title:"적재수량", field:"loadcnt", sorter:"string", width:100,
 		        	hozAlign:"center"},
 		        {title:"투입시간", field:"starttime", sorter:"string", width:140,
 		        	hozAlign:"center"},
@@ -479,7 +479,7 @@
 		        	hozAlign:"center"},
 		        {title:"추출완료시간", field:"endtime", sorter:"string", width:140,
 		        	hozAlign:"center"},
-		        {title:"MES LOT", field:"meslot", sorter:"string", width:140,
+		        {title:"MES LOT", field:"meslot", sorter:"string", width:160,
 		        	hozAlign:"center"},
 		        {title:"참고사항", field:"remark", sorter:"string", width:260,
 		        	hozAlign:"center"},

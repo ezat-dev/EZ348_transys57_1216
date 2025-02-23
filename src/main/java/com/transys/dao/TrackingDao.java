@@ -6,4 +6,5 @@ public interface TrackingDao {
 
 	void ccf1Tracking01(Tracking tracking);
 
+	Tracking trackingLocationReturn(Tracking tracking);
 }

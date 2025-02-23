@@ -51,7 +51,8 @@ public class TrackingServiceImpl5 implements TrackingService5{
 				tracking.setDevicecode(value);
 			}
 			
-			if("PRD_CHK".equals(tagName)) {			
+			// && "1".equals(value)
+			if("PRD_CHK".equals(tagName) && "1".equals(value)) {			
 				tracking.setCurLocation(curLocation);
 				prdChk = Integer.parseInt(value);
 			}
@@ -61,11 +62,13 @@ public class TrackingServiceImpl5 implements TrackingService5{
 		//DB저장
 		if(curLocation < 12) {
 			if(!"0000".equals(tracking.getPumbun()) && tracking.getPumbun() != null && prdChk != 0) {
+				Tracking trackingReturn = trackingDao.trackingLocationReturn(tracking);
 				
-				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
-				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
-				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
-				desc.append("setDataDir : "+setDataDir);
+				desc.append("설비 : "+tracking.getDevicecode()+"// ");
+				desc.append("품번 : "+tracking.getPumbun()+"// ");
+				desc.append("이동위치 : "+tracking.getCurLocation()+"// ");
+				desc.append("현재위치 : "+trackingReturn.getCurLocation()+"// ");
+				desc.append("OPC태그 : "+setDataDir);	
 				
 				logger.info("TRACKING(57호기) : {}",desc.toString());							
 				//트래킹 실행
@@ -80,10 +83,14 @@ public class TrackingServiceImpl5 implements TrackingService5{
 		}else {
 			if(!"0000".equals(tracking.getPumbun()) && tracking.getPumbun() != null && prdChk != 0) {
 				tracking.setCurLocation(12);
-				desc.append("DEVICECODE : "+tracking.getDevicecode()+"// ");
-				desc.append("PUMBUN : "+tracking.getPumbun()+"// ");
-				desc.append("CURLOCATION : "+tracking.getCurLocation()+"// ");
-				desc.append("setDataDir : "+setDataDir);
+				Tracking trackingReturn = trackingDao.trackingLocationReturn(tracking);
+				
+				
+				desc.append("설비 : "+tracking.getDevicecode()+"// ");
+				desc.append("품번 : "+tracking.getPumbun()+"// ");
+				desc.append("이동위치 : "+tracking.getCurLocation()+"// ");
+				desc.append("현재위치 : "+trackingReturn.getCurLocation()+"// ");
+				desc.append("OPC태그 : "+setDataDir);
 				
 				logger.info("TRACKING(57호기) : {}",desc.toString());							
 				//트래킹 실행

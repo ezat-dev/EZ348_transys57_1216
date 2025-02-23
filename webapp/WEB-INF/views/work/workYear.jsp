@@ -156,10 +156,9 @@
                    <label > 설비명 : 
 					    <select name="placename" id="placename">
 					     	<option value="">전체</option>
-					        <option value="1">1호기</option>
-					        <option value="2">2호기</option>
-					        <option value="3">3호기</option>
-					        <option value="4">4호기</option>
+					        <option value="5">5호기</option>
+					        <option value="6">6호기</option>
+					        <option value="7">7호기</option>
 					    </select>
 					</label>
 
@@ -195,8 +194,8 @@
         headerHozAlign: "center",
         columns: [
             { title: "품명", field: "pumname", width: 140 },
-            { title: "품명코드", field: "pumcode", width: 140 },
-            { title: "기종", field: "gijong", width: 140 },         
+            { title: "MES코드", field: "pumcode", width: 140 },
+            { title: "약어", field: "gijong", width: 140 },         
             { title: "1월", field: "m01", width: 110 },
             { title: "2월", field: "m02", width: 110 },
             { title: "3월", field: "m03", width: 110 },

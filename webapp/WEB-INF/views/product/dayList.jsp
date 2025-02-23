@@ -188,11 +188,10 @@
 					<label> 설비명 : 
 						<select style="font-weight:100; font-size: 14pt; text-align: center;" 
 							name="devicecode" id="devicecode" >
-							<option value="">전체</option>
-							<option value="1">1호기</option>
-							<option value="2">2호기</option>
-							<option value="3">3호기</option>
-							<option value="4">4호기</option>
+					     	<option value="">전체</option>
+					        <option value="5">5호기</option>
+					        <option value="6">6호기</option>
+					        <option value="7">7호기</option>
 						</select>
 					</label>
 				
@@ -412,11 +411,14 @@
 	function getPopupDetailAdd(){
 		var width = window.screen.width;
 		var height = window.screen.height;
+
+		var selectWdate = $("#wdate").val().replace(/-/g,"");
+		var selectDevice = $("#devicecode").val();
 		
 		var popupx = 0;
 		var popupy = 0;
 		
-		openWin = window.open('/transys/work/workDetailAdd', 'detail_edit', 'status=no, width='+width+', height='+height+', menubar=1, left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy);
+		openWin = window.open("/transys/work/workDetailAdd?wDate="+selectWdate+"&wDevice="+selectDevice, 'detail_edit', 'status=no, width='+width+', height='+height+', menubar=1, left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy);
 		
 	}	
 	

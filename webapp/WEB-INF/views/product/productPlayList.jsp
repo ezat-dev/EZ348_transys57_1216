@@ -196,10 +196,9 @@
 						<select style="font-weight:100;width:150px; font-size: 14pt; text-align: center;" 
 							name="devicecode" id="devicecode" >
 							<option value="">전체</option>
-							<option value="1">1호기</option>
-							<option value="2">2호기</option>
-							<option value="3">3호기</option>
-							<option value="4">4호기</option>
+							<option value="5">5호기</option>
+							<option value="6">6호기</option>
+							<option value="7">7호기</option>
 						</select>
 					</label>
 					</div>
@@ -421,9 +420,9 @@
 	            {title:"침탄로 호기", field:"devicecode", sorter:"string", width:120, hozAlign:"center"},
 	            {title:"품번", field:"pumbun", sorter:"string", width:120, hozAlign:"center"},
 	            {title:"공통설비 호기", field:"common_device", sorter:"string", width:130, hozAlign:"center"},
-	            {title:"품명코드", field:"pumcode", sorter:"string", width:180, hozAlign:"center"},
-	            {title:"품명", field:"pumname", sorter:"string", width:180, hozAlign:"center"},
-	            {title:"기종", field:"gijong", sorter:"string", width:100, hozAlign:"center"},
+	            {title:"MES 코드", field:"pumcode", sorter:"string", width:180, hozAlign:"center"},
+	            {title:"기종명", field:"pumname", sorter:"string", width:180, hozAlign:"center"},
+	            {title:"약어", field:"gijong", sorter:"string", width:100, hozAlign:"center"},
 	            {title:"적재량", field:"loadcnt", sorter:"string", width:100, hozAlign:"center"},
 	            {title:"투입구분", field:"status", sorter:"string", width:100, hozAlign:"center"},
 	            {title:"데이터발생", field:"datastatus", sorter:"string", width:125, hozAlign:"center"},
@@ -487,7 +486,9 @@
 		var popupx = 0;
 		var popupy = 0;
 		
-		openWin = window.open('/transys/work/workDetailAdd', 'detail_edit', 'status=no, width='+width+', height='+height+', menubar=1, left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy);
+		var selectDevice = $("#devicecode").val();
+		
+		openWin = window.open('/transys/work/workDetailAdd?wDevice='+selectDevice, 'detail_edit', 'status=no, width='+width+', height='+height+', menubar=1, left='+popupx+',top='+ popupy+', screenX='+popupx+', screenY='+popupy);
 		
 	}	
 	
@@ -495,7 +496,7 @@
 		var lotNo = localStorage.getItem("lotNo");
 			
 		$.ajax({
-			url:"/transys/work/workDetail/delete",
+			url:"/transys/work/workDetail/inlineDelete",
 			type:"post",
 			dataType:"json",
 			data:{"lotNo":lotNo},

@@ -54,15 +54,15 @@ ul{
 		<!-- 
 			<li><a class="menuLink" href="OVERVIEW.jsp">오버뷰</a></li>
  		-->
-			<li><a class="menuLink" href="/transys/ccf/ccf01_02">침탄1,2호기</a></li>
+<!-- 			<li><a class="menuLink" href="/transys/ccf/ccf01_02">침탄1,2호기</a></li> 
 
-			<li><a class="menuLink" href="/transys/ccf/ccf03_04">침탄3,4호기</a></li>
+			<li><a class="menuLink" href="/transys/ccf/ccf03_04">침탄3,4호기</a></li>-->
 			
 			<li><a class="menuLink" href="/transys/ccf/ccf05_06">침탄5,6호기</a></li>
 			
 			<li><a class="menuLink" href="/transys/ccf/ccf07">침탄7호기</a></li>
 			
-			<li><a class="menuLink" href="/transys/cm/cm01">공통 1호기</a></li>
+<!-- 			<li><a class="menuLink" href="/transys/cm/cm01">공통 1호기</a></li> -->
 			
 			<li><a class="menuLink" href="/transys/cm/cm02">공통 2호기</a></li>
 			

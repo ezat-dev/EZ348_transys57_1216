@@ -104,7 +104,7 @@
 		width: 95%;
 		text-align: center;
 		margin: auto;
-		height: 950px;
+		height: 900px;
     	white-space: nowrap; /* 테이블 공백 해제 (오버플로우) */
 		overflow:auto;
 	}
@@ -242,17 +242,16 @@
 		    reactiveData:true,
 		    headerHozAlign:"center",
         columns: [
-            { title: "NO", field: "idx", hozAlign: "center", width: 80 },
-            { title: "품명 코드", field: "pumcode", hozAlign: "center", width: 200 },
+            { title: "기종명", field: "pumcode", hozAlign: "center", width: 200 },
             { title: "품명", field: "pumname", hozAlign: "center", width: 200 },
-            { title: "기종", field: "gijong", hozAlign: "center", width: 180 },
-            { title: "품번", field: "dobun", hozAlign: "center", width: 200 },
-            { title: "수량", field: "cnt", hozAlign: "center", width: 120 },
+            { title: "약어", field: "gijong", hozAlign: "center", width: 180 },
+            { title: "MES 코드", field: "dobun", hozAlign: "center", width: 200 },
+            { title: "적재수량", field: "cnt", hozAlign: "center", width: 120 },
             { title: "CYCLE NO", field: "cycleno", hozAlign: "center", width: 120 },
             { title: "아지테이터 RPM", field: "agitate_rpm", hozAlign: "center", width: 150 },
             { title: "공통설비 투입 호기", field: "common_device", hozAlign: "center", width: 160 },
             { title: "등록일", field: "insertday", hozAlign: "center", width: 150 },
-            { title: "수정일", field: "updateday", hozAlign: "center", width: 150 },
+            { title: "수정일", field: "updateday", hozAlign: "center", width: 150 }, 
         ],
         rowClick: function(e, row) {
             selectedRowData = row.getData(); // 선택된 행의 데이터를 저장
@@ -330,7 +329,7 @@
 
 
    $("#addBtn").click(function() {
-	    var url = "http://localhost:9090/transys/product/productAdd"; 
+	    var url = "/transys/product/productAdd"; 
 	    var width = 1200; 
 	    var height = 900; 
 	    var left = (screen.width / 2) - (width / 2); 
@@ -342,7 +341,7 @@
    $("#modifyBtn").click(function() {
 	    if (selectedRowData && selectedRowData.dobun) {
 	        var dobun = selectedRowData.dobun; 
-	        var url = "http://localhost:9090/transys/product/productModify?dobun=" + dobun; 
+	        var url = "/transys/product/productModify?dobun=" + dobun; 
 	        var width = 1200; 
 	        var height = 900; 
 	        var left = (screen.width / 2) - (width / 2); 

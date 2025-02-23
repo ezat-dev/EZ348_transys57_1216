@@ -47,7 +47,7 @@
        </div>
        <div class="t-group-3">
     <img class="t-ccf-1" src="/transys/image/ccf01_02/ccf-10.png" />
-      <div class="t-ccf-1-text">CCF #07</div>
+      <div class="t-ccf-1-text">침탄로 7호기</div>
       <!-- <img class="t-tong-0" src="/transys/image/ccf01_02/tong-00.png" />
       <div class="t-v-0-tong-1"></div>
       <div class="t-v-0-tong-2"></div>
@@ -192,8 +192,8 @@
       <img class="t-red-right-6" src="/transys/image/ccf01_02/red-right-60.png" />
       <img class="t-yellow-left-6" src="/transys/image/ccf01_02/yellow-left-60.png" />
       <img class="t-yellow-right-6" src="/transys/image/ccf01_02/yellow-right-60.png" />
-      <img class="t-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
-      <img class="t-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" />
+      <!-- <img class="t-bar-green-1" src="/transys/image/ccf01_02/bar-green-10.png" />
+      <img class="t-bar-red-1" src="/transys/image/ccf01_02/bar-red-10.png" /> -->
       <!-- <img class="t-con-off-0" src="/transys/image/ccf01_02/con-off-00.png" />
       <img class="t-con-on-0" src="/transys/image/ccf01_02/con-on-00.png" />
       <img class="t-con-off-1" src="/transys/image/ccf01_02/con-off-10.png" />
@@ -297,8 +297,8 @@
       <img class="t-elevator-1" src="/transys/image/ccf01_02/elevator-10.png" />
       <img class="t-elevator-2" src="/transys/image/ccf01_02/elevator-20.png" />
       <img class="t-elevator-3" src="/transys/image/ccf01_02/elevator-30.png" />
-      <div class="t-rpm">RPM</div>
-      <div class="t-rpm-value"></div>
+      <!-- <div class="t-rpm">RPM</div>
+      <div class="t-rpm-value"></div> -->
       <div class="t-process-data-header"></div>
       <div class="t-skim-text">탈지로</div>
       <div class="t-pre-text">예열</div>

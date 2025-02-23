@@ -8,8 +8,7 @@
       SUBSTRING(A.ENDSALT,6,11) ENDSALT, SUBSTRING(A.ENDTIME, 6, 11) ENDTIME, A.MESLOT, A.REMARK
       FROM t_siljuk A, t_product B
       WHERE 1=1
-      AND SUBSTRING(A.STARTTIME, 1, 16) >= #{searchStartDate}
-      AND SUBSTRING(A.STARTTIME, 1, 16) <![CDATA[<=]]> DATEADD(DAY,1,#{searchEndDate})
+	AND SUBSTRING(A.LOTNO, 1, 8) = REPLACE(SUBSTRING(#{searchStartDate},1,10),'-','')
       <if test="devicecode != ''">
       AND A.DEVICECODE = #{devicecode}
       </if>
@@ -73,17 +72,22 @@
    <!-- 작업일보 처리품데이터 추가 -->
    <insert id="setWorkDetailAddDataSave" parameterType="work">
       <if test="seq != 0">
-         EXEC INPUT_PROC03 #{devicecode},#{pumcode},#{cycleno},#{agitate_rpm},#{cnt},#{common_device},#{meslot},#{seq}
+         EXEC INPUT_PROC03_DATE_SET #{devicecode},#{pumcode},#{cycleno},#{agitate_rpm},#{cnt},#{common_device},#{meslot},#{seq},#{p_DATE}
       </if>
       
       <if test="seq == 0">
-         EXEC INPUT_PROC02 #{devicecode},#{pumcode},#{cycleno},#{agitate_rpm},#{cnt},#{common_device},#{meslot}
+         EXEC INPUT_PROC02_DATE_SET #{devicecode},#{pumcode},#{cycleno},#{agitate_rpm},#{cnt},#{common_device},#{meslot},#{p_DATE}
       </if>
    </insert>
    
    <delete id="setWorkDetailDelete" parameterType="work">
       DELETE FROM T_WAITLIST WHERE LOTNO = #{lotno}
       DELETE FROM T_SILJUK WHERE LOTNO = #{lotno}
+      DELETE FROM T_WORKINLINE WHERE LOTNO = #{lotno}
+   </delete>
+   
+   <delete id="setWorkDetailInlineDelete" parameterType="work">
+      DELETE FROM T_WAITLIST WHERE LOTNO = #{lotno}
       DELETE FROM T_WORKINLINE WHERE LOTNO = #{lotno}
    </delete>
    
@@ -221,5 +225,32 @@
 	        AND devicecode = #{devicecode}
 	      </if>
 	</select>
-   
+	
+	
+	 <!-- dayPrint -->
+	<select id="workDayPrint" parameterType="work" resultType="work">
+	    EXEC P_PRINT
+	        @p_WORK_TYPE = 'Q1',
+	        @p_DATE = #{p_DATE},
+	        @p_DEVICECODE = ''
+	</select>
+	
+	<select id="workMonthPrint" parameterType="work" resultType="work">
+	    EXEC P_PRINT_Month
+	        @p_WORK_TYPE = 'Q1',
+	        @p_DATE = #{p_DATE},
+	        @p_DEVICECODE = ''
+	</select>
+
+	<select id="workYearPrint" parameterType="work" resultType="work">
+	    EXEC P_PRINT_YEAR
+	        @p_WORK_TYPE = 'Q1',
+	        @p_DATE = #{p_DATE},
+	        @p_DEVICECODE = ''
+	</select>
+	
+	<insert id="workDayPrintListCheckCntSet" parameterType="work">
+		EXEC sp_siljuk_check_update ' ', #{devicecode}, #{p_DATE}, #{pumcode}, #{check_cnt}
+	</insert>
+
 </mapper>

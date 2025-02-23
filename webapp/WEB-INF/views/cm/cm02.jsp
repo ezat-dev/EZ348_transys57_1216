@@ -458,9 +458,9 @@
     <img class="con-off-5421" src="/transys/image/cm/con-off-5420.png" />
     <img class="con-on-5421" src="/transys/image/cm/con-on-5420.png" />
     <div class="door-red-1"></div>
-    <div class="door-green-1"></div>
+    <!-- <div class="door-green-1"></div> -->
     <div class="door-red-2"></div>
-    <div class="door-green-2"></div>
+    <!-- <div class="door-green-2"></div> -->
     <div class="door-red-3"></div>
     <div class="door-green-3"></div>
     <div class="door-red-4"></div>
@@ -528,45 +528,45 @@
     <div class="pro-text-8">소려로</div>
     <div class="tem-sp-1"></div>
     <div class="tem-pv-1"></div>
-    <div class="pro-box-9"></div>
-    <div class="pro-text-9">NO.2 AIR</div>
-    <div class="n-air-sp-2"></div>
-    <div class="n-air-pv-2"></div>
-    <div class="pro-box-10"></div>
-    <div class="pro-text-10">NO.2 RINSE</div>
-    <div class="n-rinse-sp"></div>
-    <div class="dip-pv-12"></div>
-    <div class="pro-box-11"></div>
-    <div class="pro-text-11">NO.2 SPRAY</div>
-    <div class="dip-sp-12"></div>
-    <div class="dip-pv-13"></div>
-    <div class="pro-box-12"></div>
-    <div class="pro-text-12">NO.2 DIP조</div>
-    <div class="dip-sp-13"></div>
-    <div class="dip-pv-14"></div>
-    <div class="pro-box-13"></div>
-    <div class="pro-text-13">NO.1 AIR</div>
-    <div class="dip-sp-14"></div>
-    <div class="dip-pv-15"></div>
-    <div class="pro-box-14"></div>
-    <div class="pro-text-14">NO.1 RINSE</div>
-    <div class="dip-sp-15"></div>
-    <div class="dip-pv-16"></div>
-    <div class="pro-box-15"></div>
-    <div class="pro-text-15">NO.1 SPRAY</div>
-    <div class="dip-sp-16"></div>
-    <div class="dip-pv-17"></div>
-    <div class="pro-box-16"></div>
-    <div class="pro-text-16">NO.1 DIP조</div>
-    <div class="dip-sp-17"></div>
-    <div class="dip-pv-18"></div>
-    <div class="sensor-pen-1"></div>
-  	<div class="sensor-pen-2"></div>
-  	<div class="sensor-pen-3"></div>
-  	<img class="wash-1" src="/transys/image/cm/wash-10.png" />
-	<img class="wash-2" src="/transys/image/cm/wash-20.png" />
-	<img class="wash-3" src="/transys/image/cm/wash-30.png" />
-	<img class="wash-4" src="/transys/image/cm/wash-40.png" />
+  <div class="pro-box-9"></div>
+  <div class="pro-text-9">NO.2 AIR</div>
+  <div class="no-2-air-sp"></div>
+  <div class="no-2-air-pv"></div>
+  <div class="pro-box-10"></div>
+  <div class="pro-text-10">NO.2 RINSE</div>
+  <div class="no-2-rinse-sp"></div>
+  <div class="no-2-rinse-pv"></div>
+  <div class="pro-box-11"></div>
+  <div class="pro-text-11">NO.2 SPRAY</div>
+  <div class="no-2-spray-sp"></div>
+  <div class="no-2-spray-pv"></div>
+  <div class="pro-box-12"></div>
+  <div class="pro-text-12">NO.2 DIP조</div>
+  <div class="no-2-dip-sp"></div>
+  <div class="no-2-dip-pv"></div>
+  <div class="pro-box-13"></div>
+  <div class="pro-text-13">NO.1 AIR</div>
+  <div class="no-1-air-sp"></div>
+  <div class="no-1-air-pv"></div>
+  <div class="pro-box-14"></div>
+  <div class="pro-text-14">NO.1 RINSE</div>
+  <div class="no-1-rinse-sp"></div>
+  <div class="no-1-rinse-pv"></div>
+  <div class="pro-box-15"></div>
+  <div class="pro-text-15">NO.1 SPRAY</div>
+  <div class="no-1-spray-sp"></div>
+  <div class="no-1-spray-pv"></div>
+  <div class="pro-box-16"></div>
+  <div class="pro-text-16">NO.1 DIP조</div>
+  <div class="no-1-dip-sp"></div>
+  <div class="no-1-dip-pv"></div>
+  <div class="sensor-pen-1"></div>
+  <div class="sensor-pen-2"></div>
+  <div class="sensor-pen-3"></div>
+  <!-- <img class="wash-1" src="/transys/image/cm/wash-10.png" />
+  <img class="wash-2" src="/transys/image/cm/wash-20.png" />
+  <img class="wash-3" src="/transys/image/cm/wash-30.png" />
+  <img class="wash-4" src="/transys/image/cm/wash-40.png" /> -->
   </div>
 </div>
 <script>
@@ -627,43 +627,6 @@ function v(keys, value){
 			var jog_split = keys.split("-");
 			
 			if(jog_split[4] == "3"){
-				$("."+keys).text("자동조깅중");
-				$("."+keys).css("color","black");
-				$("."+keys).css("font-weight","700");
-				$("."+keys).css("font-size","12pt");
-				$("."+keys).css("display","");				
-			}else{
-				$("."+keys).text("자동조깅");
-				$("."+keys).css("color","blue");
-				$("."+keys).css("font-weight","700");
-				$("."+keys).css("font-size","12pt");
-				$("."+keys).css("display","");					
-			}
-		}else if(keys.indexOf("yellow") != -1 &&
-					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
-			$("."+keys).css("animation","blink-effect 1s step-end infinite");
-		}else if(keys.indexOf("red") != -1 &&
-					keys.indexOf("_") == -1){
-			$("."+keys).css("display","");
-		}else{
-			$("."+keys).css("display","");
-		}
-		
-	}else{		
-		
-		if(keys.indexOf("door-red") != -1){
-			$("."+keys).css("display","");
-		}else if(keys.indexOf("door-green") != -1){
-			$("."+keys).css("display","none");
-		}else if(keys.indexOf("high") != -1){
-			$("."+keys).css("display","none");
-		}else if(keys.indexOf("jogging") != -1){
-			//3번만 자동조깅중, 자동조깅중지
-			//그 외는 자동조깅, 수동조깅
-			var jog_split = keys.split("-");
-			
-			if(jog_split[4] == "3"){
 				$("."+keys).text("자동조깅정지");
 				$("."+keys).css("color","red");
 				$("."+keys).css("font-weight","700");
@@ -682,6 +645,47 @@ function v(keys, value){
 		}else if(keys.indexOf("red") != -1 &&
 					keys.indexOf("_") == -1){
 			$("."+keys).css("display","none");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","none");
+		}else{
+			$("."+keys).css("display","");
+		}
+		
+	}else{		
+		
+		if(keys.indexOf("door-red") != -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("door-green") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("high") != -1){
+			$("."+keys).css("display","none");
+		}else if(keys.indexOf("jogging") != -1){
+			//3번만 자동조깅중, 자동조깅중지
+			//그 외는 자동조깅, 수동조깅
+			var jog_split = keys.split("-");
+			
+			if(jog_split[4] == "3"){
+				$("."+keys).text("자동조깅중");
+				$("."+keys).css("color","black");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");				
+			}else{
+				$("."+keys).text("자동조깅");
+				$("."+keys).css("color","blue");
+				$("."+keys).css("font-weight","700");
+				$("."+keys).css("font-size","12pt");
+				$("."+keys).css("display","");					
+			}
+		}else if(keys.indexOf("yellow") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+			$("."+keys).css("animation","blink-effect 1s step-end infinite");			
+		}else if(keys.indexOf("red") != -1 &&
+					keys.indexOf("_") == -1){
+			$("."+keys).css("display","");
+		}else if(keys.indexOf("con-on") != -1){
+			$("."+keys).css("display","");
 		}else{
 		
 			$("."+keys).css("display","none");

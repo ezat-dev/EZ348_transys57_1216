@@ -47,6 +47,13 @@ public class WorkServiceImpl implements WorkService {
     public void setWorkDetailDelete(Work work) {
         workDao.setWorkDetailDelete(work);
     }
+    
+
+    @Override
+    public void setWorkDetailInlineDelete(Work work) {
+        workDao.setWorkDetailInlineDelete(work);
+    }
+
 
     @Override
     public void setWorkDetailEndSalt(Work work) {
@@ -98,4 +105,24 @@ public class WorkServiceImpl implements WorkService {
     public List<Work> workYearList(Work work) {
         return workDao.workYearList(work);
     }
+    
+    @Override
+    public List<Work> workDayPrint(Work work) {
+        return workDao.workDayPrint(work);
+    }
+    
+    @Override
+    public List<Work> workMonthPrint(Work work) {
+        return workDao.workMonthPrint(work);
+    }
+    
+    @Override
+    public List<Work> workYearPrint(Work work) {
+        return workDao.workYearPrint(work);
+    }
+
+	@Override
+	public void workDayPrintListCheckCntSet(Work work) {
+		workDao.workDayPrintListCheckCntSet(work);
+	}
 }
