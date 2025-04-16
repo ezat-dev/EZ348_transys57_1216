@@ -2,6 +2,7 @@ package com.transys.dao;
 
 import java.util.List;
 
+import com.transys.domain.InOut;
 import com.transys.domain.Product;
 import com.transys.domain.Work;
 
@@ -11,7 +12,7 @@ public interface WorkDao {
 
    Work workDetailDescData(Work work);
 
-   List<Product> workDetailProductList();
+   List<Product> workDetailProductList(Product product);
 
    Work workDetailEditData(Work work);
 
@@ -51,4 +52,7 @@ public interface WorkDao {
    List<Work> workYearPrint(Work work);
 
 void workDayPrintListCheckCntSet(Work work);
+Work workDetailDescDataOverView(Work work);
+
+List<InOut> getInOutList();
 }

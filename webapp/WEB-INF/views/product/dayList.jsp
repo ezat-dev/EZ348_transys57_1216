@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>작업실적</title>
+<title>열처리 5~7호기</title>
 <jsp:include page="../include/pluginpage.jsp"/>
 <style>
 
@@ -219,6 +219,7 @@
 				</div>
 			</div>
 		</fieldset>
+		<div class="countDATA">조회된 데이터 수 : </div>
 		<div id="workDetailList" style="margin-left: 110px;"></div>
 
 	</div>
@@ -340,6 +341,9 @@
 	            console.log("Ajax 응답 URL: ", url);
 	            console.log("Ajax 응답 파라미터: ", params);
 	            console.log("Ajax 응답 데이터: ", response);
+				
+				document.querySelector(".countDATA").textContent = "조회된 데이터 수 : " + response.data.length;
+				
 	            return response; // 응답 데이터 출력
 	        },
 	        

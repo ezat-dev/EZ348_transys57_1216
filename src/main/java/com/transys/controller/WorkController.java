@@ -30,10 +30,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.transys.domain.InOut;
 import com.transys.domain.Product;
 import com.transys.domain.Work;
 import com.transys.service.WorkService;
-import com.transys.util.UtilClass;
 
 @Controller
 public class WorkController {
@@ -108,6 +108,40 @@ public class WorkController {
         return rtnMap; // 
     }
 
+    
+    //작업일보 상세이력
+    @RequestMapping(value= "/work/workDetailDescOverView", method = RequestMethod.GET)
+    public String workDetailDescOverView(Model model) {       
+
+        return "/work/workDetailDescOverView.jsp"; // 
+    }
+    
+    //작업일보 상세 조회
+    @RequestMapping(value= "/work/workDetailDescOverView/data", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> workDetailOverViewDescData(
+    		@RequestParam String devicecode,
+    		@RequestParam int pumbun) {
+
+       Map<String, Object> rtnMap = new HashMap<String, Object>();
+       Work work = new Work();
+       work.setDevicecode(devicecode);
+       work.setPumbun(String.format("%04d",pumbun));
+       
+       Work workDetailDesc = workService.workDetailDescDataOverView(work);
+       
+       StringBuffer desc = new StringBuffer();
+       
+       desc.append("devicecode : "+devicecode+"// pumbun : "+pumbun);
+       
+       logger.info("작업일보 상세이력 조회(오버뷰) {}", desc);
+       
+       rtnMap.put("data", workDetailDesc);
+       
+        return rtnMap; // 
+    }
+    
+    
     //작업일보 편집
     @RequestMapping(value= "/work/workDetailEdit", method = RequestMethod.GET)
     public String workDetailEdit(Model model) {       
@@ -119,11 +153,19 @@ public class WorkController {
     //작업일보 편집 제품이력 조회
     @RequestMapping(value= "/work/workDetail/productList", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> workDetailProductList() {
+    public Map<String, Object> workDetailProductList(
+    		@RequestParam String pumname,
+    		@RequestParam String gijong,
+    		@RequestParam String dobun) {
 
        Map<String, Object> rtnMap = new HashMap<String, Object>();
        
-       List<Product> productList = workService.workDetailProductList();
+       Product product = new Product();
+       product.setPumname(pumname);
+       product.setGijong(gijong);
+       product.setDobun(dobun);
+       
+       List<Product> productList = workService.workDetailProductList(product);
        
        rtnMap.put("last_page",1);
        rtnMap.put("data", productList);
@@ -258,6 +300,28 @@ public class WorkController {
        
        return rtnMap;
     }
+	
+    
+    //작업일보 데이터 삭제
+    @RequestMapping(value= "/work/workDetail/inlineDelete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> setWorkDetailInlineDelete(@RequestParam String lotNo) {
+    	Map<String, Object> rtnMap = new HashMap<String, Object>();
+    	
+    	Work work = new Work();
+    	work.setLotno(lotNo);
+    	
+    	workService.setWorkDetailInlineDelete(work);
+    	
+    	StringBuffer desc = new StringBuffer();
+    	
+    	desc.append("LOTNO : "+work.getLotno());
+    	
+    	logger.info("작업일보 삭제 - 데이터 삭제완료 {}", desc);             
+    	
+    	return rtnMap;
+    }
+	
     
     //작업이력 SALT추출
     @RequestMapping(value= "/work/workDetail/endSalt", method = RequestMethod.POST)
@@ -932,5 +996,27 @@ public class WorkController {
         return rtnMap;
     }
 
+
+    //작업일보 상세이력
+    @RequestMapping(value= "/work/workInOutPopup", method = RequestMethod.GET)
+    public String workInOutPopup(Model model) {       
+
+        return "/include/inOutPopup.jsp"; // 
+    }
+    
+    //작업일보 상세 조회
+    @RequestMapping(value= "/work/workInOutPopup/data", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> workInOutPopupData() {
+
+       Map<String, Object> rtnMap = new HashMap<String, Object>();
+       
+       List<InOut> inOutList = workService.getInOutList();
+       
+       rtnMap.put("last_page",1);
+       rtnMap.put("data", inOutList);
+       
+        return rtnMap; // 
+    }
 
 }

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>경보</title>
+<title>열처리 5~7호기</title>
 <jsp:include page="../include/pluginpage.jsp"/>
 
 
@@ -114,7 +114,7 @@
 	}
 	
 	#table_file{
-		width: 100%;
+		width: 90%;
 		text-align: center;
 		margin: auto;
 		max-height: 40%;
@@ -141,8 +141,7 @@
 	/* 테이블 스크롤 없애기 */
 	#table_file{
 		-ms-overflow-style:none;
-		height: 900px;
-		width: 100%;
+		height: 600px;
 		margin-left: 100px;
 	}
 	
@@ -171,16 +170,11 @@
                 <label> 설비명 : 
                     <select name="placename" id="placename"style="font-weight: 100; text-align: center; width: 150px;">
                            <option value="">전체</option>
-                        <option value="CCF1_ALARM">1 호기</option>
-                        <option value="CCF1_ALARM">2 호기</option>
-                        <option value="CCF1_ALARM">3 호기</option>
-                        <option value="CCF1_ALARM">4 호기</option>
-                        <option value="CCF1_ALARM">5 호기</option>
-                        <option value="CCF1_ALARM">6 호기</option>
-                        <option value="CCF1_ALARM">7 호기</option>
-                        <option value="CCF1_ALARM">공통 1 호기</option>
-                        <option value="CCF1_ALARM">공통 2 호기</option>
-                    </select> 
+                        <option value="CCF5_ALARM">침탄 5호기</option>
+                        <option value="CCF6_ALARM">침탄 6호기</option>
+                        <option value="CCF7_ALARM">침탄 7호기</option>
+                        <option value="CM2_ALARM">공통 2호기</option>
+                   </select> 
                 </label>
                 
                 <label style="margin-left: 15px;"> 시작일자 : 
@@ -200,9 +194,10 @@
             </div>
         </fieldset>
 
+
         <div id="table_file">
             <div class="countDATA">발생된 경보 수 : </div>
-                   <div id="cate_list" style="width: 74%; margin-left:100px;"></div>
+                   <div id="cate_list"></div>
         </div>
     </div>
 
@@ -210,7 +205,7 @@
 $(document).ready(function() {
     var today = new Date();
     var lastWeek = new Date(today);
-    lastWeek.setDate(today.getDate() - 7); 
+    lastWeek.setDate(today.getDate() - 1); 
 
     function formatDate(date) {
         var year = date.getFullYear();
@@ -229,28 +224,21 @@ $(document).ready(function() {
 var table = new Tabulator("#cate_list", {
     layout: "fitColumns",
     columns: [
-        {title: "설비명", field: "alarmGroupLabel", width: 260, hozAlign: "center"},
-        {title: "PLC ADDR", field: "tagName", width: 260, hozAlign: "center"},
+        {title: "설비명", field: "alarmGroupLabel", width: 120, hozAlign: "center"},
+        {title: "PLC ADDR", field: "tagName", width: 200, hozAlign: "center"},
         {title: "경보내용", field: "alarmDesc", width: 410, hozAlign: "center"},
-        {title: "발생시간", field: "time", width: 250, hozAlign: "center"},
-        {title: "해제시간", field: "lead_alarmtime", width: 250, hozAlign: "center"}
+        {title: "발생시간", field: "time", width: 200, hozAlign: "center"},
+        {title: "해제시간", field: "lead_alarmtime", width: 200, hozAlign: "center"}
     ],
     placeholder: "검색 결과가 없습니다.",
     data: []  
 });
 
 $("#searchbtn").click(function() {
-    console.log("검색 버튼 클릭됨");
     getProduct();
 });
 
 function getProduct() {
-    // 서버로 전송할 데이터 콘솔에 출력
-    console.log("Sending data to server:", {
-        alarmgroup: $("#placename").val(),
-        sDate: $("#from_date").val(),
-        eDate: $("#to_date").val()
-    });
 
     // 기존 데이터 지우기
     table.clearData();

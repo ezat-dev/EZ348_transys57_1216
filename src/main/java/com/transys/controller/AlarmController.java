@@ -45,6 +45,8 @@ public class AlarmController {
     public String alarmList(Model model) {
         return "/alarm/alarmList.jsp"; 
     }
+    
+    
 	 // 알람 썸
     @RequestMapping(value = "/alarm/alarmSum", method = RequestMethod.GET)
     public String alarmSum(Model model) {
@@ -55,11 +57,6 @@ public class AlarmController {
     public String alarmInfo(Model model) {
         return "/alarm/alarmInfo.jsp"; 
     }
-    
-    
-    
-    
-    
     
     //알람썸 조회
     @RequestMapping(value = "/alarm/alarmSum/list", method = RequestMethod.POST)

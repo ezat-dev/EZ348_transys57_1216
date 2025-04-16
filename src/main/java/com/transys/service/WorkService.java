@@ -3,6 +3,7 @@ package com.transys.service;
 
 import java.util.List;
 
+import com.transys.domain.InOut;
 import com.transys.domain.Product;
 import com.transys.domain.Work;
 
@@ -12,7 +13,7 @@ public interface WorkService {
 
    Work workDetailDescData(Work work);
 
-   List<Product> workDetailProductList();
+   List<Product> workDetailProductList(Product product);
 
    Work workDetailEditData(Work work);
 
@@ -53,4 +54,7 @@ public interface WorkService {
    void workDayPrintListCheckCntSet(Work work);
       
    
+   Work workDetailDescDataOverView(Work work);
+
+   List<InOut> getInOutList();     
 }

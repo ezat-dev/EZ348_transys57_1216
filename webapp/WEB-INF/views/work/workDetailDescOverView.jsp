@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>열처리 5~7호기</title>
+<title>작업실적</title>
 <jsp:include page="../include/pluginpage.jsp"/>
 
 <style>
@@ -643,15 +643,20 @@
 		
 	// 처리품 상세정보
 	function getWorkDetailDesc(){
-		var lotNo = localStorage.getItem("lotNo");
+		var deviceCode = localStorage.getItem("overViewDevice");
+		var pumbun = localStorage.getItem("overViewPumbun");
+//		localStorage.setItem("overViewDevice",deviceCode);
+//		localStorage.setItem("overViewPumbun",pumbun);			
+		
 		
 		$.ajax({
 			type : "POST",
-			url : "/transys/work/workDetailDesc/data",
+			url : "/transys/work/workDetailDescOverView/data",
 			cache : false,
 			dataType : "json",
 			data : {'time':new Date().getTime(),
-				'lotNo':lotNo},
+				"devicecode":deviceCode,
+				"pumbun":pumbun},
 				success:function(result){
 
 					if(result.data != null){
